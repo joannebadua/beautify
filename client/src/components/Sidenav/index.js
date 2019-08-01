@@ -83,7 +83,7 @@ function SideNav() {
               <label htmlFor="location"><h5>Location</h5></label>
               <input type="text" className="form-control" id="location" placeholder="Enter your location" />
             </div>
-            <input className="btn btn-primary" type="submit" defaultValue="Submit" />
+            <input className="btn" type="submit" defaultValue="Submit" />
           </div>
         </div>
       </aside>
