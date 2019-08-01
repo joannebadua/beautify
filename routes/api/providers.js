@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const appointmentsController = require("../../controllers/appointmentsController");
 
-// Matches with "/api/appointments"
+// Matches with "/api/provider"
 
-router.route("/appointments").post(appointmentsController.create);
-
-//router.route("/user/:id/appointments").get();
+router
+  .route("/providers/:id/appointments")
+  .get(appointmentsController.findAllByProvider);
 
 module.exports = router;
