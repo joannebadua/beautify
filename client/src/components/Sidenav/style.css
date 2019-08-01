@@ -8,10 +8,11 @@ section {
   }
 
   input.btn {
-    background:#008080;
+    /* background:#008080; */
+    background:rgb(78, 190, 170);
     color: white;
   }
-  
+
   footer{
       clear: both;
       margin-bottom: 0;
