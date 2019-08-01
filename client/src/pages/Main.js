@@ -3,9 +3,9 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import SideNav from "../components/SideNav";
+import SideNav from "../components/Sidenav";
 
-function About() {
+function Main() {
   return (
     <div>
       <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
@@ -42,4 +42,4 @@ function About() {
   );
 }
 
-export default About;
+export default Main;

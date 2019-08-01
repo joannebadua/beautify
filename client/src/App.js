@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import Provider from "./pages/Provider";
-import About from "./pages/About";
+// import About from "./pages/About";
 import Main from "./pages/Main";
 // import Settings from "./pages/Settings";
 import Navbar from "./components/Navbar";
@@ -15,12 +15,12 @@ function App() {
       <div>
         <Navbar />
         <Wrapper>
-          <Route exact path="/" component={About} />
-          <Route exact path="/about" component={About} />
+          <Route exact path="/" component={Main} />
+          {/* <Route exact path="/about" component={About} /> */}
           {/* <Route exact path="/provider" component={Provider} /> */}
           {/* <Route exact path="/provider/:id" component={Profile} /> */}
           {/* <Route exact path="/settings" component={Settings} /> */}
-          <Route exact path="/Main" compontent={Main} />
+          {/* <Route exact path="/Main" compontent={Main} /> */}
         </Wrapper>
         <Footer />
       </div>
