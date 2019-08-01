@@ -1,11 +1,15 @@
 const router = require("express").Router();
-const booksController = require("../../controllers/booksController");
+const servicesController = require("../../controllers/servicesController");
 
-// Matches with "/api/books"
+// Matches with "/api/services"
 
-router.route("/api/services").get();
+router.route("/services").get(servicesController.findAll);
+router
+  .route("/services/:id/providers")
+  .get(servicesController.findServiceProviders);
 
 //router.route("/api/services/").get();
+
 // Matches with "/api/books/:id"
 // router
 //   .route("/:id")

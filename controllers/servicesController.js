@@ -1,13 +1,36 @@
-const db = require("../models");
+const db = require("../db/models");
 
 // Defining methods for the Controller
+
 module.exports = {
   findAll: function(req, res) {
+    debugger;
     db.service
-      .find(req.query)
+      .findAll()
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
+  findServiceProviders: function(req, res) {
+    debugger;
+    db.provider
+      .findAll({
+        include: [
+          {
+            attributes: [],
+            model: db.service,
+            required: true,
+            where: {
+              id: req.params.id
+            }
+          }
+        ],
+        logging: console.log
+      })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+
   // findById: function(req, res) {
   //   db.Service
   //     .findById(req.params.id)
