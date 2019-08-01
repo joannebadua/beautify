@@ -37,6 +37,7 @@ function SideNav() {
                 </label>
               </div>
             </div>
+
             <div className="form-group">
               <br />
               <label htmlFor="time"><h5>Time</h5></label>
@@ -50,10 +51,23 @@ function SideNav() {
               </select>
             </div>
             <br />
+
+            <div className="form-group">
+            <label htmlFor="length"><h5>Amount of Time</h5></label>
+              <select id="length" name="length" className="form-control">
+                <option disabled selected>Amount of Time</option>
+                <option value={1}>30 Minutes</option>
+                <option value={2}>1 Hour</option>
+                <option value={3}>1 Hour 30 Minutes</option>
+                <option value={4}>2 Hours</option>
+                <option value={5}>2+ Hours</option>
+              </select>
+            </div>
+            <br />
             
             <div className="form-group">
             <label htmlFor="day"><h5>Day</h5></label>
-              <select id="species" name="day" className="form-control">
+              <select id="day" name="day" className="form-control">
                 <option disabled selected>Day</option>
                 <option value={1}>Monday</option>
                 <option value={2}>Tuesday</option>
