@@ -5,7 +5,7 @@ const freelancerSchema = new Schema({
   name: { type: String, required: true },
   service: { type: String, required: true },
   description: String,
-  price: Integer,
+  // price: Integer,
   date: { type: Date, default: Date.now }
 });
 
