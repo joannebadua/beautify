@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/navbar.component";
@@ -9,27 +9,22 @@ import CreateUser from "./components/create-user.component";
 import EditService from "./components/edit-services.component";
 
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 
 function App() {
   return (
     <Router>
       <Navbar />
-              <Route path="/" exact component={ServicesList} />
-              <Route path="/edit/:id" component={EditService} />
-              <Route path="/create" component={CreateService} />
-              <Route path="/provider" component={CreateProvider} />
-              <Route path="/user" component={CreateUser} />
+      <Route path="/" exact component={ServicesList} />
+      <Route path="/edit/:id" component={EditService} />
+      <Route path="/create" component={CreateService} />
+      <Route path="/provider" component={CreateProvider} />
+      <Route path="/user" component={CreateUser} />
     </Router>
   );
 }
 
 export default App;
-
-
-
-
-
 
 // import React from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -40,7 +35,6 @@ export default App;
 // import Navbar from "./components/Navbar";
 // import Footer from "./components/Footer";
 // import Wrapper from "./components/Wrapper";
-
 
 // function App() {
 //   return (
@@ -63,10 +57,7 @@ export default App;
 
 // export default App;
 
-
-
-
-// // JOEY'S INITIAL APP.JS ROUTES ...WE WILL DISCUSS IN CLASS 
+// // JOEY'S INITIAL APP.JS ROUTES ...WE WILL DISCUSS IN CLASS
 
 // // import React, { Component } from 'react';
 // // // import './App.css';
@@ -79,11 +70,11 @@ export default App;
 
 // // class App extends Component {
 // // render () {
-// //   return ( 
+// //   return (
 // //     <Router>
 // //       <div className="App">
-      
-// //       <ul> 
+
+// //       <ul>
 // //         <li>
 // //           <Link to="/">Home</Link>
 // //           </li>

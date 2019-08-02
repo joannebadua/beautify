@@ -1,12 +1,10 @@
 import "./style.css";
-import React, { Component } from 'react';
-import axios from 'axios';
-import DatePicker from 'react-datepicker';
+import React, { Component } from "react";
+import axios from "axios";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
-export default class SearchBar extends Component {
-
+export default class SideNav extends Component {
   constructor(props) {
     super(props);
 
@@ -19,9 +17,9 @@ export default class SearchBar extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      name: '',
-      category: '',
-      description: '',
+      name: "",
+      category: "",
+      description: "",
       duration: 0,
       price: 0,
       date: new Date(),
@@ -31,15 +29,14 @@ export default class SearchBar extends Component {
       day: "",
       location: "",
       services: []
-    }
+    };
   }
-
 
   componentDidMount() {
     this.setState({
-      services: ['test service'],
-      name: 'test name'
-    })
+      services: ["test service"],
+      name: "test name"
+    });
   }
   onChangeName(e) {
     this.setState({
@@ -87,30 +84,28 @@ export default class SearchBar extends Component {
       duration: this.state.duration,
       price: this.state.price,
       date: this.state.date
-    }
+    };
     console.log(service);
 
-    axios.post('http://localhost:5000/services/add', service)
+    axios
+      .post("http://localhost:5000/services/add", service)
       .then(res => console.log(res.data));
     // eventually connect to database
 
-    window.location = '/';
+    window.location = "/";
   }
 
   render() {
     return (
       <div>
-
         {/* function SideNav() {
     return (
       <div> */}
-        <aside style={{ background: 'rgb(204, 214, 193, 0.3)' }}>
-
+        <aside style={{ background: "rgb(204, 214, 193, 0.3)" }}>
           <div className="container p-5">
             <h2>Search For Service</h2>
             <br />
             <form onSubmit={this.onSubmit}>
-
               {/* <div className="form-group">
                   <label>Name: </label>
                   <select ref="userInput"
@@ -139,10 +134,18 @@ export default class SearchBar extends Component {
                       />
               </div> */}
               <div className="block-form-search">
-                <label htmlFor="service"><h5>Category:</h5></label>
+                <label htmlFor="service">
+                  <h5>Category:</h5>
+                </label>
                 <div className="form-group">
-                  <select id="category" name="category" className="form-control">
-                    <option disabled selected>Type</option>
+                  <select
+                    id="category"
+                    name="category"
+                    className="form-control"
+                  >
+                    <option disabled selected>
+                      Type
+                    </option>
                     <option value="make-up">Make-Up</option>
                     <option value="hair-barber">Hair/Barber</option>
                     <option value="yoga">Yoga Instructor</option>
@@ -154,8 +157,11 @@ export default class SearchBar extends Component {
                 </div>
                 <br />
                 <div className="form=group">
-                  <label><h5>Description: </h5></label>
-                  <input type="text"
+                  <label>
+                    <h5>Description: </h5>
+                  </label>
+                  <input
+                    type="text"
                     required
                     className="form-control"
                     value={this.state.description}
@@ -164,7 +170,9 @@ export default class SearchBar extends Component {
                 </div>
                 <br />
                 <div className="form-group">
-                  <label><h5>Duration (minutes): </h5></label>
+                  <label>
+                    <h5>Duration (minutes): </h5>
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -174,7 +182,9 @@ export default class SearchBar extends Component {
                 </div>
                 <br />
                 <div className="form-group">
-                  <label><h5>Price $$: </h5></label>
+                  <label>
+                    <h5>Price $$: </h5>
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -184,7 +194,9 @@ export default class SearchBar extends Component {
                 </div>
                 <br />
                 <div className="form-group">
-                  <label><h5>Date:</h5></label>
+                  <label>
+                    <h5>Date:</h5>
+                  </label>
                   <div>
                     <DatePicker
                       selected={this.state.date}
@@ -193,7 +205,6 @@ export default class SearchBar extends Component {
                   </div>
                 </div>
                 <br />
-
 
                 {/* <div className="form-group">
               <label htmlFor="autofill">Autofill</label>
@@ -241,8 +252,15 @@ export default class SearchBar extends Component {
             <br /> */}
 
                 <div className="form-group">
-                  <label htmlFor="location"><h5>Location</h5></label>
-                  <input type="text" className="form-control" id="location" placeholder="Enter your location" />
+                  <label htmlFor="location">
+                    <h5>Location</h5>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="location"
+                    placeholder="Enter your location"
+                  />
                 </div>
                 <input className="btn" type="submit" defaultValue="Submit" />
               </div>
@@ -252,6 +270,5 @@ export default class SearchBar extends Component {
       </div>
     );
   }
-
 }
 // export default SideNav;
