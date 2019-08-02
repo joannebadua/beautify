@@ -32,6 +32,11 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+    Provider.hasMany(models.slot, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
     Provider.belongsToMany(models.service, {
       through: models.provider_service
     });
