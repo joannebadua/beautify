@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import Container from "./Container";
+import Wrapper from "./Wrapper";
+import Hero from "./Hero";
 
 
 export default class EditServices extends Component {
@@ -9,14 +12,14 @@ export default class EditServices extends Component {
     constructor(props) {
         super(props);
 
-        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangeName = this.onChangeName.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeDuration = this.onChangeDuration.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            username: '',
+            name: '',
             description: '',
             duration: 0,
             date: new Date(),
@@ -28,7 +31,7 @@ export default class EditServices extends Component {
         axios.get('http://localhost:5000/services/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
-                    username: response.data.username,
+                    name: response.data.name,
                     description: response.data.description,
                     duration: response.data.duration,
                     date: new Date(response.data.date)
@@ -38,20 +41,20 @@ export default class EditServices extends Component {
                 console.log(error);
             })
         // choose from dropdwn of users/names in the array
-        // username automatically set to first user in db
+        // name automatically set to first user in db
         axios.get('http://localhost:5000/users/')
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({
-                        users: response.data.map(user => user.username),
+                        users: response.data.map(user => user.name),
                     })
                 }
             })
     }
 
-    onChangeUsername(e) {
+    onChangeName(e) {
         this.setState({
-            username: e.target.value
+            name: e.target.value
         });
     }
 
@@ -77,7 +80,7 @@ export default class EditServices extends Component {
         e.preventDefault();
 
         const service =  {
-            username: this.state.username,
+            name: this.state.name,
             description: this.state.description,
             duration: this.state.duration,
             date: this.state.date
@@ -94,15 +97,24 @@ export default class EditServices extends Component {
     render() {
         return (
             <div>
+                <Wrapper>
+                    <Hero backgroundImage="https://images.pexels.com/photos/1308746/pexels-photo-1308746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+                        <h1>Beautify</h1>
+                        <h2>Edit Service</h2>
+                    </Hero>
+                    <Container>
+                        <br />
+                        <br />
                 <h3>Edit Service</h3>
+                <br />
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Username: </label>
+                        <label>Name: </label>
                         <select ref="userInput"
                             required
                             className="form-control"
-                            value={this.state.username}
-                            onChange={this.onChangeUsername}>
+                            value={this.state.name}
+                            onChange={this.onChangeName}>
                                 {
                                     // for each user/provider its going to return this below
                                     this.state.users.map(function(user) {
@@ -146,6 +158,8 @@ export default class EditServices extends Component {
                         <input type="submit" value="Edit Service Log" className="btn btn-primary" defaultValue="Submit" />
                     </div>
                 </form>
+                </Container>
+                </Wrapper>
             </div>
         )
     }

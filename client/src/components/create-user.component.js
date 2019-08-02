@@ -43,7 +43,7 @@ export default class CreateUser extends Component {
         return (
             <div>
                 <Wrapper>
-                    <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
+                    <Hero backgroundImage="https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
                         <h1>Beautify</h1>
                         <h2>Create User</h2>
                     </Hero>
