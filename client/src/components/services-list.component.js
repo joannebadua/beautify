@@ -65,7 +65,7 @@ export default class ServicesList extends Component {
                 <Wrapper>
                     <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
                         <h1>Beautify</h1>
-                        <h2>Services</h2>
+                        <h2>Health and Wellness On Demand At Your Home</h2>
                     </Hero>
                     <Sidenav />
                     <br />
