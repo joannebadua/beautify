@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Wrapper from "./components/Wrapper";
+// import Navbar from "../components/Navbar";
+// import Footer from "../components/Footer";
+// import Wrapper from "../components/Wrapper";
 
 class login extends Component {
   // Setting the component's initial state
