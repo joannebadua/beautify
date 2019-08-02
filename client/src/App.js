@@ -9,7 +9,7 @@ import CreateUser from "./components/create-user.component";
 import EditService from "./components/edit-services.component";
 
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 
 function App() {
   return (

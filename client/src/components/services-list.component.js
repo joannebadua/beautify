@@ -5,7 +5,7 @@ import Container from "./Container";
 import Wrapper from "./Wrapper";
 import Row from "./Row";
 import Hero from "./Hero";
-import Sidenav from "./SideNav";
+import Sidenav from "./Sidenav";
 
 // such a small component included it in same file
 const Service = props => (
@@ -67,12 +67,13 @@ export default class ServicesList extends Component {
                         <h1>Beautify</h1>
                         <h2>Health and Wellness On Demand At Your Home</h2>
                     </Hero>
-                    <Sidenav />
+                    <Sidenav>
                     <br />
+                    </Sidenav>
                     <Container>
                         <Row>
                             <h3>Logged Services</h3>
-                            <Sidenav />
+                        
                             <table className="table">
                                 <thead className="thead-light">
                                     <tr>
