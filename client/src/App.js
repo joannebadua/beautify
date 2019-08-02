@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import About from "./pages/About";
 import Main from "./pages/Main";
 import login from "./pages/login";
+import Profile from "./pages/Profile";
 // import Settings from "./pages/Settings";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -18,6 +19,7 @@ function App() {
         <Wrapper>
           <Route exact path="/" component={login} />
           <Route exact path="/user" component={Main} />
+          <Route exact path="/profile" component={Profile} />
           {/* <Route exact path="/about" component={About} /> */}
           {/* <Route exact path="/provider" component={Provider} /> */}
           {/* <Route exact path="/provider/:id" component={Profile} /> */}
