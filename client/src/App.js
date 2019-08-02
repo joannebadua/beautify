@@ -5,13 +5,8 @@ import Navbar from "./components/navbar.component";
 import ServicesList from "./components/services-list.component";
 import CreateProvider from "./components/create-provider.component";
 import CreateService from "./components/create-service.component";
-// import CreateUser from "./components/create-user.component";
-// import EditService from "./components/edit-services.component";
-import Container from "./components/Container";
-import Wrapper from "./components/Wrapper";
-import Row from "./components/Row";
-import Hero from "./components/Hero";
-import Sidenav from "./components/SideNav";
+import CreateUser from "./components/create-user.component";
+import EditService from "./components/edit-services.component";
 
 // import logo from './logo.svg';
 import './App.css';
@@ -20,25 +15,11 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Wrapper>
-      <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
-        <h1>Beautify</h1>
-        <h2>Health and Wellness On Demand At Your Home</h2>
-      </Hero>
-        <Sidenav>
-          <br />
-          <Container>
-            <Row>
               <Route path="/" exact component={ServicesList} />
               <Route path="/edit/:id" component={EditService} />
               <Route path="/create" component={CreateService} />
               <Route path="/provider" component={CreateProvider} />
-              {/* <Route path="/user" component={CreateUser} /> */}
-            </Row>
-          </Container>
-        </Sidenav>
-      </Wrapper>
-
+              <Route path="/user" component={CreateUser} />
     </Router>
   );
 }

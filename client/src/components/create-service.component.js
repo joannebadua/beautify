@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import Container from "./Container";
+import Wrapper from "./Wrapper";
+import Hero from "./Hero";
+
 
 
 export default class CreateServices extends Component {
@@ -29,7 +33,7 @@ export default class CreateServices extends Component {
     }
 
     // choose from dropdwn of users/names in the array
-        // username automatically set to first user in db
+    // username automatically set to first user in db
 
     // componentDidMount() {
     //     axios.get('http://localhost:5000/users/')
@@ -88,7 +92,7 @@ export default class CreateServices extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const service =  {
+        const service = {
             name: this.state.name,
             category: this.state.category,
             description: this.state.description,
@@ -108,76 +112,87 @@ export default class CreateServices extends Component {
     render() {
         return (
             <div>
-                <h3>Create New Service</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Name: </label>
-                        <select ref="userInput"
-                            required
-                            className="form-control"
-                            value={this.state.name}
-                            onChange={this.onChangeName}>
-                                {
-                                    // for each user/provider its going to return this below
-                                    this.state.services.map(function(service) {
-                                        return <option
-                                        key={service}
-                                        value={service}>{service}
-                                        </option>;
-                                    })
-                                }
-                        </select>
-                    </div>
-                    <div className="form=group">
-                        <label>Category: </label>
-                        <input type="text"
-                            required
-                            className="form-control"
-                            value={this.state.category}
-                            onChange={this.onChangeCategory}
-                            />
-                    </div>
-                    <div className="form=group">
-                        <label>Description: </label>
-                        <input type="text"
-                            required
-                            className="form-control"
-                            value={this.state.description}
-                            onChange={this.onChangeDescription}
-                            />
-                    </div>
-                    <div className="form-group">
-                        <label>Duration (in minutes): </label>
-                        <input 
-                            type="text"
-                            className="form-control"
-                            value={this.state.duration}
-                            onChange={this.onChangeDuration}
-                            />
-                    </div>
-                    <div className="form-group">
-                        <label>Price $$: </label>
-                        <input 
-                            type="text"
-                            className="form-control"
-                            value={this.state.price}
-                            onChange={this.onChangePrice}
-                            />
-                    </div>
-                    <div className="form-group">
-                        <label>Date: </label>
-                        <div>
-                            <DatePicker
-                                selected={this.state.date}
-                                onChange={this.onChangeDate}
-                            />
-                        </div>
-                    </div>
+                <Wrapper>
+                    <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
+                        <h1>Beautify</h1>
+                        <h2>Create Service</h2>
+                    </Hero>
+                    <Container>
+                        <br />
+                        <br />
+                        <h3>Create New Service</h3>
+                        <br />
+                        <form onSubmit={this.onSubmit}>
+                            <div className="form-group">
+                                <label>Name: </label>
+                                <select ref="userInput"
+                                    required
+                                    className="form-control"
+                                    value={this.state.name}
+                                    onChange={this.onChangeName}>
+                                    {
+                                        // for each user/provider its going to return this below
+                                        this.state.services.map(function (service) {
+                                            return <option
+                                                key={service}
+                                                value={service}>{service}
+                                            </option>;
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            <div className="form=group">
+                                <label>Category: </label>
+                                <input type="text"
+                                    required
+                                    className="form-control"
+                                    value={this.state.category}
+                                    onChange={this.onChangeCategory}
+                                />
+                            </div>
+                            <div className="form=group">
+                                <label>Description: </label>
+                                <input type="text"
+                                    required
+                                    className="form-control"
+                                    value={this.state.description}
+                                    onChange={this.onChangeDescription}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Duration (in minutes): </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    value={this.state.duration}
+                                    onChange={this.onChangeDuration}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Price $$: </label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    value={this.state.price}
+                                    onChange={this.onChangePrice}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Date: </label>
+                                <div>
+                                    <DatePicker
+                                        selected={this.state.date}
+                                        onChange={this.onChangeDate}
+                                    />
+                                </div>
+                            </div>
 
-                    <div className="form-group">
-                        <input type="submit" value="Create Service Log" className="btn btn-primary" defaultValue="Submit" />
-                    </div>
-                </form>
+                            <div className="form-group">
+                                <input type="submit" value="Create Service" className="btn btn-primary" />
+                            </div>
+                        </form>
+                    </Container>
+                </Wrapper>
             </div>
         )
     }

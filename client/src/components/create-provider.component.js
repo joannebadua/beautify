@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Container from "./Container";
+import Wrapper from "./Wrapper";
+import Hero from "./Hero";
 
 export default class CreateProvider extends Component {
     constructor(props) {
@@ -12,8 +15,8 @@ export default class CreateProvider extends Component {
             name: ''
         }
     }
-    
-    
+
+
     onChangeName(e) {
         this.setState({
             name: e.target.value
@@ -23,7 +26,7 @@ export default class CreateProvider extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const provider =  {
+        const provider = {
             name: this.state.name,
         }
         console.log(provider);
@@ -39,22 +42,33 @@ export default class CreateProvider extends Component {
     render() {
         return (
             <div>
-                <h3>Create New Provider</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Provider Name: </label>
-                        <input type="text"
-                            required
-                            className="form-control"
-                            value={this.state.name}
-                            onChange={this.onChangeName}
-                            />
-                    </div>
-                    <div className="form-group">
-                        <input type="submit" value="Create Provider" className="btn btn-primary" />
-                    </div>
-                </form>
+                <Wrapper>
+                    <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
+                        <h1>Beautify</h1>
+                        <h2>Create Provider</h2>
+                    </Hero>
+                    <Container>
+                        <br />
+                        <br />
+                        <h3>Create New Provider</h3>
+                        <br />
+                        <form onSubmit={this.onSubmit}>
+                            <div className="form-group">
+                                <label>Provider Name: </label>
+                                <input type="text"
+                                    required
+                                    className="form-control"
+                                    value={this.state.name}
+                                    onChange={this.onChangeName}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input type="submit" value="Create Provider" className="btn btn-primary" />
+                            </div>
+                        </form>
+                        </Container>
+                        </Wrapper>
             </div>
-        );
-    }
-}
+                    );
+                }
+            }
