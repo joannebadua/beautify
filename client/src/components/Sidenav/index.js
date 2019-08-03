@@ -24,11 +24,13 @@ export default class Sidenav extends Component {
       // // price: 0,
       date: new Date(),
       service: "",
+      providers: [],
       // gender: "",
       // time: "",
       // day: "",
       // location: "",
-      services: []
+      services: [],
+      selectedServiceId: null
     };
   }
 
@@ -53,6 +55,12 @@ export default class Sidenav extends Component {
     });
 
     this.getServices(category);
+  }
+
+  onChangeService(e) {
+    this.setState({
+      selectedServiceId: e.target.value
+    });
   }
 
   // onChangeDescription(e) {
@@ -82,11 +90,34 @@ export default class Sidenav extends Component {
   getServices = category => {
     return axios
       .get(`/api/services/category/${category}`)
-      .then(res =>
+      .then(res => {
+        const services = res.data;
+        let selectedServiceId;
+        if (services.length) {
+          selectedServiceId = services[0].id;
+        }
+
         this.setState({
+          selectedServiceId,
           services: res.data
-        })
-      )
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
+  getProviders = serviceId => {
+    return axios
+      .get(`/api/services/${serviceId}/providers`)
+      .then(res => {
+        const providers = res.data;
+
+        this.setState(
+          {
+            providers
+          },
+          console.log(res.data)
+        );
+      })
       .catch(err => console.log(err));
   };
 
@@ -102,13 +133,7 @@ export default class Sidenav extends Component {
     //   date: this.state.date
     // };
     //console.log(service);
-
-    // axios
-    //   .get("/services/add", service)
-    //   .then(res => console.log(res.data));
-    // // eventually connect to database
-
-    // window.location = "/";
+    this.getProviders(this.state.selectedServiceId);
   }
 
   render() {
@@ -221,9 +246,13 @@ export default class Sidenav extends Component {
                       id="services"
                       name="services"
                       className="form-control"
+                      onChange={this.onChangeService}
+                      defaultValue={this.state.selectedServiceId}
                     >
                       {this.state.services.map(service => (
-                        <option key={service.id}>{service.name}</option>
+                        <option key={service.id} value={service.id}>
+                          {service.name}
+                        </option>
                       ))}{" "}
                     </select>
                   </div>
