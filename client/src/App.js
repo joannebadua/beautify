@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/navbar.component";
-import ServicesList from "./components/services-list.component";
+import ServicesList from "./components/ServicesList/services-list.component";
 import CreateProvider from "./components/create-provider.component";
 import CreateService from "./components/create-service.component";
 import CreateUser from "./components/create-user.component";
@@ -18,7 +18,8 @@ function App() {
       <Route path="/" component={ServicesList} />
       <Route path="/edit/:id" component={EditService} />
       <Route path="/create" component={CreateService} />
-      <Route path="/provider" component={CreateProvider} />
+
+      <Route path="/provider/:id" component={CreateProvider} />
       <Route path="/user" component={CreateUser} />
     </Router>
   );

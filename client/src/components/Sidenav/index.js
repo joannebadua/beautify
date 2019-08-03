@@ -24,7 +24,6 @@ export default class Sidenav extends Component {
       // // price: 0,
       date: new Date(),
       service: "",
-      providers: [],
       // gender: "",
       // time: "",
       // day: "",
@@ -105,22 +104,6 @@ export default class Sidenav extends Component {
       .catch(err => console.log(err));
   };
 
-  getProviders = serviceId => {
-    return axios
-      .get(`/api/services/${serviceId}/providers`)
-      .then(res => {
-        const providers = res.data;
-
-        this.setState(
-          {
-            providers
-          },
-          console.log(res.data)
-        );
-      })
-      .catch(err => console.log(err));
-  };
-
   onSubmit(e) {
     e.preventDefault();
 
@@ -133,7 +116,7 @@ export default class Sidenav extends Component {
     //   date: this.state.date
     // };
     //console.log(service);
-    this.getProviders(this.state.selectedServiceId);
+    this.props.loadProviders(this.state.selectedServiceId);
   }
 
   render() {

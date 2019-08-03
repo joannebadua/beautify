@@ -1,19 +1,19 @@
 section {
-    float: right;
-    width: 70%;
-  }
-  aside {
-    float: leftt;
-    width: 30%;
-  }
+  float: right;
+  width: 70%;
+}
+aside {
+  /* float: left; */
+  width: 30%;
+}
 
-  input.btn {
-    /* background:#008080; */
-    background:rgb(78, 190, 170);
-    color: white;
-  }
+input.btn {
+  /* background:#008080; */
+  background: rgb(78, 190, 170);
+  color: white;
+}
 
-  footer{
-      clear: both;
-      margin-bottom: 0;
-  } 
+footer {
+  clear: both;
+  margin-bottom: 0;
+}
