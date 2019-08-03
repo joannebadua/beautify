@@ -3,7 +3,7 @@ const servicesController = require("../../controllers/servicesController");
 
 // Matches with "/api/services"
 
-router.route("/services").get(servicesController.findAll);
+router.route("/services/category/:category").get(servicesController.findAll);
 router
   .route("/services/:id/providers")
   .get(servicesController.findServiceProviders);

@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Route path="/" exact component={ServicesList} />
+      <Route path="/" component={ServicesList} />
       <Route path="/edit/:id" component={EditService} />
       <Route path="/create" component={CreateService} />
       <Route path="/provider" component={CreateProvider} />
