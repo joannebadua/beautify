@@ -7,7 +7,7 @@ function ProviderCard(props) {
   return (
     <div className="provDiv">
       <div className="logo">
-        <img alt="" src={props.image} />
+        <img alt="" src={props.img} />
       </div>
       <div className="info">
         <h3> {props.name} </h3>

@@ -109,6 +109,7 @@ export default class ServicesList extends Component {
                   key={provider.id}
                   id={provider.id}
                   name={provider.name}
+                  img={provider.img}
                   //  image={provider.image}
                 />
               ))}

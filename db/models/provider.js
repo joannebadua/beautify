@@ -23,6 +23,12 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         allowNull: false
       }
+    },
+    img: {
+      type: DataTypes.STRING,
+      validate: {
+        allowNull: false
+      }
     }
   });
 
