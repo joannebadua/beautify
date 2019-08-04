@@ -1,75 +1,84 @@
 import "./style.css";
-import React, { Component } from 'react';
-import axios from 'axios';
-import DatePicker from 'react-datepicker';
+import React, { Component } from "react";
+import axios from "axios";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 export default class Sidenav extends Component {
-
   constructor(props) {
     super(props);
 
-    this.onChangeName = this.onChangeName.bind(this);
+    // this.onChangeName = this.onChangeName.bind(this);
     this.onChangeCategory = this.onChangeCategory.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeDuration = this.onChangeDuration.bind(this);
-    this.onChangePrice = this.onChangePrice.bind(this);
+    // this.onChangeDescription = this.onChangeDescription.bind(this);
+    // this.onChangeDuration = this.onChangeDuration.bind(this);
+    // this.onChangePrice = this.onChangePrice.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      name: '',
-      category: '',
-      description: '',
-      duration: 0,
-      price: 0,
+      // name: "",
+      category: "",
+      // // description: "",
+      // // duration: 0,
+      // // price: 0,
       date: new Date(),
       service: "",
-      gender: "",
-      time: "",
-      day: "",
-      location: "",
-      services: []
-    }
+      // gender: "",
+      // time: "",
+      // day: "",
+      // location: "",
+      services: [],
+      selectedServiceId: null
+    };
   }
 
-
-  componentDidMount() {
-    this.setState({
-      services: ['test service'],
-      name: 'test name'
-    })
-  }
-  onChangeName(e) {
-    this.setState({
-      name: e.target.value
-    });
-  }
+  // componentDidMount() {
+  // this.setState({
+  //   services: ["test service"],
+  //   name: "test name"
+  // });
+  //   this.getServices();
+  // }
+  // onChangeName(e) {
+  //   this.setState({
+  //     name: e.target.value
+  //   });
+  // }
 
   onChangeCategory(e) {
+    const category = e.target.value;
+
     this.setState({
-      category: e.target.value
+      category: category
+    });
+
+    this.getServices(category);
+  }
+
+  onChangeService(e) {
+    this.setState({
+      selectedServiceId: e.target.value
     });
   }
 
-  onChangeDescription(e) {
-    this.setState({
-      description: e.target.value
-    });
-  }
+  // onChangeDescription(e) {
+  //   this.setState({
+  //     description: e.target.value
+  //   });
+  // }
 
-  onChangeDuration(e) {
-    this.setState({
-      duration: e.target.value
-    });
-  }
+  // onChangeDuration(e) {
+  //   this.setState({
+  //     duration: e.target.value
+  //   });
+  // }
 
-  onChangePrice(e) {
-    this.setState({
-      price: e.target.value
-    });
-  }
+  // onChangePrice(e) {
+  //   this.setState({
+  //     price: e.target.value
+  //   });
+  // }
 
   onChangeDate(date) {
     this.setState({
@@ -77,40 +86,50 @@ export default class Sidenav extends Component {
     });
   }
 
+  getServices = category => {
+    return axios
+      .get(`/api/services/category/${category}`)
+      .then(res => {
+        const services = res.data;
+        let selectedServiceId;
+        if (services.length) {
+          selectedServiceId = services[0].id;
+        }
+
+        this.setState({
+          selectedServiceId,
+          services: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
   onSubmit(e) {
     e.preventDefault();
 
-    const service = {
-      name: this.state.name,
-      category: this.state.category,
-      description: this.state.description,
-      duration: this.state.duration,
-      price: this.state.price,
-      date: this.state.date
-    }
-    console.log(service);
-
-    axios.post('http://localhost:5000/services/add', service)
-      .then(res => console.log(res.data));
-    // eventually connect to database
-
-    window.location = '/';
+    // const service = {
+    //   name: this.state.name,
+    //   category: this.state.category,
+    //   description: this.state.description,
+    //   duration: this.state.duration,
+    //   price: this.state.price,
+    //   date: this.state.date
+    // };
+    //console.log(service);
+    this.props.loadProviders(this.state.selectedServiceId);
   }
 
   render() {
     return (
       <div>
-
         {/* function SideNav() {
     return (
       <div> */}
-        <aside style={{ background: 'rgb(204, 214, 193, 0.3)' }}>
-
+        <aside style={{ background: "rgb(204, 214, 193, 0.3)" }}>
           <div className="container p-5">
             <h2>Search For Service</h2>
             <br />
             <form onSubmit={this.onSubmit}>
-
               {/* <div className="form-group">
                   <label>Name: </label>
                   <select ref="userInput"
@@ -139,10 +158,20 @@ export default class Sidenav extends Component {
                       />
               </div> */}
               <div className="block-form-search">
-                <label htmlFor="service"><h5>Category:</h5></label>
+                <label htmlFor="service">
+                  <h5>Category:</h5>
+                </label>
                 <div className="form-group">
-                  <select id="category" name="category" className="form-control">
-                    <option disabled selected>Type</option>
+                  <select
+                    id="category"
+                    name="category"
+                    className="form-control"
+                    defaultValue="type"
+                    onChange={this.onChangeCategory}
+                  >
+                    <option value="type" disabled>
+                      Type
+                    </option>
                     <option value="make-up">Make-Up</option>
                     <option value="hair-barber">Hair/Barber</option>
                     <option value="yoga">Yoga Instructor</option>
@@ -153,18 +182,24 @@ export default class Sidenav extends Component {
                   </select>
                 </div>
                 <br />
-                <div className="form=group">
-                  <label><h5>Description: </h5></label>
-                  <input type="text"
+
+                {/* <div className="form=group">
+                  <label>
+                    <h5>Description: </h5>
+                  </label>
+                  <input
+                    type="text"
                     required
                     className="form-control"
                     value={this.state.description}
                     onChange={this.onChangeDescription}
                   />
                 </div>
-                <br />
-                <div className="form-group">
-                  <label><h5>Duration (minutes): </h5></label>
+                <br /> */}
+                {/* <div className="form-group">
+                  <label>
+                    <h5>Duration (minutes): </h5>
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -172,9 +207,11 @@ export default class Sidenav extends Component {
                     onChange={this.onChangeDuration}
                   />
                 </div>
-                <br />
-                <div className="form-group">
-                  <label><h5>Price $$: </h5></label>
+                <br /> */}
+                {/* <div className="form-group">
+                  <label>
+                    <h5>Price $$: </h5>
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -182,9 +219,33 @@ export default class Sidenav extends Component {
                     onChange={this.onChangePrice}
                   />
                 </div>
-                <br />
+                <br /> */}
                 <div className="form-group">
-                  <label><h5>Date:</h5></label>
+                  <label>
+                    <h5>Service:</h5>
+                  </label>
+                  <div>
+                    <select
+                      id="services"
+                      name="services"
+                      className="form-control"
+                      onChange={this.onChangeService}
+                      defaultValue={this.state.selectedServiceId}
+                    >
+                      {this.state.services.map(service => (
+                        <option key={service.id} value={service.id}>
+                          {service.name}
+                        </option>
+                      ))}{" "}
+                    </select>
+                  </div>
+                </div>
+                <br />
+
+                <div className="form-group">
+                  <label>
+                    <h5>Date:</h5>
+                  </label>
                   <div>
                     <DatePicker
                       selected={this.state.date}
@@ -193,7 +254,6 @@ export default class Sidenav extends Component {
                   </div>
                 </div>
                 <br />
-
 
                 {/* <div className="form-group">
               <label htmlFor="autofill">Autofill</label>
@@ -240,10 +300,17 @@ export default class Sidenav extends Component {
             </div>
             <br /> */}
 
-                <div className="form-group">
-                  <label htmlFor="location"><h5>Location</h5></label>
-                  <input type="text" className="form-control" id="location" placeholder="Enter your location" />
-                </div>
+                {/* <div className="form-group">
+                  <label htmlFor="location">
+                    <h5>Location</h5>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="location"
+                    placeholder="Enter your location"
+                  />
+                </div> */}
                 <input className="btn" type="submit" defaultValue="Submit" />
               </div>
             </form>
@@ -252,6 +319,5 @@ export default class Sidenav extends Component {
       </div>
     );
   }
-
 }
 // export default Sidenav;

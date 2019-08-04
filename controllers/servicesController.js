@@ -5,7 +5,11 @@ const db = require("../db/models");
 module.exports = {
   findAll: function(req, res) {
     db.service
-      .findAll()
+      .findAll({
+        where: {
+          category: req.params.category
+        }
+      })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
