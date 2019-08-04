@@ -4,10 +4,15 @@ import "./style.css";
 function ProviderCard(props) {
   const providerUrl = `/provider/${props.id}`;
 
+    
+    const logo = props.name[0].toUpperCase();
+
   return (
     <div className="provDiv">
       <div className="logo">
-        <img alt="" src={props.img} />
+
+        {logo}
+        {/* <img alt="" src={props.img} /> */}
       </div>
       <div className="info">
         <h3> {props.name} </h3>
