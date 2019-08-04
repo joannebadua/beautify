@@ -5,6 +5,56 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import SideNav from "../components/SideNav";
 
+/*/----------------------------------------
+I'm trying to capture the value in the form ~jb
+----------------------------------------/*/
+//Setting component's initial state
+  // state = {
+  //   service: "",
+  //   gender: "",
+  //   time: "",
+  //   duration: "",
+  //   day: "",
+  //   location: ""
+  // };
+
+// // Getting the value and name of the input which triggered the change
+// let value = event.target.value;
+// var service = event.target.service;
+
+// if (service === "Make-Up") 
+// this.setState({
+//   [service]: value
+// });
+
+// handleFormSubmit = event => {
+// //Preventing the default behavior of the form submit  (which is to refresh the page)
+// event.preventDefault();
+// if (this.state.service) {
+//   alert
+// }
+// }
+
+// render() 
+//   return (
+//     <div>
+//       <p>
+//         Hello {this.state.firstName} {this.state.lastName}
+//       </p>
+//         <form className="form">
+//           <input 
+//           value={this.state.service}
+//           name="make-up"
+//           onChange={this.handleInputChange}
+//           type="text"
+//           required
+//           />
+//   )
+
+
+/*/----------------------------------------
+We may have to rename function Main() bc parsing error in return ~jb
+----------------------------------------/*/
 function Main() {
   return (
     <div>
