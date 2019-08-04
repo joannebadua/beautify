@@ -7,33 +7,23 @@ module.exports = function(sequelize, DataTypes) {
     },
     name: {
       type: DataTypes.STRING,
-      validate: {
-        allowNull: false
-      }
+      allowNull: false
     },
     category: {
       type: DataTypes.STRING,
-      validate: {
-        allowNull: false
-      }
+      allowNull: false
     },
     description: {
       type: DataTypes.STRING,
-      validate: {
-        allowNull: false
-      }
+      allowNull: false
     },
     duration: {
       type: DataTypes.INTEGER,
-      validate: {
-        allowNull: false
-      }
+      allowNull: false
     },
     price: {
       type: DataTypes.INTEGER,
-      validate: {
-        allowNull: false
-      }
+      allowNull: false
     }
   });
 

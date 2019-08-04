@@ -31,14 +31,14 @@ export default class CreateProvider extends Component {
       bio: e.target.value
     });
   }
-  onChangeStart_time(e) {
+  onChangeStart_time(value) {
     this.setState({
-      start_time: e.target.value
+      start_time: value
     });
   }
-  onChangeEnd_time(e) {
+  onChangeEnd_time(value) {
     this.setState({
-      end_time: e.target.value
+      end_time: value
     });
   }
   onChangeName(e) {
@@ -49,17 +49,20 @@ export default class CreateProvider extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
+    debugger;
     const provider = {
-      name: this.state.name
+      name: this.state.name,
+      bio: this.state.bio,
+      start_time: "this.start_time",
+      end_time: "this.end_time"
     };
     console.log(provider);
 
-    axios.post("/providers/add", provider).then(res => console.log(res.data));
+    axios.post("/api/providers", provider).then(res => console.log(res.data));
     // eventually connect to database
-    this.setState({
-      name: ""
-    });
+    // this.setState({
+    //   name: ""
+    // });
   }
 
   render() {

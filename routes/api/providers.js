@@ -1,7 +1,10 @@
 const router = require("express").Router();
 const appointmentsController = require("../../controllers/appointmentsController");
 const slotsController = require("../../controllers/slotsController");
+const providersController = require("../../controllers/providersController");
 // Matches with "/api/provider"
+
+router.route("/providers").post(providersController.create);
 
 router
   .route("/providers/:id/appointments")

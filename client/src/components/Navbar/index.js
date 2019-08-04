@@ -26,7 +26,7 @@ export default class Navbar extends Component {
               </Link>
             </li>
             <li className="navbar-item">
-              <Link to="/provider/new" className="nav-link text-white">
+              <Link to="/providers/new" className="nav-link text-white">
                 Create Provider
               </Link>
             </li>
