@@ -1,31 +1,266 @@
-import React from "react";
 import "./style.css";
+import React, { Component } from "react";
+import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-function SideNav() {
+export default class Sidenav extends Component {
+  constructor(props) {
+    super(props);
+
+    // this.onChangeName = this.onChangeName.bind(this);
+    this.onChangeCategory = this.onChangeCategory.bind(this);
+    // this.onChangeDescription = this.onChangeDescription.bind(this);
+    // this.onChangeDuration = this.onChangeDuration.bind(this);
+    // this.onChangePrice = this.onChangePrice.bind(this);
+    this.onChangeDate = this.onChangeDate.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.state = {
+      // name: "",
+      category: "",
+      // // description: "",
+      // // duration: 0,
+      // // price: 0,
+      date: new Date(),
+      service: "",
+      // gender: "",
+      // time: "",
+      // day: "",
+      // location: "",
+      services: [],
+      selectedServiceId: null
+    };
+  }
+
+  // componentDidMount() {
+  // this.setState({
+  //   services: ["test service"],
+  //   name: "test name"
+  // });
+  //   this.getServices();
+  // }
+  // onChangeName(e) {
+  //   this.setState({
+  //     name: e.target.value
+  //   });
+  // }
+
+  onChangeCategory(e) {
+    const category = e.target.value;
+
+    this.setState({
+      category: category
+    });
+
+    this.getServices(category);
+  }
+
+  onChangeService(e) {
+    this.setState({
+      selectedServiceId: e.target.value
+    });
+  }
+
+  // onChangeDescription(e) {
+  //   this.setState({
+  //     description: e.target.value
+  //   });
+  // }
+
+  // onChangeDuration(e) {
+  //   this.setState({
+  //     duration: e.target.value
+  //   });
+  // }
+
+  // onChangePrice(e) {
+  //   this.setState({
+  //     price: e.target.value
+  //   });
+  // }
+
+  onChangeDate(date) {
+    this.setState({
+      date: date
+    });
+  }
+
+  getServices = category => {
+    return axios
+      .get(`/api/services/category/${category}`)
+      .then(res => {
+        const services = res.data;
+        let selectedServiceId;
+        if (services.length) {
+          selectedServiceId = services[0].id;
+        }
+
+        this.setState({
+          selectedServiceId,
+          services: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    // const service = {
+    //   name: this.state.name,
+    //   category: this.state.category,
+    //   description: this.state.description,
+    //   duration: this.state.duration,
+    //   price: this.state.price,
+    //   date: this.state.date
+    // };
+    //console.log(service);
+    this.props.loadProviders(this.state.selectedServiceId);
+  }
+
+  render() {
     return (
       <div>
-<aside style={{background: 'rgb(204, 214, 193, 0.3)'}}>
-        <div className="container p-5">
-          <div className="block-form-search">
-          <label htmlFor="service"><h5>Choose Your Service</h5></label>
-            <div className="form-group">
-              <select id="types" name="types" className="form-control">
-                <option disabled selected>Type</option>
-                <option value="make-up">Make-Up</option>
-                <option value="hair-barber">Hair/Barber</option>
-                <option value="yoga">Yoga Instructor</option>
-                <option value="massage">Massage</option>
-                <option value="fitness">Fitness Trainer</option>
-                <option value="nutritionist">Nutritionist</option>
-                <option value="fashion">Fashion Stylist</option>
-              </select>
-            </div>
-            {/* <div className="form-group">
+        {/* function SideNav() {
+    return (
+      <div> */}
+        <aside style={{ background: "rgb(204, 214, 193, 0.3)" }}>
+          <div className="container p-5">
+            <h2>Search For Service</h2>
+            <br />
+            <form onSubmit={this.onSubmit}>
+              {/* <div className="form-group">
+                  <label>Name: </label>
+                  <select ref="userInput"
+                      required
+                      className="form-control"
+                      value={this.state.name}
+                      onChange={this.onChangeName}>
+                          {
+                              // for each user/provider its going to return this below
+                              this.state.services.map(function(service) {
+                                  return <option
+                                  key={service}
+                                  value={service}>{service}
+                                  </option>;
+                              })
+                          }
+                  </select>
+              </div> */}
+              {/* <div className="form=group">
+                  <label>Category: </label>
+                  <input type="text"
+                      required
+                      className="form-control"
+                      value={this.state.category}
+                      onChange={this.onChangeCategory}
+                      />
+              </div> */}
+              <div className="block-form-search">
+                <label htmlFor="service">
+                  <h5>Category:</h5>
+                </label>
+                <div className="form-group">
+                  <select
+                    id="category"
+                    name="category"
+                    className="form-control"
+                    defaultValue="type"
+                    onChange={this.onChangeCategory}
+                  >
+                    <option value="type" disabled>
+                      Type
+                    </option>
+                    <option value="make-up">Make-Up</option>
+                    <option value="hair-barber">Hair/Barber</option>
+                    <option value="yoga">Yoga Instructor</option>
+                    <option value="massage">Massage</option>
+                    <option value="fitness">Fitness Trainer</option>
+                    <option value="nutritionist">Nutritionist</option>
+                    <option value="fashion">Fashion Stylist</option>
+                  </select>
+                </div>
+                <br />
+
+                {/* <div className="form=group">
+                  <label>
+                    <h5>Description: </h5>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    className="form-control"
+                    value={this.state.description}
+                    onChange={this.onChangeDescription}
+                  />
+                </div>
+                <br /> */}
+                {/* <div className="form-group">
+                  <label>
+                    <h5>Duration (minutes): </h5>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={this.state.duration}
+                    onChange={this.onChangeDuration}
+                  />
+                </div>
+                <br /> */}
+                {/* <div className="form-group">
+                  <label>
+                    <h5>Price $$: </h5>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={this.state.price}
+                    onChange={this.onChangePrice}
+                  />
+                </div>
+                <br /> */}
+                <div className="form-group">
+                  <label>
+                    <h5>Service:</h5>
+                  </label>
+                  <div>
+                    <select
+                      id="services"
+                      name="services"
+                      className="form-control"
+                      onChange={this.onChangeService}
+                      defaultValue={this.state.selectedServiceId}
+                    >
+                      {this.state.services.map(service => (
+                        <option key={service.id} value={service.id}>
+                          {service.name}
+                        </option>
+                      ))}{" "}
+                    </select>
+                  </div>
+                </div>
+                <br />
+
+                <div className="form-group">
+                  <label>
+                    <h5>Date:</h5>
+                  </label>
+                  <div>
+                    <DatePicker
+                      selected={this.state.date}
+                      onChange={this.onChangeDate}
+                    />
+                  </div>
+                </div>
+                <br />
+
+                {/* <div className="form-group">
               <label htmlFor="autofill">Autofill</label>
               <input autoComplete="on" className="form-control autocomplete" type="text" id="autofill" />
             </div> */}
-            <br />
-            <div className="checkbox">
+                <br />
+                {/* <div className="checkbox">
               <div id="sexes">
               <label htmlFor="location"><h5>Gender</h5></label><br />
                 <label className="checkbox-inline">
@@ -36,9 +271,9 @@ function SideNav() {
                   <input type="checkbox" id="sexes" name="sexes" defaultValue={2} />Female
                 </label>
               </div>
-            </div>
+            </div> */}
 
-            <div className="form-group">
+                {/* <div className="form-group">
               <br />
               <label htmlFor="time"><h5>Time</h5></label>
               <select id="time" name="time" className="form-control">
@@ -50,9 +285,9 @@ function SideNav() {
                 <option value={4}>Night</option>
               </select>
             </div>
-            <br />
+            <br /> */}
 
-            <div className="form-group">
+                {/* <div className="form-group">
             <label htmlFor="length"><h5>Amount of Time</h5></label>
               <select id="length" name="length" className="form-control">
                 <option disabled selected>Amount of Time</option>
@@ -63,32 +298,26 @@ function SideNav() {
                 <option value={5}>2+ Hours</option>
               </select>
             </div>
-            <br />
-            
-            <div className="form-group">
-            <label htmlFor="day"><h5>Day</h5></label>
-              <select id="day" name="day" className="form-control">
-                <option disabled selected>Day</option>
-                <option value={1}>Monday</option>
-                <option value={2}>Tuesday</option>
-                <option value={3}>Wednesday</option>
-                <option value={4}>Thursday</option>
-                <option value={5}>Friday</option>
-                <option value={6}>Saturday</option>
-              </select>
-            </div>
-            <br />
-            
-            <div className="form-group">
-              <label htmlFor="location"><h5>Location</h5></label>
-              <input type="text" className="form-control" id="location" placeholder="Enter your location" />
-            </div>
-            <input className="btn" type="submit" defaultValue="Submit" />
-          </div>
-        </div>
-      </aside>
-</div>
-);
-}
+            <br /> */}
 
-export default SideNav;
+                {/* <div className="form-group">
+                  <label htmlFor="location">
+                    <h5>Location</h5>
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="location"
+                    placeholder="Enter your location"
+                  />
+                </div> */}
+                <input className="btn" type="submit" defaultValue="Submit" />
+              </div>
+            </form>
+          </div>
+        </aside>
+      </div>
+    );
+  }
+}
+// export default Sidenav;
