@@ -105,7 +105,7 @@ export default class CreateProvider extends Component {
                     start time
                     <TimePicker
                       showSecond={false}
-                      minuteStep={60}
+                     showMinute={false}
                       use12Hours={true}
                       onChange={this.onChangeStart_time}
                     />
@@ -114,9 +114,10 @@ export default class CreateProvider extends Component {
                     end time
                     <TimePicker
                       showSecond={false}
-                      minuteStep={60}
+                     showMinute={false}
                       use12Hours={true}
                       onChange={this.onChangeEnd_time}
+                      
                     />
                   </div>
                 </div>

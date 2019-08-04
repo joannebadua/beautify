@@ -39,7 +39,7 @@ export default class ServicesList extends Component {
     // this.deleteService = this.deleteService.bind(this);
 
     this.state = {
-      // services: []
+       service: [],
       providers: []
     };
   }
@@ -60,6 +60,19 @@ export default class ServicesList extends Component {
       .catch(err => console.log(err));
   };
 
+findService = (providerId, serviceId)=>{
+  return axios.get(`/api/providers/${providerId}/services/${serviceId}`).then(res => {
+        const service = res.data;
+
+        this.setState(
+          {
+            service
+          },
+          console.log(res.data)
+        );
+      })
+      .catch(err => console.log(err));
+}
   // return all fields for all services
   // componentDidMount() {
   //   axios
@@ -110,7 +123,7 @@ export default class ServicesList extends Component {
                   id={provider.id}
                   name={provider.name}
                   img={provider.img}
-                  //  image={provider.image}
+                
                 />
               ))}
               {/* <Row>

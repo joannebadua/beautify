@@ -4,7 +4,7 @@
   padding: 10px 5px;
 }
 
-.info {
+.provInfo {
   display: flex;
   flex-direction: column;
   float: 3px;
@@ -36,4 +36,7 @@ h3 {
     width: 80px;
 
     background-color: #ccc;
+}
+.info{
+   display: flex;
 }
