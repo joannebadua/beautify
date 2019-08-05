@@ -63,6 +63,7 @@ export default class ServicesList extends Component {
 
 
   findServicesForCategory = category => {
+    debugger
     return axios
       .get(`/api/services/category/${category}`)
       .then(res => {
@@ -74,19 +75,19 @@ export default class ServicesList extends Component {
       .catch(err => console.log(err));
   };
 
-findService = (providerId, serviceId)=>{
-  return axios.get(`/api/services/${serviceId}`).then(res => {
-        const service = res.data;
+// findService = (providerId, serviceId)=>{
+//   return axios.get(`/api/services/${serviceId}`).then(res => {
+//         const service = res.data;
 
-        this.setState(
-          {
-            service
-          },
-          console.log(res.data)
-        );
-      })
-      .catch(err => console.log(err));
-}
+//         this.setState(
+//           {
+//             service
+//           },
+//           console.log(res.data)
+//         );
+//       })
+//       .catch(err => console.log(err));
+// }
   // return all fields for all services
   // componentDidMount() {
   //   axios
@@ -137,8 +138,10 @@ findService = (providerId, serviceId)=>{
                   key={provider.id}
                   id={provider.id}
                   name={provider.name}
-                  img={provider.img}
-                findService = {this.findService}
+                  service={service}
+
+                  //img={provider.img}
+                // findService = {this.findService}
                 />;
               })}
               {/* <Row>

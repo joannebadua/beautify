@@ -3,7 +3,7 @@ import "./style.css";
 import ServiceCard from "../ServiceCard";
 
 function ProviderCard(props) {
-  const providerUrl = `/provider/${props.id}`;
+  const providerUrl = `/providers/${props.id}`;
 
     
     const logo = props.name[0].toUpperCase();
@@ -17,12 +17,14 @@ function ProviderCard(props) {
          </div>
 
           <div className="info">
-                <h3> {props.name} </h3>             
+                <h3> {props.name} </h3>
+              
+      
           </div>
        </div>
-            <ServiceCard  {...props}/>
+            <ServiceCard  {...props.service}/>
             <div className="book">
-              <a href={providerUrl} className="btn" {...props}>
+              <a href={providerUrl} className="btn" >
               Book with {props.name}
             </a>
             </div>
