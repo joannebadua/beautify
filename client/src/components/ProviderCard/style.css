@@ -1,12 +1,13 @@
 .provDiv {
   display: flex;
+  flex-direction: column;
   border: 1px solid black;
   padding: 10px 5px;
 }
 
 .provInfo {
   display: flex;
-  flex-direction: column;
+
   float: 3px;
 }
 img {
@@ -39,4 +40,13 @@ h3 {
 }
 .info{
    display: flex;
+ justify-content: space-between;
+  align-items: center;
 }
+.book{
+   display: flex;
+   justify-content: flex-end;
+}
+/* .bttn{
+  align-self: flex-end;
+} */

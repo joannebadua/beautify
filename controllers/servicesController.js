@@ -14,6 +14,23 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+ findAllByCategory: function(req, res) {
+   db.service
+      .findAll({
+        where: {
+          category: req.params.category
+        },
+         include: [
+          {
+            model: db.provider,
+            required: true          
+          }
+        ]
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+ },
+
   findServiceProviders: function(req, res) {
     db.provider
       .findAll({

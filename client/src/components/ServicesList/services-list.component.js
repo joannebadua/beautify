@@ -40,6 +40,7 @@ export default class ServicesList extends Component {
 
     this.state = {
        service: [],
+       services: [],
       providers: []
     };
   }
@@ -60,8 +61,21 @@ export default class ServicesList extends Component {
       .catch(err => console.log(err));
   };
 
+
+  findServicesForCategory = category => {
+    return axios
+      .get(`/api/services/category/${category}`)
+      .then(res => {
+      
+        this.setState({
+          services: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
 findService = (providerId, serviceId)=>{
-  return axios.get(`/api/providers/${providerId}/services/${serviceId}`).then(res => {
+  return axios.get(`/api/services/${serviceId}`).then(res => {
         const service = res.data;
 
         this.setState(
@@ -113,19 +127,20 @@ findService = (providerId, serviceId)=>{
             <h2>Health and Wellness On Demand At Your Home</h2>
           </Hero>
           <main>
-            <Sidenav loadProviders={this.loadProviders} />
+            <Sidenav findServicesForCategory={this.findServicesForCategory} />
 
             <Container>
               <h2>choose a provider</h2>
-              {this.state.providers.map(provider => (
-                <ProviderCard
+              {this.state.services.map(service => {
+                const provider = service.providers[0];
+                return <ProviderCard
                   key={provider.id}
                   id={provider.id}
                   name={provider.name}
                   img={provider.img}
-                
-                />
-              ))}
+                findService = {this.findService}
+                />;
+              })}
               {/* <Row>
               <h3>Logged Services</h3>
 

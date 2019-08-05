@@ -17,4 +17,5 @@ router
   .route("/providers/:id/slots/day")
   .get(slotsController.findByProviderServiceDay);
 
+
 module.exports = router;

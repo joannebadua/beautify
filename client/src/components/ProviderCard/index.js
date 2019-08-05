@@ -10,29 +10,24 @@ function ProviderCard(props) {
 
   return (
     <div className="provDiv">
-      <div className="logo">
-
-        {logo}
-        {/* <img alt="" src={props.img} /> */}
-      </div>
-      <div className="provInfo">
-      <div className="info">
-        
-        <h3> {props.name} </h3>
-
-        <a href={providerUrl}  {...props}>
-         View profile
-        </a>
-        </div>
-        <ServiceCard  {...props}/>
-        <div className="book">
-           <a href={providerUrl} className="btn" {...props}>
-          Book with {props.name}
-        </a>
-        </div>
-      </div>
       
-    </div>
+      <div className="provInfo">
+<        div className="logo">
+             {logo}    
+         </div>
+
+          <div className="info">
+                <h3> {props.name} </h3>             
+          </div>
+       </div>
+            <ServiceCard  {...props}/>
+            <div className="book">
+              <a href={providerUrl} className="btn" {...props}>
+              Book with {props.name}
+            </a>
+            </div>
+      </div>
+    
   );
 }
 

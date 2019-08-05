@@ -52,8 +52,6 @@ export default class Sidenav extends Component {
     this.setState({
       category: category
     });
-
-    this.getServices(category);
   }
 
   onChangeService(e) {
@@ -86,24 +84,6 @@ export default class Sidenav extends Component {
     });
   }
 
-  getServices = category => {
-    return axios
-      .get(`/api/services/category/${category}`)
-      .then(res => {
-        const services = res.data;
-        let selectedServiceId;
-        if (services.length) {
-          selectedServiceId = services[0].id;
-        }
-
-        this.setState({
-          selectedServiceId,
-          services: res.data
-        });
-      })
-      .catch(err => console.log(err));
-  };
-
   onSubmit(e) {
     e.preventDefault();
 
@@ -116,7 +96,8 @@ export default class Sidenav extends Component {
     //   date: this.state.date
     // };
     //console.log(service);
-    this.props.loadProviders(this.state.selectedServiceId);
+   
+    this.props.findServicesForCategory(this.state.category);
   }
 
   render() {
@@ -220,7 +201,7 @@ export default class Sidenav extends Component {
                   />
                 </div>
                 <br /> */}
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label>
                     <h5>Service:</h5>
                   </label>
@@ -240,9 +221,9 @@ export default class Sidenav extends Component {
                     </select>
                   </div>
                 </div>
-                <br />
+                <br /> */}
 
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label>
                     <h5>Date:</h5>
                   </label>
@@ -253,7 +234,7 @@ export default class Sidenav extends Component {
                     />
                   </div>
                 </div>
-                <br />
+                <br /> */}
 
                 {/* <div className="form-group">
               <label htmlFor="autofill">Autofill</label>

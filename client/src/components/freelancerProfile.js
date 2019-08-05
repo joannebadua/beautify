@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Container from "../Container";
-import Wrapper from "../Wrapper";
-import Hero from "../Hero";
+import Container from "./Container";
+import Wrapper from "./Wrapper";
+import Hero from "./Hero";
 import TimePicker from "rc-time-picker";
 import "rc-time-picker/assets/index.css";
 
@@ -21,22 +21,24 @@ export default class ProviderProfile extends Component {
   }
 
   componentDidMount() {
-    this.getProvidersInfo();
+    this.getProvidersInfo(this.props.id);
   }
 
 //get id
-const providerUrl = `api/provider/${props.id}`;
-getProvidersInfo = (id)=>{
 
-    axios.get(providerUrl).then(res => this.setState({ name: res.data.name, img: res.data.img, bio: res.data.bio, start_time: res.data.start_time, end_time:r res.data.end_time
-     }));
-}
+getProvidersInfo(id ) {
+  const providerUrl = `/api/providers/${id}`;
+     axios.get(providerUrl).then(res => {
+     this.setState({ 
+       name: res.data.name,
+        img: res.data.img, 
+        bio: res.data.bio,
+         start_time: res.data.start_time, 
+         end_time: res.data.end_time
+     });
+     });
+  }
   
-  // add in back-end
- getAllServices = (id) =>{
-    
- }
-
   render() {
     return (
       <div>
@@ -51,7 +53,7 @@ getProvidersInfo = (id)=>{
             <h2>{this.state.name}</h2>
             <br />
             <h3>About </h3>
-            <p> {this.state.bio} <p/>
+            <p> {this.state.bio} </p>
             <h3>Services</h3>
               {/* add from response */}
 

@@ -7,7 +7,7 @@ import CreateProvider from "./components/CreateProvider/create-provider.componen
 import CreateService from "./components/create-service.component";
 import CreateUser from "./components/create-user.component";
 import EditService from "./components/edit-services.component";
-
+import ProviderProfile from "./components/freelancerProfile";
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -18,9 +18,9 @@ function App() {
       <Route path="/" component={ServicesList} />
       <Route path="/edit/:id" component={EditService} />
       <Route path="/create" component={CreateService} />
-      <Route path="/provider/new" component={CreateProvider} />
+      <Route path="/providers/new" component={CreateProvider} />
       {/* <Route path="/provider/:id/edit" component={EditeProfile} /> */}
-      {/* <Route path="/provider/:id" component={ProviderProfile} /> */}
+      {<Route path="/providers/:id" component={ProviderProfile} /> }
       <Route path="/user" component={CreateUser} />
     </Router>
   );
