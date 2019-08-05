@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import "./style.css";
 
 export default class Navbar extends Component {
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg bg-primary">
+            <nav className="navbar navbar-expand-lg">
             <Link to="/" className="navbar-brand text-white">BEAUTIFY</Link>
             <div className="collapse navbar-collapse">
             <ul className="navbar-nav mr-auto">
@@ -15,12 +16,12 @@ export default class Navbar extends Component {
                 <li className="navbar-item">
                     <Link to="/create" className="nav-link text-white">Add Service</Link>
                 </li>
-                <li className="navbar-item">
+                {/* <li className="navbar-item">
                     <Link to="/user" className="nav-link text-white">Create User</Link>
                 </li>
                 <li className="navbar-item">
                     <Link to="/provider" className="nav-link text-white">Create Provider</Link>
-                </li>
+                </li> */}
             </ul>
             </div>
             </nav>

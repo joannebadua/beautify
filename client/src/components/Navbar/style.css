@@ -1,17 +1,18 @@
 nav.navbar.navbar-default {
     margin-bottom: 0;
-    background:rgb(78, 190, 170);
+    background:rgb(181, 182, 182);
     color: white;
   }
   
   nav.navbar {
-    background:rgb(78, 190, 170);
+    /* background:rgb(78, 190, 170); */
+    background:rgb(181, 182, 182);
     color: white;
   }
   
   .navbar-brand {
     color: white;
-    font-size: 34px;
+    font-size: 28px;
   }
   
   nav.navbar-nav.nav-item {

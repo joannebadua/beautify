@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/navbar.component";
+import Navbar from "./components/Navbar";
 import ServicesList from "./components/ServicesList/services-list.component";
 import CreateProvider from "./components/create-provider.component";
 import CreateService from "./components/create-service.component";
 import CreateUser from "./components/create-user.component";
 import EditService from "./components/edit-services.component";
-
+import AnimatedBG from "./components/Animated-bg";
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -15,7 +15,8 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Route path="/" component={ServicesList} />
+      <Route path="/" exact component={AnimatedBG} />
+      <Route path="/services" component={ServicesList} />
       <Route path="/edit/:id" component={EditService} />
       <Route path="/create" component={CreateService} />
 

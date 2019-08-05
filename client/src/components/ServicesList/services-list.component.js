@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
 import Container from "../Container";
 import Wrapper from "../Wrapper";
-import Row from "../Row";
+// import Row from "../Row";
 import Hero from "../Hero";
 import Sidenav from "../Sidenav";
 import ProviderCard from "../ProviderCard";
