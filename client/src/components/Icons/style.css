@@ -12,3 +12,7 @@ button.btn.btn-secondary {
     background: #9b9a9a;
 }
 
+.content {
+    padding-top: -50px;
+    margin-top: -50px;
+}
