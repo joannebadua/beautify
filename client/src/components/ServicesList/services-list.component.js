@@ -103,7 +103,7 @@ export default class ServicesList extends Component {
           </Hero>
 
         <main>
-  <IconCard loadProviders={this.loadProviders} />
+  <IconCard findServicesForCategory={this.findServicesForCategory} />
             <Container>
 
              <br />
