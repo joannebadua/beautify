@@ -4,7 +4,7 @@ import ServiceCard from "../ServiceCard";
 
 
 const ProviderCard=(props)=>{
-  const providerUrl = `/providers/${props.id}`;
+  const providerUrl = `/providers/id/${props.id}`;
     
     const logo = props.name[0].toUpperCase();
 

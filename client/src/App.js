@@ -7,31 +7,22 @@ import CreateProvider from "./components/CreateProvider/create-provider.componen
 import CreateService from "./components/create-service.component";
 import CreateUser from "./components/create-user.component";
 import EditService from "./components/edit-services.component";
-<<<<<<< HEAD
 import ProviderProfile from "./pages/freelancerProfile";
-=======
 import AnimatedBG from "./components/Animated-bg";
->>>>>>> 91a7de92e942f2c5a4af7621de49a9591adffeab
 // import logo from './logo.svg';
 // import './App.css';
 
 function App() {
   return (
     <Router>
-      <Route path="/" exact component={AnimatedBG} />
+      <Route path="/" component={AnimatedBG} />
       <Route path="/services" component={ServicesList} />
       <Route path="/edit/:id" component={EditService} />
-      <Route path="/create" component={CreateService} />
-<<<<<<< HEAD
-      <Route exact path="/providers/new" component={CreateProvider} />
-      <Route path="/providers/:id" component={ProviderProfile} /> 
+      <Route path="/providers/new" component={CreateProvider} />
+      <Route path="/providers/id/:id" component={ProviderProfile} /> 
 
       {/* <Route path="/provider/:id/edit" component={EditeProfile} /> */}
 
-=======
-      <Route path="/providers" component={CreateProvider} />
-      <Route path="/providers/:id" component={CreateProvider} />
->>>>>>> 91a7de92e942f2c5a4af7621de49a9591adffeab
       <Route path="/user" component={CreateUser} />
     </Router>
   );

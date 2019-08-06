@@ -32,25 +32,25 @@ const IconCard = (props) => {
         <br />
     <Row>
     <div className="col-3">
-      <Card>
+      <Card  >
         <CardImg top width="100%" height="100%" src={lipstick2} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
               <h2 className="title"><strong>MakeUp</strong></h2>
             </CardTitle>
-         <Button>BROWSE</Button>
+         <Button onClick={() => props.loadProviders("make-up")}>BROWSE</Button>
         </CardBody>
       </Card>
       </div>
 
       <div className="col-3">
-      <Card>
+      <Card  >
         <CardImg top width="100%" src={blowdry} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
               <h2 className="title"><strong>Hair/Barber</strong></h2>
             </CardTitle>
-         <Button>BROWSE</Button>
+         <Button onClick={() => props.loadProviders("hair-barber")}>BROWSE</Button>
         </CardBody>
       </Card>
       </div>
@@ -62,19 +62,19 @@ const IconCard = (props) => {
           <CardTitle>
               <h2 className="title"><strong>Yoga</strong></h2>
             </CardTitle>
-         <Button>BROWSE</Button>
+         <Button onClick={() => props.loadProviders("yoga")}>BROWSE</Button>
         </CardBody>
       </Card>
       </div>
 
       <div className="col-3">
-      <Card className="hoverable">
+      <Card className="hoverable" id="fitness" >
         <CardImg top width="100%" src={workout} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
               <h2 className="title"><strong>Fitness</strong></h2>
             </CardTitle>
-         <Button>BROWSE</Button>
+         <Button onClick={() => props.loadProviders("fitness")}>BROWSE</Button>
         </CardBody>
       </Card>
       </div>
@@ -83,49 +83,49 @@ const IconCard = (props) => {
     <br />
     <Row>
       <div className="col-3">
-      <Card className="hoverable">
+      <Card className="hoverable" >
         <CardImg top width="100%" src={nutritionist} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
               <h2 className="title"><strong>Nutritionist</strong></h2>
             </CardTitle>
-         <Button>BROWSE</Button>
+         <Button onClick={() => props.loadProviders("nutritionist")}>BROWSE</Button>
         </CardBody>
       </Card>
       </div>
 
       <div className="col-3">
-      <Card className="hoverable">
+      <Card className="hoverable"   >
         <CardImg top width="100%" src={fashion} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
               <h2 className="title"><strong>Fashion</strong></h2>
             </CardTitle>
-         <Button>BROWSE</Button>
+         <Button onClick={() => props.loadProviders("fashion")}>BROWSE</Button>
         </CardBody>
       </Card>
       </div>
 
       <div className="col-3">
-      <Card className="hoverable">
+      <Card className="hoverable"  >
         <CardImg top width="100%" src={massage} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
               <h2 className="title"><strong>Massage</strong></h2>
             </CardTitle>
-         <Button>BROWSE</Button>
+         <Button onClick={() => props.loadProviders("massage")}>BROWSE</Button>
         </CardBody>
       </Card>
       </div>
 
       <div className="col-3">
-      <Card className="hoverable">
+      <Card className="hoverable" >
         <CardImg top width="100%" src={nails} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
               <h2 className="title"><strong>Nails</strong></h2>
             </CardTitle>
-         <Button>BROWSE</Button>
+         <Button onClick={() => props.loadProviders("nails")}>BROWSE</Button>
         </CardBody>
       </Card>
       </div>

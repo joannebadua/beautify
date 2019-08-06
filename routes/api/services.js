@@ -8,16 +8,8 @@ router
   .route("/services/:id/providers")
   .get(servicesController.findServiceProviders);
 
-router
-  .route("/services/:id/providers")
-  .get(servicesController.findServiceProviders);
-
-
-
-// Matches with "/api/books/:id"
 // router
-//   .route("/:id")
-//   .delete(booksController.remove)
-//   .get(booksController.findById);
+//   .route("/services/:id/providers")
+//   .get(servicesController.findServiceProviders);
 
 module.exports = router;
