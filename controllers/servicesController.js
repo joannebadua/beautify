@@ -6,7 +6,6 @@ module.exports = {
   findByProvider: function(req, res) {
     db.service
       .findAll({     
-           
         include: [
           {
             model: db.provider,

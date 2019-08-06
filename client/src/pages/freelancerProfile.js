@@ -6,6 +6,9 @@ import Hero from "../components/Hero";
 import TimePicker from "rc-time-picker";
 import "rc-time-picker/assets/index.css";
 import ServiceCard from "../components/ServiceCard";
+import DatePicker from "react-datepicker";
+import "./freelancerProfile.css";
+//import "react-datepicker/dist/react-datepicker.css";
 
 export default class ProviderProfile extends Component {
   constructor(props) {
@@ -16,10 +19,12 @@ export default class ProviderProfile extends Component {
       name: "",
       img: "",
       bio: "",
-     
+      date: new Date(),
       services: []
     };
   }
+
+onChange = date => this.setState({ date })
 
   componentDidMount() {
     this.getProvidersInfo(this.props.match.params.id);
@@ -65,7 +70,7 @@ debugger;
         <Wrapper>
           <Hero backgroundImage="https://images.pexels.com/photos/457701/pexels-photo-457701.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             <h1>Beautify</h1>
-            <h2>Create Provider</h2>
+          
           </Hero>
           <Container>
             <br />
@@ -81,9 +86,17 @@ debugger;
                  
  />
 })}
-              {/* add from response */}
+             
+            <h3>Choose a date </h3>
+                            
+            <DatePicker inline
+                selected={this.state.date}
+                onChange={this.onChangeDate}
+                isOpen={true}
 
-                 {/* add calendar */}
+
+            />
+
           </Container>
         </Wrapper>
       </div>
