@@ -14,14 +14,14 @@ export default class Navbar extends Component {
                     <Link to="/" className="nav-link text-white">Services</Link>
                 </li>
                 <li className="navbar-item">
-                    <Link to="/create" className="nav-link text-white">Add Service</Link>
+                    <Link to="/create" className="nav-link text-white">Post A Service</Link>
                 </li>
                 {/* <li className="navbar-item">
                     <Link to="/user" className="nav-link text-white">Create User</Link>
-                </li>
-                <li className="navbar-item">
-                    <Link to="/provider" className="nav-link text-white">Create Provider</Link>
                 </li> */}
+                <li className="navbar-item">
+                    <Link to="/provider" className="nav-link text-white">Become A Provider</Link>
+                </li>
             </ul>
             </div>
             </nav>

@@ -103,7 +103,7 @@ export default class ServicesList extends Component {
             <h2>Choose A Service Below</h2>
           </Hero>
           <main>
-          <IconCard></IconCard>
+          <IconCard loadProviders={this.loadProviders} />
             {/* <Sidenav loadProviders={this.loadProviders} /> */}
             <Container>
               <br />

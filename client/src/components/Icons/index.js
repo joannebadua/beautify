@@ -36,7 +36,7 @@ const IconCard = (props) => {
         <CardImg top width="100%" height="100%" src={lipstick2} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
-              <h2 class="title"><strong>MakeUp</strong></h2>
+              <h2 className="title"><strong>MakeUp</strong></h2>
             </CardTitle>
          <Button>BROWSE</Button>
         </CardBody>
@@ -48,7 +48,7 @@ const IconCard = (props) => {
         <CardImg top width="100%" src={blowdry} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
-              <h2 class="title"><strong>Hair/Barber</strong></h2>
+              <h2 className="title"><strong>Hair/Barber</strong></h2>
             </CardTitle>
          <Button>BROWSE</Button>
         </CardBody>
@@ -60,7 +60,7 @@ const IconCard = (props) => {
         <CardImg top width="100%" src={yoga2} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
-              <h2 class="title"><strong>Yoga</strong></h2>
+              <h2 className="title"><strong>Yoga</strong></h2>
             </CardTitle>
          <Button>BROWSE</Button>
         </CardBody>
@@ -72,7 +72,7 @@ const IconCard = (props) => {
         <CardImg top width="100%" src={workout} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
-              <h2 class="title"><strong>Fitness</strong></h2>
+              <h2 className="title"><strong>Fitness</strong></h2>
             </CardTitle>
          <Button>BROWSE</Button>
         </CardBody>
@@ -87,7 +87,7 @@ const IconCard = (props) => {
         <CardImg top width="100%" src={nutritionist} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
-              <h2 class="title"><strong>Nutritionist</strong></h2>
+              <h2 className="title"><strong>Nutritionist</strong></h2>
             </CardTitle>
          <Button>BROWSE</Button>
         </CardBody>
@@ -99,7 +99,7 @@ const IconCard = (props) => {
         <CardImg top width="100%" src={fashion} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
-              <h2 class="title"><strong>Fashion</strong></h2>
+              <h2 className="title"><strong>Fashion</strong></h2>
             </CardTitle>
          <Button>BROWSE</Button>
         </CardBody>
@@ -111,7 +111,7 @@ const IconCard = (props) => {
         <CardImg top width="100%" src={massage} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
-              <h2 class="title"><strong>Massage</strong></h2>
+              <h2 className="title"><strong>Massage</strong></h2>
             </CardTitle>
          <Button>BROWSE</Button>
         </CardBody>
@@ -123,7 +123,7 @@ const IconCard = (props) => {
         <CardImg top width="100%" src={nails} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
-              <h2 class="title"><strong>Nails</strong></h2>
+              <h2 className="title"><strong>Nails</strong></h2>
             </CardTitle>
          <Button>BROWSE</Button>
         </CardBody>
