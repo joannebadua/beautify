@@ -5,6 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import Container from "./Container";
 import Wrapper from "./Wrapper";
 import Hero from "./Hero";
+import Navbar from "../components/Navbar";
+// import SideNav from './Sidenav';
 
 export default class CreateServices extends Component {
   constructor(props) {
@@ -12,9 +14,9 @@ export default class CreateServices extends Component {
 
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeCategory = this.onChangeCategory.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeDuration = this.onChangeDuration.bind(this);
-    this.onChangePrice = this.onChangePrice.bind(this);
+    // this.onChangeDescription = this.onChangeDescription.bind(this);
+    // this.onChangeDuration = this.onChangeDuration.bind(this);
+    // this.onChangePrice = this.onChangePrice.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -102,25 +104,27 @@ export default class CreateServices extends Component {
     axios.post("/services/add", service).then(res => console.log(res.data));
     // eventually connect to database
 
-    window.location = "/";
+    window.location = "/services";
   }
 
   render() {
     return (
       <div>
+        <Navbar />
         <Wrapper>
           <Hero backgroundImage="https://images.pexels.com/photos/1453005/pexels-photo-1453005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             <h1>Beautify</h1>
-            <h2>Create Service</h2>
+            <h2>Post A Service</h2>
           </Hero>
           <Container>
-            <br />
-            <br />
-            <h3>Create New Service</h3>
+            <h3>Post A Service Below</h3>
+            <hr />
             <br />
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-                <label>Name: </label>
+                <label>
+                  <h5>Name:</h5>
+                </label>
                 <select
                   ref="userInput"
                   required
@@ -129,17 +133,66 @@ export default class CreateServices extends Component {
                   onChange={this.onChangeName}
                 >
                   {// for each user/provider its going to return this below
-                  this.state.services.map(function(service) {
-                    return (
-                      <option key={service} value={service}>
-                        {service}
-                      </option>
-                    );
-                  })}
+                    this.state.services.map(function (service) {
+                      return (
+                        <option key={service} value={service}>
+                          {service}
+                        </option>
+                      );
+                    })}
                 </select>
               </div>
+
+              <div className="form-group">
+                <label>
+                  <h5>Category:</h5>
+                </label>
+                <select
+                  id="category"
+                  name="category"
+                  className="form-control"
+                  defaultValue="type"
+                  onChange={this.onChangeCategory}
+                >
+                  <option value="type" disabled>
+                    Type
+                    </option>
+                  <option value="make-up">Make-Up</option>
+                  <option value="hair-barber">Hair/Barber</option>
+                  <option value="yoga">Yoga Instructor</option>
+                  <option value="massage">Massage</option>
+                  <option value="fitness">Fitness Trainer</option>
+                  <option value="nutritionist">Nutritionist</option>
+                  <option value="fashion">Fashion Stylist</option>
+                </select>
+              </div>
+              <br />
+
+              <div className="form-group">
+                <label>
+                  <h5>Service:</h5>
+                </label>
+                <div>
+                  <select
+                    id="services"
+                    name="services"
+                    className="form-control"
+                    onChange={this.onChangeService}
+                    defaultValue={this.state.selectedServiceId}
+                  >
+                    {this.state.services.map(service => (
+                      <option key={service.id} value={service.id}>
+                        {service.name}
+                      </option>
+                    ))}{" "}
+                  </select>
+                </div>
+              </div>
+
               <div className="form=group">
-                <label>Category: </label>
+                <label>
+                  <h5>Description:</h5>
+                </label>
                 <input
                   type="text"
                   required
@@ -148,6 +201,8 @@ export default class CreateServices extends Component {
                   onChange={this.onChangeCategory}
                 />
               </div>
+              <br />
+
               {/* <div className="form=group">
                 <label>Description: </label>
                 <input
@@ -177,7 +232,9 @@ export default class CreateServices extends Component {
                 />
               </div> */}
               <div className="form-group">
-                <label>Date: </label>
+                <label>
+                  <h5>Date:</h5>
+                  </label>
                 <div>
                   <DatePicker
                     selected={this.state.date}

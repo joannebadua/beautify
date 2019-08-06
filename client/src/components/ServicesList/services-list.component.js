@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
 import Container from "../Container";
 import Wrapper from "../Wrapper";
-import Row from "../Row";
+// import Row from "../Row";
 import Hero from "../Hero";
-import Sidenav from "../Sidenav";
+// import Sidenav from "../Sidenav";
 import ProviderCard from "../ProviderCard";
+import IconCard from "../Icons";
+// import Navbar from "../Navbar";
+import NavbarComp from "../Navbar";
 
 // such a small component included it in same file
 // const Service = props => (
@@ -122,12 +125,16 @@ export default class ServicesList extends Component {
   render() {
     return (
       <div>
+        {/* <Navbar /> */}
+        <NavbarComp />
         <Wrapper>
-          <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
-            <h1>Beautify</h1>
-            <h2>Health and Wellness On Demand At Your Home</h2>
+          {/* <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"> */}
+          <Hero backgroundImage="https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+            <h1>Services</h1>
+            <h2>Choose A Service Below</h2>
           </Hero>
           <main>
+<<<<<<< HEAD
             <Sidenav findServicesForCategory={this.findServicesForCategory} />
 
             <Container>
@@ -135,6 +142,17 @@ export default class ServicesList extends Component {
               {this.state.services.map(service => {
                 const provider = service.providers[0];
                 return <ProviderCard
+=======
+          <IconCard loadProviders={this.loadProviders} />
+            {/* <Sidenav loadProviders={this.loadProviders} /> */}
+            <Container>
+              <br />
+              <h2>Choose A Provider</h2>
+              <hr />
+              <br />
+              {this.state.providers.map(provider => (
+                <ProviderCard
+>>>>>>> 91a7de92e942f2c5a4af7621de49a9591adffeab
                   key={provider.id}
                   id={provider.id}
                   name={provider.name}
