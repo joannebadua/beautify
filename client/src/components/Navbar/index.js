@@ -1,33 +1,104 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
 import "./style.css";
+import React from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+//   UncontrolledDropdown,
+//   DropdownToggle,
+//   DropdownMenu,
+//   DropdownItem
+ } from 'reactstrap';
 
-export default class Navbar extends Component {
+export default class NavbarComp extends React.Component {
+  constructor(props) {
+    super(props);
 
-    render() {
-        return (
-            <nav className="navbar navbar-expand-lg">
-            <Link to="/" className="navbar-brand text-white">BEAUTIFY</Link>
-            <div className="collapse navbar-collapse">
-            <ul className="navbar-nav mr-auto">
-                <li className="navbar-item">
-                    <Link to="/" className="nav-link text-white">Services</Link>
-                </li>
-                <li className="navbar-item">
-                    <Link to="/create" className="nav-link text-white">Post A Service</Link>
-                </li>
-                {/* <li className="navbar-item">
-                    <Link to="/user" className="nav-link text-white">Create User</Link>
-                </li> */}
-                <li className="navbar-item">
-                    <Link to="/provider" className="nav-link text-white">Become A Provider</Link>
-                </li>
-            </ul>
-            </div>
-            </nav>
-        );
-    }
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Navbar color="teal" light expand="md">
+          <NavbarBrand href="/">Beautify</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/services/">Services</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/create">Post A Service</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/providers">Become A Provider</NavLink>
+              </NavItem>
+              {/* <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Options
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    Option 1
+                  </DropdownItem>
+                  <DropdownItem>
+                    Option 2
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
+                    Reset
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown> */}
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
+    );
+  }
 }
+
+
+
+// export default class NavbarComp extends Component {
+//     render() {
+//         return (
+//             <nav className="navbar navbar-expand-lg">
+//             <Link to="/" className="navbar-brand text-white">BEAUTIFY</Link>
+//             <div className="collapse navbar-collapse">
+//             <ul className="navbar-nav mr-auto">
+//                 <li className="navbar-item">
+//                     <Link to="/" className="nav-link text-white">Services</Link>
+//                 </li>
+//                 <li className="navbar-item">
+//                     <Link to="/create" className="nav-link text-white">Post A Service</Link>
+//                 </li>
+//                 {/* <li className="navbar-item">
+//                     <Link to="/user" className="nav-link text-white">Create User</Link>
+//                 </li> */}
+//                 <li className="navbar-item">
+//                     <Link to="/provider" className="nav-link text-white">Become A Provider</Link>
+//                 </li>
+//             </ul>
+//             </div>
+//             </nav>
+//         );
+//     }
+// }
 
 
 

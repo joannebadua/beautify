@@ -10,10 +10,14 @@ export default class CreateProvider extends Component {
     super(props);
 
     this.onChangeName = this.onChangeName.bind(this);
+    this.onChangeBio = this.onChangeBio.bind(this);
+    this.onChangeDays = this.onChangeDays.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      name: ""
+      name: "",
+      bio: "",
+      days: "Monday"
     };
   }
 
@@ -23,18 +27,34 @@ export default class CreateProvider extends Component {
     });
   }
 
+  onChangeBio(e) {
+    this.setState({
+      bio: e.target.value
+    });
+  }
+
+  onChangeDays(e) {
+    this.setState({
+      days: e.target.value
+    });
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
     const provider = {
-      name: this.state.name
+      name: this.state.name,
+      bio: this.state.bio,
+      days: this.state.days
     };
     console.log(provider);
 
-    axios.post("/providers/add", provider).then(res => console.log(res.data));
+    axios.post("/provider/add", provider).then(res => console.log(res.data));
     // eventually connect to database
     this.setState({
-      name: ""
+      name: "",
+      bio: "",
+      days: ""
     });
   }
 
@@ -48,13 +68,12 @@ export default class CreateProvider extends Component {
             <h2>Create Provider</h2>
           </Hero>
           <Container>
-            <br />
-            <br />
             <h3>Create New Provider</h3>
+            <hr />
             <br />
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-                <label>Provider Name: </label>
+                <label><h5>Provider Name: </h5></label>
                 <input
                   type="text"
                   required
@@ -63,6 +82,31 @@ export default class CreateProvider extends Component {
                   onChange={this.onChangeName}
                 />
               </div>
+
+              <div className="form-group">
+              <label><h5>Bio: </h5></label>
+              <textarea
+                type="textarea"
+                className="form-control"
+                value={this.state.bio}
+                onChange={this.onChangeBio}
+              />
+              </div>
+
+              <div className="form-group">
+                <label><h5>Working Days: </h5></label>
+                <br />
+                <select value={this.state.days} onChange={this.onChangeDays}>
+                  <option value="monday">Monday</option>
+                  <option value="tuesday">Tuesday</option>
+                  <option value="wednesday">Wednesday</option>
+                  <option value="t">Thursday</option>
+                  <option value="friday">Friday</option>
+                  <option value="saturday">Saturday</option>
+                  <option value="sunday">Sunday</option>
+                </select>
+              </div>
+
               <div className="form-group">
                 <input
                   type="submit"

@@ -2,13 +2,34 @@ nav.navbar.navbar-default {
     margin-bottom: 0;
     background: #07ddbd;
     color: white;
+  } 
+
+  nav {
+    color: white;
   }
   
   nav.navbar {
     background: #07ddbd;
     color: white;
+  } 
+
+  .navbar {
+    background: #07ddbd;
+    color: white;
   }
   
+  button {
+    color: white;
+  }
+
+  button.mr-2.navbar-toggler {
+    color: white;
+  }
+
+  span.navbar-toggler-icon {
+    color: white;
+    
+  }
   .navbar-brand {
     color: white;
     font-size: 28px;
@@ -16,12 +37,12 @@ nav.navbar.navbar-default {
   
   nav.navbar-nav.nav-item {
     text-align: right;
-    /* color: white; */
+    color: white;
   }
   
   .nav-item {
     text-align: right;
-    /* color: white; */
+    color: white;
   
   }
   
@@ -29,4 +50,8 @@ nav.navbar.navbar-default {
     text-align: right;
     color: white;
     font-size: 20px;
+  } 
+
+  .nav-link {
+    color: white;
   }

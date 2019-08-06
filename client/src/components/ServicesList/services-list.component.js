@@ -8,7 +8,8 @@ import Hero from "../Hero";
 // import Sidenav from "../Sidenav";
 import ProviderCard from "../ProviderCard";
 import IconCard from "../Icons";
-import Navbar from "../Navbar";
+// import Navbar from "../Navbar";
+import NavbarComp from "../Navbar";
 
 // such a small component included it in same file
 // const Service = props => (
@@ -96,9 +97,11 @@ export default class ServicesList extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
+        <NavbarComp />
         <Wrapper>
-          <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
+          {/* <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"> */}
+          <Hero backgroundImage="https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             <h1>Services</h1>
             <h2>Choose A Service Below</h2>
           </Hero>
