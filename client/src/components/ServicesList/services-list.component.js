@@ -93,17 +93,19 @@ export default class ServicesList extends Component {
   render() {
     return (
       <div>
+
         <NavbarComp />
         <Wrapper>
+
           <Hero backgroundImage="https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             <h1>Services</h1>
             <h2>Choose A Service Below</h2>
           </Hero>
+
         <main>
   <IconCard loadProviders={this.loadProviders} />
             <Container>
 
-            
              <br />
                <h2>Choose A Provider</h2>
                <hr />

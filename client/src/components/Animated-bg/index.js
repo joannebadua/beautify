@@ -26,7 +26,10 @@ function AnimatedBG() {
                         <a href="/services">BOOK A SERVICE</a></button>
 
                     <button className="btn btn-outline-light btn-lg" id="form-btn">
+
                         <a href="providers/new">BECOME A PROVIDER</a></button>
+
+
                     <br />
                 </div>
             </div>
