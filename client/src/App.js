@@ -7,7 +7,7 @@ import CreateProvider from "./components/CreateProvider/create-provider.componen
 import CreateService from "./components/create-service.component";
 import CreateUser from "./components/create-user.component";
 import EditService from "./components/edit-services.component";
-import ProviderProfile from "./components/freelancerProfile";
+import ProviderProfile from "./pages/freelancerProfile";
 // import logo from './logo.svg';
 // import './App.css';
 

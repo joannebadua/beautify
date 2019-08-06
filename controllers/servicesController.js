@@ -3,6 +3,24 @@ const db = require("../db/models");
 // Defining methods for the Controller
 
 module.exports = {
+  findByProvider: function(req, res) {
+    db.service
+      .findAll({     
+           
+        include: [
+          {
+            model: db.provider,
+            required: true,
+             where: {
+              id: req.params.id
+            },   
+               
+          }]
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   findAll: function(req, res) {
     db.service
       .findAll({

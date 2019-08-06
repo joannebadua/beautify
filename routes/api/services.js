@@ -8,8 +8,11 @@ router
   .route("/services/:id/providers")
   .get(servicesController.findServiceProviders);
 
+router
+  .route("/services/:id/providers")
+  .get(servicesController.findServiceProviders);
 
-//router.route("/api/services/").get();
+
 
 // Matches with "/api/books/:id"
 // router

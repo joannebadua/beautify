@@ -11,5 +11,22 @@ module.exports = {
       .create(provider)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  getProviderInfo: function (req, res) {
+    db.provider
+    .findAll({ 
+      where: {id: req.params.id},
+       include: [
+          {
+            model: db.service,
+            required: false          
+          }
+        ]
+             })
+            .then(dbModel => {
+        console.log(dbModel);
+        res.json(dbModel);
+      })
+      .catch(err => res.status(422).json(err));
   }
 };

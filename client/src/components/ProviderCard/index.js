@@ -2,9 +2,9 @@ import React from "react";
 import "./style.css";
 import ServiceCard from "../ServiceCard";
 
-function ProviderCard(props) {
-  const providerUrl = `/providers/${props.id}`;
 
+const ProviderCard=(props)=>{
+  const providerUrl = `/providers/${props.id}`;
     
     const logo = props.name[0].toUpperCase();
 
@@ -17,15 +17,16 @@ function ProviderCard(props) {
          </div>
 
           <div className="info">
-                <h3> {props.name} </h3>
+                <h2> {props.name} </h2>
               
       
           </div>
        </div>
             <ServiceCard  {...props.service}/>
             <div className="book">
-              <a href={providerUrl} className="btn" >
-              Book with {props.name}
+              <a href={providerUrl} className="btn" id={props.id} >
+                
+              Book with {props.name} 
             </a>
             </div>
       </div>

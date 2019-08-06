@@ -6,13 +6,14 @@ import "./style.css";
 function ServiceCard(props) {
     return(
          <div className="serviceDiv">
-          <h2>{props.name}</h2>
-          <h3>Description</h3>
+          <h4>{props.name}</h4>
+       <br/>
           {props.description}
-          <h3>Duration</h3>
-          {props.duration}
-          <h3>Price</h3>
-          {props.price}
+          <br/>
+          <p><strong>Duration:</strong>
+          {props.duration} min </p>
+          <p><strong>Price: </strong>
+          {props.price} $ </p>
          </div>
     )
 }
