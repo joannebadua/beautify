@@ -1,22 +1,36 @@
 import React from "react";
 import "./style.css";
+import ServiceCard from "../ServiceCard";
 
-function ProviderCard(props) {
-  const providerUrl = `/provider/${props.id}`;
+
+const ProviderCard=(props)=>{
+  const providerUrl = `/providers/id/${props.id}`;
+    
+    const logo = props.name[0].toUpperCase();
 
   return (
     <div className="provDiv">
-      <div className="logo">
-        <img alt="" src={props.image} />
-      </div>
-      <div className="info">
-        <h3> {props.name} </h3>
+      
+      <div className="provInfo">
+<        div className="logo">
+             {logo}    
+         </div>
 
-        <a href={providerUrl} className="btn" {...props}>
-          Book with {props.name}
-        </a>
+          <div className="info">
+                <h2> {props.name} </h2>
+              
+      
+          </div>
+       </div>
+            <ServiceCard  {...props.service}/>
+            <div className="book">
+              <a href={providerUrl} className="btn" id={props.id} >
+                
+              Book with {props.name} 
+            </a>
+            </div>
       </div>
-    </div>
+    
   );
 }
 

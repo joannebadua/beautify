@@ -1,0 +1,29 @@
+.react-datepicker__day
+
+{
+    width:3.5rem ;
+    line-height:3rem;
+ 
+}
+
+.react-datepicker__day-name  {
+    width:3.1rem ;
+    line-height:3rem;
+}
+.react-datepicker__day, .react-datepicker__header{
+ font-size: 1.5em;
+} 
+
+.react-datepicker__current-month{
+ font-size: 1.3em;
+}
+
+.react-datepicker__week div{
+  margin:0;
+  border: 0.1px solid #F5F5F5;
+
+}
+
+.react-datepicker__month{
+margin:0;
+}

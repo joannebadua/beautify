@@ -2,9 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   var Provider = sequelize.define("provider", {
     name: {
       type: DataTypes.STRING,
-      validate: {
-        allowNull: false
-      }
+      allowNull: false
     },
     id: {
       type: DataTypes.INTEGER,
@@ -13,16 +11,16 @@ module.exports = function(sequelize, DataTypes) {
     },
     bio: {
       type: DataTypes.STRING,
-      validate: {
-        allowNull: false
-      }
+      allowNull: false
     },
 
     workingHours: {
       type: DataTypes.STRING,
-      validate: {
-        allowNull: false
-      }
+      allowNull: false
+    },
+    img: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 
