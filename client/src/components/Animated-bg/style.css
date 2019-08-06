@@ -1,0 +1,250 @@
+body{ 
+	margin: 0;
+	padding: 0;
+	font-family: 'Josefin Sans', sans-serif;
+}	
+
+.container {
+    padding-top: 150px;
+}
+
+#beautify {
+    font-size: 130px;
+    /* font-stretch: wider; */
+    font-family: inherit;
+    color: white;
+    font-weight: 400;
+    /* font-weight: ; */
+}
+
+#finder {
+    font-size: 180px;
+    /* font-stretch: wider; */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+}
+
+button {
+	background: #ffffff;
+}
+
+#services-btn {
+	background: white;
+	color: #07ddbd;
+	margin: 5px;
+	/* border: white;
+	border-width: 1px;
+	border-style: solid; */
+}
+
+#services-btn:hover {
+	background: #07ddbd;
+	color: #ffffff;
+	margin: 5px;
+}
+
+#form-btn:hover {
+	background: #07ddbd;
+	color: #ffffff;
+	margin: 5px;
+}
+
+#form-btn {
+	background: white;
+	color: #07ddbd;
+	margin: 5px;
+}
+
+a {
+	color: #0d968f;
+}
+
+a:hover {
+	color: white;
+}
+
+#footer-links {
+    color: white;
+}
+
+#footer-links:hover {
+    color: aquamarine;
+}
+
+#footer-links:active {
+    color: aquamarine;
+}
+
+/* #survey-btn:hover {
+    background-color: aqua;
+    color: white;
+    
+} */
+
+#subtitle {
+    font-size: 34px;
+    font-family: inherit;
+    color: white;
+    font-weight: 200;
+}
+section.content {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background: #000;
+	overflow: hidden;
+	animation: bgColor 20s linear infinite;
+}
+.bgPulse {
+	width: 100%;
+	height: 100%;
+}
+.bgPulse span {
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	background: #fff;
+}
+.bgPulse span:nth-child(3n+1) {
+	background: transparent;
+	border: 5px solid #fff;
+}
+.bgPulse span:nth-child(1) {
+	top: 50%;
+	left: 20%;
+	animation: animate 10s linear infinite;
+}
+.bgPulse span:nth-child(2) {
+	top: 80%;
+	left: 40%;
+	animation: animate 12s linear infinite;
+}
+.bgPulse span:nth-child(3) {
+	top: 10%;
+	left: 65%;
+	animation: animate 15s linear infinite;
+}
+.bgPulse span:nth-child(4) {
+	top: 50%;
+	left: 70%;
+	animation: animate 6s linear infinite;
+}
+.bgPulse span:nth-child(5) {
+	top: 10%;
+	left: 30%;
+	animation: animate 9s linear infinite;
+}
+.bgPulse span:nth-child(6) {
+	top: 90%;
+	left: 95%;
+	animation: animate 8s linear infinite;
+}
+.bgPulse span:nth-child(7) {
+	top: 80%;
+	left: 5%;
+	animation: animate 5s linear infinite;
+}
+.bgPulse span:nth-child(8) {
+	top: 35%;
+	left: 50%;
+	animation: animate 14s linear infinite;
+}
+.bgPulse span:nth-child(9) {
+	top: 5%;
+	left: 5%;
+	animation: animate 11s linear infinite;
+}
+.bgPulse span:nth-child(10) {
+	top: 25%;
+	left: 90%;
+	animation: animate 10s linear infinite;
+}
+.bgPulse span:nth-child(10) {
+	top: 25%;
+	left: 90%;
+}
+
+@keyframes animate {
+	0% {
+		transform: scale(0) translateY(0) rotate(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1) translateY(-100px) rotate(360deg);
+		opacity: 0;
+	}
+}
+
+@keyframes bgColor {
+	0% {
+        background-color: #07ddbd;
+        /* background: url("https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+        background-size: cover; */
+	}
+	25% {
+		background:#0d968f;;
+	}
+	50% {
+        /* background: #58eafd; */
+        
+        background: #fd58ef;
+	}
+	75% {
+        /* background: #3f43ff; */
+        
+        background: #fd84a3;
+	}
+	100% {
+        /* background: #86fdbc; */
+        
+        background: #07ddbd;
+	}
+}
+
+
+
+
+
+
+
+
+/* cloud */
+#banner {
+    background-image: linear-gradient(120deg, #91C4FF 0%, #F0F7FF 87%);
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  #cloud-scroll {
+    background: url(http://9a2e1a2047765d2a004e-e6d2db425d8d4f2619e5cee56a48bcef.r55.cf2.rackcdn.com/clouds.png) repeat-x;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    -webkit-animation: 900000s backgroundScroll infinite linear;
+    -moz-animation: 900000s backgroundScroll infinite linear;
+    -o-animation: 900000s backgroundScroll infinite linear;
+    -ms-animation: 900000s backgroundScroll infinite linear;
+    animation: 900000s backgroundScroll infinite linear;
+  }
+  
+  @-webkit-keyframes backgroundScroll {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -99999999px 0;
+    }
+  }
+  
+  @keyframes backgroundScroll {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -99999999px 0;
+    }
+  }
