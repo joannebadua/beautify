@@ -5,6 +5,12 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true,
       primaryKey: true
     },
+     passportId: {
+      type: DataTypes.STRING,
+      autoIncrement: true,
+      primaryKey: true
+    },
+     
     isProvider: {
       type: DataTypes.BOOLEAN,
       defaultValue: false

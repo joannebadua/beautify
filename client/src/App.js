@@ -18,9 +18,11 @@ function App() {
       <Route path="/" component={ServicesList} />
       <Route path="/edit/:id" component={EditService} />
       <Route path="/create" component={CreateService} />
-      <Route path="/providers/new" component={CreateProvider} />
+      <Route exact path="/providers/new" component={CreateProvider} />
+      <Route path="/providers/:id" component={ProviderProfile} /> 
+
       {/* <Route path="/provider/:id/edit" component={EditeProfile} /> */}
-      {<Route path="/providers/:id" component={ProviderProfile} /> }
+
       <Route path="/user" component={CreateUser} />
     </Router>
   );
