@@ -25,9 +25,25 @@ body{
 }
 
 button {
-	background: #fff;
-	color: #07a195;
+	background: #ffffff;
 }
+
+#services-btn {
+	background: white;
+	color: #0d968f;
+	margin: 5px;
+}
+
+#form-btn {
+	background: white;
+	color: #0d968f;
+	margin: 5px;
+}
+
+a {
+	color: #0d968f;
+}
+
 #footer-links {
     color: white;
 }
@@ -142,27 +158,27 @@ section.content {
 
 @keyframes bgColor {
 	0% {
-        background-color: #07a195;
+        background: #07ddbd;
         /* background: url("https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
         background-size: cover; */
 	}
 	25% {
-		background: #38c0ff;
+		background:#0d968f;;
 	}
 	50% {
         /* background: #58eafd; */
         
-        background: #61cafa;
+        background: #fd58ef;
 	}
 	75% {
         /* background: #3f43ff; */
         
-        background: #fd58ef;
+        background: #fd84a3;
 	}
 	100% {
         /* background: #86fdbc; */
         
-        background: #fa8d62;
+        background: #07ddbd;
 	}
 }
 

@@ -5,8 +5,9 @@ import Container from "../Container";
 import Wrapper from "../Wrapper";
 // import Row from "../Row";
 import Hero from "../Hero";
-import Sidenav from "../Sidenav";
+// import Sidenav from "../Sidenav";
 import ProviderCard from "../ProviderCard";
+import IconCard from "../Icons";
 
 // such a small component included it in same file
 // const Service = props => (
@@ -96,14 +97,17 @@ export default class ServicesList extends Component {
       <div>
         <Wrapper>
           <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
-            <h1>Beautify</h1>
-            <h2>Health and Wellness On Demand At Your Home</h2>
+            <h1>Services</h1>
+            <h2>Choose A Service Below</h2>
           </Hero>
           <main>
-            <Sidenav loadProviders={this.loadProviders} />
-
+          <IconCard></IconCard>
+            {/* <Sidenav loadProviders={this.loadProviders} /> */}
             <Container>
-              <h2>choose a provider</h2>
+              <br />
+              <h2>Choose A Provider</h2>
+              <hr />
+              <br />
               {this.state.providers.map(provider => (
                 <ProviderCard
                   key={provider.id}
