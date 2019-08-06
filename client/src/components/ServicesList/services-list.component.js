@@ -39,10 +39,9 @@ export default class ServicesList extends Component {
   constructor(props) {
     super(props);
 
-    // this.deleteService = this.deleteService.bind(this);
-
     this.state = {
-      // services: []
+       service: [],
+       services: [],
       providers: []
     };
   }
@@ -63,84 +62,71 @@ export default class ServicesList extends Component {
       .catch(err => console.log(err));
   };
 
-  // return all fields for all services
-  // componentDidMount() {
-  //   axios
-  //     .get("/api/services")
-  //     .then(response => {
-  //       this.setState({ services: response.data });
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
 
-  // deleteService(id) {
-  //   axios.delete("/services/" + id).then(res => console.log(res.data));
-  //   this.setState({
-  //     services: this.state.services.filter(el => el._id !== id)
-  //   });
-  // }
+  findServicesForCategory = category => {
+    debugger
+    return axios
+      .get(`/api/services/category/${category}`)
+      .then(res => {
+      
+        this.setState({
+          services: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  };
 
-  // serviceList() {
-  // return this.state.services.map(currentservice => {
-  //   return (
-  //     <Service
-  //       service={currentservice}
-  //       deleteService={this.deleteService}
-  //       key={currentservice._id}
-  //     />
-  //   );
-  // });
-  // }
+// findService = (providerId, serviceId)=>{
+//   return axios.get(`/api/services/${serviceId}`).then(res => {
+//         const service = res.data;
+
+//         this.setState(
+//           {
+//             service
+//           },
+//           console.log(res.data)
+//         );
+//       })
+//       .catch(err => console.log(err));
+// }
 
   render() {
     return (
       <div>
-        {/* <Navbar /> */}
+
         <NavbarComp />
         <Wrapper>
-          {/* <Hero backgroundImage="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"> */}
+
           <Hero backgroundImage="https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             <h1>Services</h1>
             <h2>Choose A Service Below</h2>
           </Hero>
-          <main>
-          <IconCard loadProviders={this.loadProviders} />
-            {/* <Sidenav loadProviders={this.loadProviders} /> */}
+
+        <main>
+  <IconCard loadProviders={this.loadProviders} />
             <Container>
+
+             <br />
+               <h2>Choose A Provider</h2>
+               <hr />
               <br />
-              <h2>Choose A Provider</h2>
-              <hr />
-              <br />
-              {this.state.providers.map(provider => (
+               {this.state.providers.map(provider => (
+                 
                 <ProviderCard
+
                   key={provider.id}
                   id={provider.id}
                   name={provider.name}
-                  //  image={provider.image}
-                />
-              ))}
-              {/* <Row>
-              <h3>Logged Services</h3>
+                  // service={service}
 
-              <table className="table">
-                <thead className="thead-light">
-                  <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Description</th>
-                    <th>Duration</th>
-                    <th>Price</th>
-                    <th>Date</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>{this.serviceList()}</tbody>
-              </table>
-            </Row> */}
+                  //img={provider.img}
+                // findService = {this.findService}
+              />))
+              }
+            
+            
             </Container>
-          </main>
+         </main>
         </Wrapper>
       </div>
     );

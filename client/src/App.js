@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import Navbar from "./components/Navbar";
 import ServicesList from "./components/ServicesList/services-list.component";
-import CreateProvider from "./components/create-provider.component";
+import CreateProvider from "./components/CreateProvider/create-provider.component";
 import CreateService from "./components/create-service.component";
 import CreateUser from "./components/create-user.component";
 import EditService from "./components/edit-services.component";
+
+
 import AnimatedBG from "./components/Animated-bg";
 // import logo from './logo.svg';
 // import './App.css';
@@ -14,12 +16,15 @@ import AnimatedBG from "./components/Animated-bg";
 function App() {
   return (
     <Router>
-      <Route path="/" exact component={AnimatedBG} />
+
+      <Route path="/" component={AnimatedBG} />
       <Route path="/services" component={ServicesList} />
       <Route path="/edit/:id" component={EditService} />
-      <Route path="/create" component={CreateService} />
-      <Route path="/providers" component={CreateProvider} />
-      <Route path="/providers/:id" component={CreateProvider} />
+      <Route path="/providers/new" component={CreateProvider} />
+      <Route path="/providers/id/:id" component={ProviderProfile} /> 
+
+      {/* <Route path="/provider/:id/edit" component={EditeProfile} /> */}
+
       <Route path="/user" component={CreateUser} />
     </Router>
   );

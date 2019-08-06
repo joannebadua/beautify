@@ -1,12 +1,13 @@
 .provDiv {
   display: flex;
+  flex-direction: column;
   border: 1px solid black;
   padding: 10px 5px;
 }
 
-.info {
+.provInfo {
   display: flex;
-  flex-direction: column;
+
   float: 3px;
 }
 img {
@@ -22,3 +23,30 @@ h3 {
   background: rgb(78, 190, 170);
   color: white;
 }
+
+.logo {
+    color: #fff;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   margin:auto 10px;
+    font-size: 40px;
+    border-radius: 50%;
+  
+    height: 75px;
+    width: 80px;
+
+    background-color: #ccc;
+}
+.info{
+   display: flex;
+ justify-content: space-between;
+  align-items: center;
+}
+.book{
+   display: flex;
+   justify-content: flex-end;
+}
+/* .bttn{
+  align-self: flex-end;
+} */
