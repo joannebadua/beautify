@@ -3,6 +3,7 @@ import "./style.css";
 
 function AnimatedBG() {
     return (
+        <div>
         <section className="content">
             <div className="bgPulse">
                 <span></span>
@@ -17,7 +18,7 @@ function AnimatedBG() {
                 <span></span>
                 <div className="container text-center">
                     <br />
-                    <h1 className="animated lightSpeedIn" id="friend">Beautify</h1>
+                    <h1 className="animated lightSpeedIn" id="beautify">Beautify</h1>
 
                     <h3 id="subtitle">Health and Wellness On Demand...At Your Home</h3>
                     <br />
@@ -30,6 +31,7 @@ function AnimatedBG() {
                 </div>
             </div>
         </section>
+        </div>
 
 
     )

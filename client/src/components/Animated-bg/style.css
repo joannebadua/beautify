@@ -8,7 +8,7 @@ body{
     padding-top: 150px;
 }
 
-#friend {
+#beautify {
     font-size: 130px;
     /* font-stretch: wider; */
     font-family: inherit;
@@ -30,18 +30,37 @@ button {
 
 #services-btn {
 	background: white;
-	color: #0d968f;
+	color: #07ddbd;
+	margin: 5px;
+	/* border: white;
+	border-width: 1px;
+	border-style: solid; */
+}
+
+#services-btn:hover {
+	background: #07ddbd;
+	color: #ffffff;
+	margin: 5px;
+}
+
+#form-btn:hover {
+	background: #07ddbd;
+	color: #ffffff;
 	margin: 5px;
 }
 
 #form-btn {
 	background: white;
-	color: #0d968f;
+	color: #07ddbd;
 	margin: 5px;
 }
 
 a {
 	color: #0d968f;
+}
+
+a:hover {
+	color: white;
 }
 
 #footer-links {
@@ -158,7 +177,7 @@ section.content {
 
 @keyframes bgColor {
 	0% {
-        background: #07ddbd;
+        background-color: #07ddbd;
         /* background: url("https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
         background-size: cover; */
 	}
@@ -194,7 +213,7 @@ section.content {
     background-image: linear-gradient(120deg, #91C4FF 0%, #F0F7FF 87%);
     position: relative;
     width: 100%;
-    height: 950px;
+    height: 100vh;
   }
   
   #cloud-scroll {
