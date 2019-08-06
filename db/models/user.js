@@ -7,8 +7,8 @@ module.exports = function(sequelize, DataTypes) {
     },
      passportId: {
       type: DataTypes.STRING,
-      autoIncrement: true,
-      primaryKey: true
+      allowNull: false,
+      unique: true      
     },
      
     isProvider: {
