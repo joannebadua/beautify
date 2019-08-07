@@ -4,12 +4,18 @@ const multerS3 = require( 'multer-s3' );
 const multer = require( 'multer' );
 const path = require( 'path' );
 const url = require( 'url' );
+
+// Middleware
 const router = express.Router();
+
+// Start of Profile Image Storage
 const s3 = new aws.S3({
     accessKeyId: 'AWS_ACCESS_KEY_ID',
     secretAccessKey: 'AWS_SECRET_ACCESS_KEY',
     Bucket: 'onclick'
 });
+
+// Single Upload only
 const profileImgUpload = multer({
     storage: multerS3({
         s3: s3,
