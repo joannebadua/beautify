@@ -5,6 +5,7 @@ import Wrapper from "../Wrapper";
 import Hero from "../Hero";
 import TimePicker from "rc-time-picker";
 import "rc-time-picker/assets/index.css";
+//var AWS from ('aws-sdk/dist/aws-sdk-react-native');
 
 export default class CreateProvider extends Component {
   constructor(props) {
