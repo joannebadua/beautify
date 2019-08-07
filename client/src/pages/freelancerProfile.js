@@ -22,7 +22,11 @@ export default class ProviderProfile extends Component {
       services: [],
       monthSlots: [],
       daySlots: [],
-      selectedDate: null      
+      selectedDate: null,
+      selectedSlot: "",
+      providerId: "",
+      userId: "",
+      selectedServiceId:""
     };
   }
 
@@ -49,17 +53,36 @@ export default class ProviderProfile extends Component {
     );    
   }
 
+  onConfirm() {
+    debugger;
+    const appt = {
+      start_time: "",
+      end_time: "",
+      providerId: "",
+      userId: "",
+      serviceId:""
+    };
+  }
+
+  bookAppointment(slot){
+
+    const appt ={
+    start_time: this.start_time,
+    end_time: this.start_time+ this
+    }
+    axios.post('/api/appointments', appt).then(res => console.log(res.data));
+  }
+
   componentDidMount() {
     this.getProvidersInfo(this.props.match.params.id);
     this.getSlotsForMonth("2019-08");   
-  //  this.getAllServices(this.props.match.params.id);
+  
   }
 
 
 
 getProvidersInfo = (id)=> {
   const providerUrl = `/api/providers/${id}`;
-debugger;
      axios.get(providerUrl).then(res => {
    //  console.log(res.data)
      this.setState({ 
@@ -88,7 +111,7 @@ debugger;
             <h3>About </h3>
             <p> {this.state.bio} </p>
             <h3>Choose a date </h3>
-                            
+          
             <DatePicker inline
                 selected={this.state.selectedDate}
                 onChange={this.onSelectDate}
@@ -97,23 +120,29 @@ debugger;
                 forceShowMonthNavigation={true}
             />
 
-            <h3> All Services</h3>
-
-{this.state.services.map(service => { 
-    return <ServiceCard key = {service.name} name = {service.name} description = {service.description} duration = {service.duration} price = {service.price}
-                 
- />
-})}
-             
              {
                this.state.daySlots.map(slot => {
                  var slotStart = slot.substr(11,5);
                  console.log(slotStart);
-               return <a className="btn">{slotStart}</a>;
+               return <button className="btn" onClick={this.bookAppointment}>{slotStart}</button>;
 
-// 2019-08-04T09:00:00-07:00
                })
              }
+
+            <div className="appInfo">
+            <h2> booking with {this.state.name} </h2>
+            <p>{this.state.selectedDate} </p>
+         
+
+            <a className="btn" >confirm</a>
+            </div> 
+
+
+            <h3> All Services</h3>
+            {this.state.services.map(service => { 
+                return <ServiceCard key = {service.name} name = {service.name} description = {service.description} duration = {service.duration} price = {service.price}                 
+            />
+            })} 
             
           </Container>
         </Wrapper>

@@ -11,29 +11,6 @@ import IconCard from "../Icons";
 // import Navbar from "../Navbar";
 import NavbarComp from "../Navbar";
 
-// such a small component included it in same file
-// const Service = props => (
-//   <tr>
-//     <td>{props.service.name}</td>
-//     <td>{props.service.category}</td>
-//     <td>{props.service.description}</td>
-//     <td>{props.service.duration}</td>
-//     <td>{props.service.price}</td>
-//     <td>{props.service.date.substring(0, 10)}</td>
-//     <td>
-//       {/* <button onClick={foo} >Perform action</button> */}
-//       {/* <Link to={"/edit/"+props.service._id}>edit</Link> | <a href="#" onClick={() => { props.deleteService(props.service._id) }}>delete</a> */}
-//       <Link to={"/edit/" + props.service._id}>edit</Link> |{" "}
-//       <button
-//         onClick={() => {
-//           props.deleteService(props.service._id);
-//         }}
-//       >
-//         delete
-//       </button>
-//     </td>
-//   </tr>
-// );
 
 export default class ServicesList extends Component {
   constructor(props) {
@@ -105,9 +82,7 @@ export default class ServicesList extends Component {
                   id={provider.id}
                   name={provider.name}
                  service={service}
-
-                  //img={provider.img}
-                // findService = {this.findService}
+    
                />})
               }
             
