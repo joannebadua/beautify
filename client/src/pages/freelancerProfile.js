@@ -44,7 +44,8 @@ export default class ProviderProfile extends Component {
 
      axios.get(daySlotsUrl).then(res => {
        this.setState({ daySlots: res.data});
-    });    
+    }
+    );    
   }
 
   componentDidMount() {
@@ -53,20 +54,6 @@ export default class ProviderProfile extends Component {
   //  this.getAllServices(this.props.match.params.id);
   }
 
-
-// getAllServices=(id)=>{
-//     var  url = `/api/providers/${id}/services`
-// axios.get(url).then(res => {
-//     const result= res[0];
-//      this.setState({ 
-//        name: result.name,
-//         img: result.img, 
-//         bio: result.bio,
-//         description:result.description
-        
-//      });
-//      });
-// }
 
 
 getProvidersInfo = (id)=> {

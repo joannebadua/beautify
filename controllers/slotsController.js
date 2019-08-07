@@ -3,18 +3,9 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const db = require("../db/models");
 const INCREMENT = 60;
-const providerHours = "9:00-17:00";
-const appointments = [
-  {
-    start_time: "2019-08-01 09:30",
-    end_time: "2019-08-01 10:30",
-  },
-  {
-    start_time: "2019-08-01 12:30",
-    end_time:  "2019-08-01 14:30"
-  }
-];
+
 function parseProviderHours(providerHours) {
+  debugger;
   const [ start, end ] = providerHours.split("-");
   return [
     start.split(":").map(num => parseInt(num)),
@@ -26,10 +17,13 @@ function getProviderStartEnd(day, providerHours) {
   const parsedProviderHours = parseProviderHours(providerHours);
   const providerStart = momentDay.clone().add(parsedProviderHours[0][0], 'hour').add(parsedProviderHours[0][1], 'minute');
   const providerEnd = momentDay.clone().add(parsedProviderHours[1][0], 'hour').add(parsedProviderHours[1][1], 'minute');
-  return { providerStart, providerEnd };
+  return { providerStart: providerStart, providerEnd: providerEnd };
 }
 function getAvailabilities(day, appointments, providerHours, duration) {
-  const { providerStart, providerEnd } = getProviderStartEnd(day, providerHours);
+  const startEnd = getProviderStartEnd(day, providerHours);
+  const providerStart = startEnd.providerStart;
+  const providerEnd = startEnd.providerEnd;
+
   let windowStart = providerStart;
   let windowEnd;
   let times = [];
@@ -59,11 +53,11 @@ function getAvailableDates(slots, service, month) {
   debugger;
   const slotMap = {};
   slots.forEach(slot => {
-    slotMap[
-      moment(slot.date, "YYYY-MM-DD")
+    const slotDate =  moment(slot.date, "YYYY-MM-DD")
         .add(7, "hours")
-        .format("YYYY-MM-DD")
-    ] = slot;
+        .format("YYYY-MM-DD");
+
+    slotMap[slotDate] = slot;
   });
   const duration = service.duration;
   const momentDay = moment(month, "YYYY-MM");
