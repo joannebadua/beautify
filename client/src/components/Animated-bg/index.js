@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function AnimatedBG() {
+function AnimatedBG(props) {
     return (
         <div>
         <section className="content">
@@ -28,6 +28,8 @@ function AnimatedBG() {
                     <button className="btn btn-outline-light btn-lg" id="form-btn">
 
                         <a href="providers/new">BECOME A PROVIDER</a></button>
+                    
+                    <button className="btn btn-outline-light btn-lg" id="form-btn" onClick={props.logout}>LOGOUT</button>
 
 
                     <br />
