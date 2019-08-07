@@ -39,7 +39,7 @@ class App extends React.Component {
       return (
         <Router>
     
-          <Route path="/" component={AnimatedBG} />
+          <Route path="/" exact component={AnimatedBG} />
           <Route path="/services" component={ServicesList} />
           <Route path="/edit/:id" component={EditService} />
           <Route path="/providers/new" component={CreateProvider} />
