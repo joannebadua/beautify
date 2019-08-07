@@ -4,7 +4,9 @@ import Container from "../Container";
 import Wrapper from "../Wrapper";
 import Hero from "../Hero";
 import TimePicker from "rc-time-picker";
+import NavbarComp from "../Navbar";
 import "rc-time-picker/assets/index.css";
+
 
 export default class CreateProvider extends Component {
   constructor(props) {
@@ -68,6 +70,7 @@ export default class CreateProvider extends Component {
   render() {
     return (
       <div>
+        <NavbarComp />
         <Wrapper>
           <Hero backgroundImage="https://images.pexels.com/photos/457701/pexels-photo-457701.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             <h1>Beautify</h1>

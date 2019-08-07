@@ -32,6 +32,7 @@ import {
   render() {
     return (
       <div>
+       
         <Navbar color="teal" light expand="md">
           <NavbarBrand href="/">Beautify</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
@@ -41,11 +42,13 @@ import {
                 <NavLink href="/services/">Services</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/create">Post A Service</NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink href="/providers/new">Become A Provider</NavLink>
               </NavItem>
+
+              {/* <NavItem>
+                <NavLink href="/providers/new">Become A Provider</NavLink>
+              </NavItem> */}
+
               {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Options
