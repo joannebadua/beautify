@@ -19,32 +19,42 @@ export default class ProviderProfile extends Component {
       name: "",
       img: "",
       bio: "",
-      date: new Date(),
-      services: []
+      services: [],
+      monthSlots: [],
+      daySlots: [],
+      selectedDate: null      
     };
   }
 
-onChange = date => this.setState({ date })
+  onSelectDate = selectedDate => {
+     this.setState({ selectedDate });
+     this.getSlotsForDay(selectedDate);
+  }
+
+  getSlotsForMonth() {
+    const monthSlotsUrl = `/api/providers/1/slots/month/2019-08?serviceId=1`;
+    axios.get(monthSlotsUrl).then(res => {
+      const monthSlots = res.data.map(slot => new Date(slot));
+      this.setState({monthSlots});
+    });    
+  }
+
+  getSlotsForDay(day) {
+     const daySlotsUrl = `/api/providers/1/slots/day/2019-08-04?serviceId=1`;
+
+     axios.get(daySlotsUrl).then(res => {
+       this.setState({ daySlots: res.data});
+       console.log(res.data)
+    }
+    );    
+  }
 
   componentDidMount() {
     this.getProvidersInfo(this.props.match.params.id);
+    this.getSlotsForMonth("2019-08");   
   //  this.getAllServices(this.props.match.params.id);
   }
 
-
-// getAllServices=(id)=>{
-//     var  url = `/api/providers/${id}/services`
-// axios.get(url).then(res => {
-//     const result= res[0];
-//      this.setState({ 
-//        name: result.name,
-//         img: result.img, 
-//         bio: result.bio,
-//         description:result.description
-        
-//      });
-//      });
-// }
 
 
 getProvidersInfo = (id)=> {
@@ -61,10 +71,8 @@ debugger;
 
      });
   }
-
-
   
-  render() {
+  render() {  
     return (
       <div>
         <Wrapper>
@@ -79,24 +87,34 @@ debugger;
             <br />
             <h3>About </h3>
             <p> {this.state.bio} </p>
-            <h3>Services</h3>
+            <h3>Choose a date </h3>
+                            
+            <DatePicker inline
+                selected={this.state.selectedDate}
+                onChange={this.onSelectDate}
+                isOpen={true}
+                includeDates={this.state.monthSlots}
+                forceShowMonthNavigation={true}
+            />
+
+            <h3> All Services</h3>
 
 {this.state.services.map(service => { 
-    return <ServiceCard name = {service.name} description = {service.description} duration = {service.duration} price = {service.price}
+    return <ServiceCard key = {service.name} name = {service.name} description = {service.description} duration = {service.duration} price = {service.price}
                  
  />
 })}
              
-            <h3>Choose a date </h3>
-                            
-            <DatePicker inline
-                selected={this.state.date}
-                onChange={this.onChangeDate}
-                isOpen={true}
+             {
+               this.state.daySlots.map(slot => {
+                 var slotStart = slot.substr(11,5);
+                 console.log(slotStart);
+               return <a className="btn">{slotStart}</a>;
 
-
-            />
-
+// 2019-08-04T09:00:00-07:00
+               })
+             }
+            
           </Container>
         </Wrapper>
       </div>
