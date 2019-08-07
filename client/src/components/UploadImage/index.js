@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 // import Container from "../Container";
 
-class home extends Component {
+class UploadImage extends Component {
 
     constructor ( props ) {
         super ( props );
@@ -111,4 +111,4 @@ render() {
 }
 }
 
-export default home;
+export default UploadImage;
