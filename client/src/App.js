@@ -8,26 +8,51 @@ import CreateService from "./components/create-service.component";
 import CreateUser from "./components/create-user.component";
 import EditService from "./components/edit-services.component";
 import ProviderProfile from "./pages/freelancerProfile";
+import LogIn from "./components/LogIn";
+import SignUp from "./components/SignUp";
 
 import AnimatedBG from "./components/Animated-bg";
 // import logo from './logo.svg';
 // import './App.css';
 
-function App() {
-  return (
-    <Router>
+class App extends React.Component {
 
-      <Route path="/" component={AnimatedBG} />
-      <Route path="/services" component={ServicesList} />
-      <Route path="/edit/:id" component={EditService} />
-      <Route path="/providers/new" component={CreateProvider} />
-      <Route path="/providers/id/:id" component={ProviderProfile} /> 
+  state = {
+    isLoggedIn: false
+  }
 
-      {/* <Route path="/provider/:id/edit" component={EditeProfile} /> */}
+  // componentDidMount() {
+    // add method that checks to see if log in was successful - if it was, then set isLoggedIn state to true
+  // }
 
-      <Route path="/user" component={CreateUser} />
-    </Router>
-  );
+  
+
+  render() {
+    if (!this.state.isLoggedIn) {
+      return(
+        <div>
+          <LogIn/>
+          <SignUp/>
+        </div>
+      );
+    } else {      
+      return (
+        <Router>
+    
+          <Route path="/" component={AnimatedBG} />
+          <Route path="/services" component={ServicesList} />
+          <Route path="/edit/:id" component={EditService} />
+          <Route path="/providers/new" component={CreateProvider} />
+          <Route path="/providers/id/:id" component={ProviderProfile} /> 
+    
+          {/* <Route path="/provider/:id/edit" component={EditeProfile} /> */}
+    
+          <Route path="/user" component={CreateUser} />
+        </Router>
+      );
+    }
+  }
+
 }
 
 export default App;
