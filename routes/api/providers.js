@@ -15,7 +15,7 @@ router
   .route("/providers/:providerId/slots/month/:month")
   .get(slotsController.findByProviderServiceMonth);
 router
-  .route("/providers/:id/slots/day")
+  .route("/providers/:providerId/slots/day/:day")
   .get(slotsController.findByProviderServiceDay);
 router
   .route("/providers/:id")
