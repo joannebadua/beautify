@@ -1,6 +1,6 @@
 USE beautifyDB;
 
-INSERT INTO users(`isProvider`, `createdAt`, `updatedAt`) VALUES (0, SYSDATE(), SYSDATE());
+INSERT INTO users( `passportId`,`isProvider`, `createdAt`, `updatedAt`) VALUES (1,0, SYSDATE(), SYSDATE());
 
 INSERT INTO providers(`name`, `bio`, `workingHours`, `img`, `createdAt`, `updatedAt`) VALUES ('Kitty', 'some Kitty bio', '9:00-18:00', 'https://i.pinimg.com/originals/7f/e7/df/7fe7df8f3843a85b22127899c280b6dd.jpg', SYSDATE(), SYSDATE());
 INSERT INTO providers(`name`, `bio`, `workingHours`, `img`, `createdAt`, `updatedAt`) VALUES ('Hallie', 'some Hallie bio', '11:00-20:00', ' ', SYSDATE(), SYSDATE());

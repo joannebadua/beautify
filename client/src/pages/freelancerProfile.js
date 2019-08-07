@@ -44,6 +44,7 @@ export default class ProviderProfile extends Component {
 
      axios.get(daySlotsUrl).then(res => {
        this.setState({ daySlots: res.data});
+       console.log(res.data)
     }
     );    
   }
@@ -106,7 +107,11 @@ debugger;
              
              {
                this.state.daySlots.map(slot => {
-               return <div>{slot}</div>;
+                 var slotStart = slot.substr(11,5);
+                 console.log(slotStart);
+               return <a className="btn">{slotStart}</a>;
+
+// 2019-08-04T09:00:00-07:00
                })
              }
             
