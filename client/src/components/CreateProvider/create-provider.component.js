@@ -5,6 +5,7 @@ import Wrapper from "../Wrapper";
 import Hero from "../Hero";
 import TimePicker from "rc-time-picker";
 import NavbarComp from "../Navbar";
+import home from "../UploadImage/home";
 import "rc-time-picker/assets/index.css";
 
 
@@ -124,7 +125,10 @@ export default class CreateProvider extends Component {
                     />
                   </div>
                 </div>
-              </div>
+              </div>       
+              <div>
+              <home />
+              </div> 
               <div className="form-group">
                 <input
                   type="submit"

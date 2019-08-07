@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+// import Container from "../Container";
 
-class Home extends Component {
+class home extends Component {
 
     constructor ( props ) {
         super ( props );
@@ -9,13 +10,13 @@ class Home extends Component {
             selectedFile: null
         }
     }
-
-singleFileChangedHandler = ( event ) =>
-{
-    this.setState({
-        selectedFile: event.target.files[0]
-    });
-};
+    
+    singleFileChangedHandler = ( event ) =>
+    {
+        this.setState({
+            selectedFile: event.target.files[0]
+        });
+    };
 
 singleFileUploadHandler = ( ) => {
     const data = new FormData();
@@ -30,7 +31,7 @@ if ( this.state.selectedFile ) {
     headers: {
       'accept': 'application/json',
       'Accept-Language': 'en-US,en; q=0.8',
-      'Content-Type': 'multipart/form-data; boundary=${data._boundary}',
+    //   'Content-Type': 'multipart/form-data; boundary=${data._boundary}',
     }
   })
   .then( ( response ) => {
@@ -71,44 +72,40 @@ ocShowAlert = ( message, background = '#3089cf' ) => {
     document.querySelector( '#oc-alert-container' ),
     alertEl = 
     document.createElement( 'div' ),
-    textNode = 
-    document.createElement ( 'div' ),
     textNode = document.createTextNode( message );
     alertEl.setAttribute( 'class', 'oc-alert-pop-up' );
-    $( alertEl ).css( 'background', background );
     alertEl.appendChild( textNode );
 
     alertContainer.appendChild( alertEl );
     setTimeout( function () {
-        $( alertEl ).fadeOut( 'slow' );
-        $( alertEl ).remove();
     }, 3000 );
 };
 
 render() {
-    return(
-        <div className="container">
+    return (
+          <div>
         {/* Alert box for pic upload */}
 
-<div id="oc-alert-container"></div>
+    <div id="oc-alert-container"></div>
 
-{/* Single Upload  */}
+    {/* Single Upload  */}
 
-<div className="card border-light mb-3 mt-5" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192.5)' }}>
-<div className="card-header"> 
-<h3 style={{ color: '#555',
-marginLeft: '12px' }}>Single Image upload </h3>
+    <div className="card border-light mb-3 mt-5" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192.5)' }}>
+    <div className="card-header"> 
+    <h3 style={{ color: '#555',
+    marginLeft: '12px' }}>Single Image upload </h3>
 
-<p className="text-muted" style={{ marginLeft: '12px' }}>>Upload Size: 250px x 250px ( Max 2MB ) </p>
-</div>
+    <p className="text-muted" style={{ marginLeft: '12px' }}>>Upload Size: 250px x 250px ( Max 2MB ) </p>
+    </div>
 
-<div className="card-body">
-<p className="card-text"> Please upload an image for your profile</p>
-<input type="file" onChange={this.singleFileChangedHandler}>Upload!</button>
-</div>
-</div>
-</div>
-</div>
+    <div className="card-body">
+        <p className="card-text"> Please upload an image for your profile</p>
+        <input 
+            type="file" 
+            onChange={this.singleFileChangedHandler}
+        />
+    </div>
+    </div>
     </div>
     );
 }
