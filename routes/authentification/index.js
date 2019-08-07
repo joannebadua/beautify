@@ -1,9 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const db = require("../../models");
+// const db = require("../../models");
+
+
+router.get("/user", (req, res) => {
+   res.json({ loggedIn: req.isAuthenticated() });
+})
 
 router.post("/signup", (req, res, next) => {
+
+   console.log("SIGNUP ROUTE HIT!");
 
     passport.authenticate("local-signup", (err, user) => {
        if (err) {
@@ -57,6 +64,20 @@ router.post("/signup", (req, res, next) => {
        })
  
     })(req, res, next);
+ });
+
+ router.get("/logout", function (req, res) {
+
+   req.session.destroy(function (err) {
+     if (err) {
+       console.log("Error: ", err);
+     }
+     res.clearCookie("user_id");
+     res.clearCookie("username");
+     res.clearCookie("connect.sid");
+     res.redirect("/");
+   });
+
  });
  
  module.exports = router;

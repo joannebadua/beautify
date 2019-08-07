@@ -11,12 +11,12 @@ module.exports = function(passport) {
 
     // used to serialize the user for the session
     passport.serializeUser(function(user, done){
-        done(null, user.uuid);
+        done(null, user.id);
     });
 
     // used to deserialize the user
     passport.deserializeUser((uuid, done) => {
-        db.user.findOne({where: {uuid: uuid}})
+        db.user.findOne({where: {id: uuid}})
             .then(function(user){
                 if(user) {
                     done(null, user.get());
@@ -33,12 +33,12 @@ module.exports = function(passport) {
     // by default, if there was no name, it would just be called 'local'
 
     passport.use('local-signup', new LocalStrategy({
-        // by default, local strategy uses username and local_pw, we will override with email
+        // by default, local strategy uses username and password, we will override with email
         usernameField: 'email',
-        passwordField : 'local_pw',
+        passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, email, local_pw, done) {
+    function(req, email, password, done) {
         // asynchronous
         // User.findOne wont fire unless data is sent back
         process.nextTick(function() {
@@ -62,8 +62,7 @@ module.exports = function(passport) {
                 // create the user
                     db.user.create({
                         email: req.body.email,
-                        local_pw: db.user.generateHash(local_pw),
-                        name: req.body.username
+                        password: password
                     })
                         .then(function(dbUser){
                             // send post back to render
@@ -86,12 +85,12 @@ module.exports = function(passport) {
     // by default, if there was no name, it would just be called 'local'
 
     passport.use('local-login', new LocalStrategy({
-        // by default, local strategy uses username and local_pw, we will override with email
+        // by default, local strategy uses username and password, we will override with email
         usernameField: 'email',
-        passwordField : 'local_pw',
+        passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, email, local_pw, done) { // callback with email and local_pw from our form
+    function(req, email, password, done) { // callback with email and password from our form
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
         db.user.findOne({
@@ -108,8 +107,8 @@ module.exports = function(passport) {
             if (!user){
                 return done(null, false,'No user found.'); 
             }
-            // if the user is found but the local_pw is wrong
-            if (!user.validPassword(req.body.local_pw, user.local_pw)){
+            // if the user is found but the password is wrong
+            if (user.password !== req.body.password){
                 return done(null, false, 'invalid email / password combination.');
             }
             // all is well, return successful user

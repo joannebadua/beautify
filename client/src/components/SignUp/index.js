@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class SignUp extends Component {
     state = {
-        username: "",
+        email: "",
         password: "",
         passwordConfirm: ""
     }
@@ -20,7 +20,7 @@ class SignUp extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.username && this.state.password && this.state.passwordConfirm) {
+        if (this.state.email && this.state.password && this.state.passwordConfirm) {
             if (this.state.password === this.state.passwordConfirm) {
                 fetch("/auth/signup", {
                     method: "POST",
@@ -28,20 +28,20 @@ class SignUp extends Component {
                     mode: "cors",
                     body: JSON.stringify({
                         password: this.state.password,
-                        username: this.state.username
+                        email: this.state.email
                     }),
                     headers: new Headers({
                         "Content-Type": "application/json"
                     })
                 })  
                     .then(response => {
-                        console.log(response);
+                        console.log("REACT RESPONSE", response);
                         window.location.href = "/";
                     })
                     .catch(err => console.log(err));
                 
                 this.setState({
-                    username: "",
+                    email: "",
                     passowrd: "",
                     passwordConfirm: ""
                 });
@@ -59,10 +59,10 @@ class SignUp extends Component {
            <div>
               <form>
                  <input
-                    value={this.state.username}
+                    value={this.state.email}
                     onChange={this.handleInputChange}
-                    name="username"
-                    placeholder="Username"
+                    name="email"
+                    placeholder="email"
                     type="text"
                  />
                  <input

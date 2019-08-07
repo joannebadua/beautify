@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class LogIn extends Component {
 
     state = {
-        username: "",
+        email: "",
         password: ""
      };
 
@@ -22,7 +23,7 @@ class LogIn extends Component {
            credentials: "include",
            mode: "cors",
            body: JSON.stringify({
-              username: this.state.username,
+              email: this.state.email,
               password: this.state.password
            }),
            headers: new Headers({
@@ -30,7 +31,7 @@ class LogIn extends Component {
            })
         })
            .then(response => {
-              console.log(response);
+              console.log("LOGIN RESPONSE: ", response);
               window.location.href = "/";
            })
            .catch(err => {
@@ -38,7 +39,7 @@ class LogIn extends Component {
            });
   
         this.setState({
-           username: "",
+           email: "",
            password: ""
         });
      };
@@ -49,8 +50,8 @@ class LogIn extends Component {
            <div>
               <form>
                     <input
-                       value={this.state.username}
-                       name="username"
+                       value={this.state.email}
+                       name="email"
                        onChange={this.handleInputChange}
                        type="text"
                        placeholder="Username"
