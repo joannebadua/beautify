@@ -24,6 +24,7 @@ import blowdry from '../../assets/img/blowdry.png';
 
   
 const IconCard = (props) => {
+  const id = "fitenss";
   return (
     <div className="services-content">
     <Container>
@@ -41,7 +42,7 @@ const IconCard = (props) => {
               <h2 className="title"><strong>MakeUp</strong></h2>
             </CardTitle>
 
-         <Button onClick={() => props.loadProviders("make-up")}>BROWSE</Button>
+         <Button onClick={() => props.findServicesForCategory("make-up")}>BROWSE</Button>
 
         </CardBody>
       </Card>
@@ -57,21 +58,21 @@ const IconCard = (props) => {
               <h2 className="title"><strong>Hair/Barber</strong></h2>
             </CardTitle>
 
-         <Button onClick={() => props.loadProviders("hair-barber")}>BROWSE</Button>
+         <Button onClick={() => props.findServicesForCategory("hair-barber")}>BROWSE</Button>
 
         </CardBody>
       </Card>
       </div>
 
       <div className="col-3">
-      <Card>
+      <Card id="fitness">
         <CardImg top width="100%" src={yoga2} alt="Card image cap Lipstick" />
         <CardBody>
           <CardTitle>
               <h2 className="title"><strong>Yoga</strong></h2>
             </CardTitle>
 
-         <Button onClick={() => props.loadProviders("yoga")}>BROWSE</Button>
+         <Button onClick={() => props.findServicesForCategory("yoga")}>BROWSE</Button>
 
         </CardBody>
       </Card>
@@ -87,7 +88,7 @@ const IconCard = (props) => {
               <h2 className="title"><strong>Fitness</strong></h2>
             </CardTitle>
 
-         <Button onClick={() => props.loadProviders("fitness")}>BROWSE</Button>
+         <Button id="fitness" onClick={() => props.findServicesForCategory("fitness")}>BROWSE</Button>
 
         </CardBody>
       </Card>
@@ -106,7 +107,7 @@ const IconCard = (props) => {
               <h2 className="title"><strong>Nutritionist</strong></h2>
             </CardTitle>
 
-         <Button onClick={() => props.loadProviders("nutritionist")}>BROWSE</Button>
+         <Button onClick={() => props.findServicesForCategory("nutritionist")}>BROWSE</Button>
 
         </CardBody>
       </Card>
@@ -122,7 +123,7 @@ const IconCard = (props) => {
               <h2 className="title"><strong>Fashion</strong></h2>
             </CardTitle>
 
-         <Button onClick={() => props.loadProviders("fashion")}>BROWSE</Button>
+         <Button onClick={() => props.findServicesForCategory("fashion")}>BROWSE</Button>
 
         </CardBody>
       </Card>
@@ -138,7 +139,7 @@ const IconCard = (props) => {
               <h2 className="title"><strong>Massage</strong></h2>
             </CardTitle>
 
-         <Button onClick={() => props.loadProviders("massage")}>BROWSE</Button>
+         <Button onClick={() => props.findServicesForCategory("massage")}>BROWSE</Button>
 
         </CardBody>
       </Card>
@@ -154,7 +155,7 @@ const IconCard = (props) => {
               <h2 className="title"><strong>Nails</strong></h2>
             </CardTitle>
 
-         <Button onClick={() => props.loadProviders("nails")}>BROWSE</Button>
+         <Button onClick={() => props.findServicesForCategory("nails")}>BROWSE</Button>
 
         </CardBody>
       </Card>

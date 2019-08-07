@@ -76,19 +76,6 @@ export default class ServicesList extends Component {
       .catch(err => console.log(err));
   };
 
-// findService = (providerId, serviceId)=>{
-//   return axios.get(`/api/services/${serviceId}`).then(res => {
-//         const service = res.data;
-
-//         this.setState(
-//           {
-//             service
-//           },
-//           console.log(res.data)
-//         );
-//       })
-//       .catch(err => console.log(err));
-// }
 
   render() {
     return (
@@ -103,25 +90,25 @@ export default class ServicesList extends Component {
           </Hero>
 
         <main>
-  <IconCard loadProviders={this.loadProviders} />
+  <IconCard findServicesForCategory={this.findServicesForCategory} />
             <Container>
 
              <br />
                <h2>Choose A Provider</h2>
                <hr />
               <br />
-               {this.state.providers.map(provider => (
-                 
-                <ProviderCard
+               {this.state.services.map(service => {
+                 const provider = service.providers[0];
+                return <ProviderCard
 
                   key={provider.id}
                   id={provider.id}
                   name={provider.name}
-                  // service={service}
+                 service={service}
 
                   //img={provider.img}
                 // findService = {this.findService}
-              />))
+               />})
               }
             
             
