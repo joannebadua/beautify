@@ -53,7 +53,7 @@ class App extends React.Component {
           <Route path="/services" component={ServicesList} />
           <Route path="/edit/:id" component={EditService} />
           <Route path="/providers/new" component={CreateProvider} />
-          <Route path="/providers/id/:id" component={ProviderProfile} />
+          <Route path="/providers/id/:id/service/:service" component={ProviderProfile} />
 
           {/* <Route path="/provider/:id/edit" component={EditeProfile} /> */}
 
