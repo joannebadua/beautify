@@ -8,7 +8,7 @@ import "rc-time-picker/assets/index.css";
 import ServiceCard from "../components/ServiceCard";
 import DatePicker from "react-datepicker";
 import "./freelancerProfile.css";
-//import "react-datepicker/dist/react-datepicker.css";
+const moment = require("moment");
 
 export default class ProviderProfile extends Component {
   constructor(props) {
@@ -28,18 +28,19 @@ export default class ProviderProfile extends Component {
       providerId: this.props.match.params.id,
       userId: 1,
       selectedServiceId: this.props.match.params.service,
-      serviceDuration:""
+      serviceDuration: 30,
+      showConfirm: true
     };
   }
 
   onSelectTime(time) {
-    debugger;
     this.setState({ selectedTime: time });
   }
 
   onSelectDate = selectedDate => {
      this.setState({ selectedDate });
      this.getSlotsForDay(selectedDate);
+     this.setState({ showConfirm: true});
   }
 
   getSlotsForMonth() {
@@ -55,7 +56,6 @@ export default class ProviderProfile extends Component {
 
      axios.get(daySlotsUrl).then(res => {
        this.setState({ daySlots: res.data});
-       console.log(res.data)
     }
     );    
   }
@@ -63,16 +63,25 @@ export default class ProviderProfile extends Component {
 
   bookAppointment = () => {
 
-   
+  const service = this.state.services.find(service => service.id + "" === this.state.selectedServiceId);
+   const startTime = this.state.selectedDate.toISOString().split("T")[0]+" " + this.state.selectedTime;
+   const endTime = moment(startTime).add(service.duration, 'minute').format();
+
    const appt = {
-      start_time: this.state.selectedDate.toISOString().split("T")[0]+" " + this.state.selectedTime,
-      end_time: this.state.selectedDate.toISOString().split("T")[0]+" "+ this.state.selectedTime,
+      start_time: startTime,
+      end_time: endTime,
       providerId: this.state.providerId,
       userId: this.state.userId,
       serviceId: this.state.selectedServiceId
     };
-   
+   console.log(appt)
     axios.post('/api/appointments', appt).then(res => console.log(res.data));
+  this.setState({
+    showConfirm: false,
+     selectedDate: null,
+      selectedTime: null,
+      selectedSlot: "",
+  });
   };
 
   componentDidMount() {
@@ -86,7 +95,7 @@ export default class ProviderProfile extends Component {
 getProvidersInfo = (id)=> {
   const providerUrl = `/api/providers/${id}`;
      axios.get(providerUrl).then(res => {
-   //  console.log(res.data)
+
      this.setState({ 
        name: res.data[0].name,
         img: res.data[0].img, 
@@ -98,14 +107,22 @@ getProvidersInfo = (id)=> {
   }
 
   displayServiceName() {
-    debugger;
     const service = this.state.services.find(service => service.id + "" === this.state.selectedServiceId);
     return service == null ? null : service.name;
   }
-  
+ displayServicePrice() {
+    const service = this.state.services.find(service => service.id + "" === this.state.selectedServiceId);
+    return service == null ? null : service.price;
+  }
+ displayServiceDuration() {
+    const service = this.state.services.find(service => service.id + "" === this.state.selectedServiceId);
+    return this.setState({
+      serviceDuration: service == null ? '' : service.duration
+    }) 
+  }
+
   formatSelectedDate() {
-    debugger;
-    return this.state.selectedDate ? this.state.selectedDate + "": null;
+    return this.state.selectedDate ? this.state.selectedDate.toISOString().split("T")[0] + "": null;
   }
   render() {  
     return (
@@ -116,6 +133,9 @@ getProvidersInfo = (id)=> {
           
           </Hero>
           <Container>
+           <a href="/services" className="btn" >Back to search </a>
+                
+              
             <br />
             <br />
             <h2>{this.state.name}</h2>
@@ -135,27 +155,31 @@ getProvidersInfo = (id)=> {
              {
                this.state.daySlots.map(slot => {
                  var slotStart = slot.substr(11,5);
-                 console.log(slotStart);
                return <a className="btn" onClick={this.onSelectTime.bind(this, slotStart)}>{slotStart}</a>;
 
                })
              }
 
             <div className="apptInfo">
-            <h2> booking with {this.state.name} </h2>
-            <p>{this.displayServiceName()}</p>
-            <p>{this.formatSelectedDate()} </p>
-            <p>{this.state.selectedTime}</p>
-         
+            <h2>{this.displayServiceName()} with {this.state.name} </h2>
 
-            <button className="btn" onClick={this.bookAppointment}>confirm</button>
+            <p><strong>Day: </strong>{this.state.selectedDate == null ? '' : moment(this.formatSelectedDate(), 'YYYY-MM-DD').format('dddd MMMM Do')} </p>
+            <p><strong>Time: </strong>{this.state.selectedTime}</p>
+            <p><strong>Price: </strong>{this.displayServicePrice()}$</p>
+ 
+{this.state.showConfirm ?
+            <button className="btn"  onClick={this.bookAppointment}>confirm</button> :  <div> <p>booked!</p> <a href="/services" className="btn" >Back to search?</a> </div>
+}
             </div> 
 
 
             <h3> All Services</h3>
             {this.state.services.map(service => { 
-                return <ServiceCard key = {service.name} name = {service.name} description = {service.description} duration = {service.duration} price = {service.price}                 
+              const url =` /providers/id/${this.state.providerId}/service/${service.id} `;
+                return <div><ServiceCard key = {service.name} name = {service.name} description = {service.description} duration = {service.duration} price = {service.price}                 
             />
+            <a href={url} className="btn" > book! </a>
+</div>
             })} 
             
           </Container>
