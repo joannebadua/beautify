@@ -5,6 +5,7 @@ import Wrapper from "../Wrapper";
 import Hero from "../Hero";
 import TimePicker from "rc-time-picker";
 import NavbarComp from "../Navbar";
+import UploadImage from "../UploadImage";
 import "rc-time-picker/assets/index.css";
 //var AWS from ('aws-sdk/dist/aws-sdk-react-native');
 
@@ -125,7 +126,10 @@ export default class CreateProvider extends Component {
                     />
                   </div>
                 </div>
-              </div>
+              </div>       
+              <div>
+              <UploadImage />
+              </div> 
               <div className="form-group">
                 <input
                   type="submit"

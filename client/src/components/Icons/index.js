@@ -24,7 +24,7 @@ import blowdry from '../../assets/img/blowdry.png';
 
   
 const IconCard = (props) => {
-  const id = "fitenss";
+  const id = "fitness";
   return (
     <div className="services-content">
     <Container>
