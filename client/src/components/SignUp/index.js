@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./style.css";
 
 class SignUp extends Component {
     state = {
@@ -57,7 +58,7 @@ class SignUp extends Component {
 
         return (
            <div>
-              <form>
+              <form className = "signup">
                  <input
                     value={this.state.email}
                     onChange={this.handleInputChange}
