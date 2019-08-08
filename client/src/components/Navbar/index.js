@@ -15,6 +15,7 @@ import {
 //   DropdownItem
  } from 'reactstrap';
 
+import session from '../../session';
  export default class NavbarComp extends React.Component {
   constructor(props) {
     super(props);
@@ -41,9 +42,11 @@ import {
               <NavItem>
                 <NavLink href="/services/">Services</NavLink>
               </NavItem>
+              {!session.isProvider ?
               <NavItem>
                 <NavLink href="/providers/new">Become A Provider</NavLink>
               </NavItem>
+              : null}
 
               {/* <NavItem>
                 <NavLink href="/providers/new">Become A Provider</NavLink>

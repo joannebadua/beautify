@@ -61,5 +61,11 @@ INSERT INTO provider_services(`providerId`, `serviceId`, `createdAt`, `updatedAt
 INSERT INTO appointments(`providerId`, `serviceId`, `userId`, `start_time`, `end_time`, `createdAt`, `updatedAt`) VALUES (1, 1, 1, '2019-08-02 13:00', '2019-08-02 13:30', SYSDATE(), SYSDATE());
 
 INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (1, 4, '2019-08-02', SYSDATE(), SYSDATE());
+INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (2, 2, '2019-08-03', SYSDATE(), SYSDATE());
+INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (1, 3, '2019-08-06', SYSDATE(), SYSDATE());
+INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (3, 6, '2019-08-08', SYSDATE(), SYSDATE());
+INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (4, 1, '2019-08-02', SYSDATE(), SYSDATE());
+INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (1, 1, '2019-08-05', SYSDATE(), SYSDATE());
+INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (5, 3, '2019-08-09', SYSDATE(), SYSDATE());
 
 

@@ -53,6 +53,11 @@ export default class ServicesList extends Component {
       .catch(err => console.log(err));
   };
 
+ scrollElementIntoViewIfNeeded(domNode) {
+    var containerDomNode = React.findDOMNode(this);
+    // Determine if `domNode` fully fits inside `containerDomNode`.
+    // If not, set the container's scrollTop appropriately.
+  }
 
   render() {
     return (
