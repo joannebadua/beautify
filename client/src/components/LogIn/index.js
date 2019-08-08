@@ -56,21 +56,21 @@ class LogIn extends Component {
          </Hero>
            <div className = "background">
               <form className = "login">
-                    <input
+                    <input className = "email"
                        value={this.state.email}
                        name="email"
                        onChange={this.handleInputChange}
                        type="text"
                        placeholder="Username"
                     />
-                    <input
+                    <input className = "password"
                        value={this.state.password}
                        name="password"
                        onChange={this.handleInputChange}
                        type="password"
                        placeholder="Password"
                     />
-                    <button onClick={this.handleFormSubmit}>
+                    <button onClick={this.handleFormSubmit} className = "button">
                        Log In
                     </button>
               </form>
