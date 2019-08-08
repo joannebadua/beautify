@@ -1,9 +1,18 @@
 // aws-sdk code
-const aws = require( 'aws=sdk');
+require("dotenv").config();
+const provider = require("../db/models/provider");
+const aws = require( 'aws-sdk');
 const multerS3 = require( 'multer-s3' );
 const multer = require( 'multer' );
 const path = require( 'path' );
 const url = require( 'url' );
+
+
+// Multer ships with storage engines DiskStorage and MemoryStorage
+// And Multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
+var storage = multer.memoryStorage();
+var upload = multer({ storage: storage });
+
 
 // Middleware
 const router = express.Router();
