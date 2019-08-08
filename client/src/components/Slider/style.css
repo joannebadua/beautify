@@ -17,6 +17,18 @@
 .carousel-inner {
     margin-top: -5px;
 }
+
+span.carousel-control-prev-icon {
+    size: 0px;
+    color: transparent;
+}
+
+.carousel-control-prev-icon {
+    size: 0px;
+    color: transparent;
+}
+
+/* a.carousel-control */
 /* 
 h3 {
     text-align: left;

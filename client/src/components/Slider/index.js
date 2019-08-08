@@ -11,6 +11,12 @@ const items = [
         // caption: 'Health and Wellness Services',
         // header: 'Makeup'
       },
+      {
+        src: 'https://images.pexels.com/photos/1213558/pexels-photo-1213558.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        altText: 'MakeUp',
+        // caption: 'Health and Wellness Services',
+        // header: 'Makeup'
+      },
       
     {
         src: 'https://images.pexels.com/photos/1882001/pexels-photo-1882001.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
