@@ -14,10 +14,9 @@ export default class CreateServices extends Component {
 
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeCategory = this.onChangeCategory.bind(this);
-    // this.onChangeDescription = this.onChangeDescription.bind(this);
-    // this.onChangeDuration = this.onChangeDuration.bind(this);
-    // this.onChangePrice = this.onChangePrice.bind(this);
-    this.onChangeDate = this.onChangeDate.bind(this);
+    this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeDuration = this.onChangeDuration.bind(this);
+    this.onChangePrice = this.onChangePrice.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -25,33 +24,10 @@ export default class CreateServices extends Component {
       category: "",
       description: "",
       duration: 0,
-      price: 0,
-      date: new Date(),
-      services: []
+      price: 0
     };
   }
 
-  // choose from dropdwn of users/names in the array
-  // username automatically set to first user in db
-
-  // componentDidMount() {
-  //     axios.get('/users/')
-  //         .then(response => {
-  //             if (response.data.length > 0) {
-  //                 this.setState({
-  //                     users: response.data.map(user => user.username),
-  //                     username: response.data[0].username
-  //                 })
-  //             }
-  //         })
-  // }
-
-  componentDidMount() {
-    this.setState({
-      services: ["test service"],
-      name: "test name"
-    });
-  }
   onChangeName(e) {
     this.setState({
       name: e.target.value
@@ -94,53 +70,37 @@ export default class CreateServices extends Component {
     const service = {
       name: this.state.name,
       category: this.state.category,
-      //   description: this.state.description,
-      //   duration: this.state.duration,
-      //   price: this.state.price,
-      date: this.state.date
+      description: this.state.description,
+      duration: this.state.duration,
+      price: this.state.price
     };
     console.log(service);
 
-    axios.post("/services/add", service).then(res => console.log(res.data));
-    // eventually connect to database
-
-    window.location = "/services";
+    axios.post("/api/services", service).then(res => console.log(res.data));
+  
   }
 
   render() {
     return (
-      <div>
-        <Navbar />
-        <Wrapper>
-          <Hero backgroundImage="https://images.pexels.com/photos/1453005/pexels-photo-1453005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-            <h1>Beautify</h1>
-            <h2>Post A Service</h2>
-          </Hero>
+    
           <Container>
             <h3>Post A Service Below</h3>
             <hr />
             <br />
+
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <label>
                   <h5>Name:</h5>
                 </label>
-                <select
-                  ref="userInput"
+               <input
+                  type="text"
                   required
                   className="form-control"
                   value={this.state.name}
                   onChange={this.onChangeName}
-                >
-                  {// for each user/provider its going to return this below
-                    this.state.services.map(function (service) {
-                      return (
-                        <option key={service} value={service}>
-                          {service}
-                        </option>
-                      );
-                    })}
-                </select>
+                />
+        
               </div>
 
               <div className="form-group">
@@ -155,7 +115,7 @@ export default class CreateServices extends Component {
                   onChange={this.onChangeCategory}
                 >
                   <option value="type" disabled>
-                    Type
+                    choose
                     </option>
                   <option value="make-up">Make-Up</option>
                   <option value="hair-barber">Hair/Barber</option>
@@ -164,65 +124,37 @@ export default class CreateServices extends Component {
                   <option value="fitness">Fitness Trainer</option>
                   <option value="nutritionist">Nutritionist</option>
                   <option value="fashion">Fashion Stylist</option>
+                   <option value="nails">Manicure</option>
                 </select>
               </div>
               <br />
-
-              <div className="form-group">
-                <label>
-                  <h5>Service:</h5>
-                </label>
-                <div>
-                  <select
-                    id="services"
-                    name="services"
-                    className="form-control"
-                    onChange={this.onChangeService}
-                    defaultValue={this.state.selectedServiceId}
-                  >
-                    {this.state.services.map(service => (
-                      <option key={service.id} value={service.id}>
-                        {service.name}
-                      </option>
-                    ))}{" "}
-                  </select>
-                </div>
-              </div>
 
               <div className="form=group">
                 <label>
                   <h5>Description:</h5>
                 </label>
-                <input
-                  type="text"
-                  required
-                  className="form-control"
-                  value={this.state.category}
-                  onChange={this.onChangeCategory}
-                />
-              </div>
-              <br />
-
-              {/* <div className="form=group">
-                <label>Description: </label>
-                <input
+                <textarea
                   type="text"
                   required
                   className="form-control"
                   value={this.state.description}
                   onChange={this.onChangeDescription}
                 />
-              </div> */}
-              {/* <div className="form-group">
+                 </div>
+              <br />
+
+               <div className="form-group">
                 <label>Duration (in minutes): </label>
                 <input
                   type="text"
+                  required
                   className="form-control"
                   value={this.state.duration}
                   onChange={this.onChangeDuration}
                 />
-              </div> */}
-              {/* <div className="form-group">
+              </div> 
+              
+              <div className="form-group">
                 <label>Price $$: </label>
                 <input
                   type="text"
@@ -230,18 +162,7 @@ export default class CreateServices extends Component {
                   value={this.state.price}
                   onChange={this.onChangePrice}
                 />
-              </div> */}
-              <div className="form-group">
-                <label>
-                  <h5>Date:</h5>
-                  </label>
-                <div>
-                  <DatePicker
-                    selected={this.state.date}
-                    onChange={this.onChangeDate}
-                  />
-                </div>
-              </div>
+              </div> 
 
               <div className="form-group">
                 <input
@@ -252,8 +173,8 @@ export default class CreateServices extends Component {
               </div>
             </form>
           </Container>
-        </Wrapper>
-      </div>
+      
+      
     );
   }
 }
