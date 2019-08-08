@@ -1,0 +1,36 @@
+.form-content {
+    border: 1px;
+    border-style: solid;
+    border-color: #808080;
+    box-shadow: 4px 4px 4px 4px #888888;
+    padding: 15px;
+
+}
+
+.container {
+    margin-top: -80px;
+}
+
+.form-group {
+    margin: 10px;
+}
+
+h4 {
+    margin-right: 5px;
+}
+
+.btn {
+    border: 0;
+    padding: 10px 20px 10px 20px;
+    margin-top: 15px;
+    font-size: 20px;
+    
+}
+
+.btn:hover {
+    background-color: gray;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    margin-top: 15px;
+    font-size: 20px;
+}
