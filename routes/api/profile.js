@@ -13,6 +13,8 @@ const url = require( 'url' );
 var storage = multer.memoryStorage();
 var upload = multer({ storage: storage });
 
+// // Get all UploadImage index.js Routes
+// router.route(/)
 
 // Middleware
 const router = express.Router();
