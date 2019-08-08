@@ -4,14 +4,17 @@ const db = require("../db/models");
 
 module.exports = {
   create: function(req, res) {
+    const appt = req.body;
+
     db.appointment
-      .create(req.body)
+      .create(appt)
       .then(dbModel => {
         console.log(dbModel);
         res.json(dbModel);
       })
       .catch(err => res.status(422).json(err));
   },
+
   findAllByProvider: function(req, res) {
     db.appointment
       .findAll({

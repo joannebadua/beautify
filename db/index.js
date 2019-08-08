@@ -1,3 +1,3 @@
 const db = require("./models/index.js");
 
-db.sequelize.sync({ force: true });
+db.sequelize.sync({ force: false });

@@ -23,11 +23,18 @@ export default class ProviderProfile extends Component {
       monthSlots: [],
       daySlots: [],
       selectedDate: null,
+      selectedTime: null,
       selectedSlot: "",
-      providerId: "",
-      userId: "",
-      selectedServiceId:""
+      providerId: this.props.match.params.id,
+      userId: 1,
+      selectedServiceId: this.props.match.params.service,
+      serviceDuration:""
     };
+  }
+
+  onSelectTime(time) {
+    debugger;
+    this.setState({ selectedTime: time });
   }
 
   onSelectDate = selectedDate => {
@@ -53,25 +60,20 @@ export default class ProviderProfile extends Component {
     );    
   }
 
-  onConfirm() {
-    debugger;
-    const appt = {
-      start_time: "",
-      end_time: "",
-      providerId: "",
-      userId: "",
-      serviceId:""
+
+  bookAppointment = () => {
+
+   
+   const appt = {
+      start_time: this.state.selectedDate.toISOString().split("T")[0]+" " + this.state.selectedTime,
+      end_time: this.state.selectedDate.toISOString().split("T")[0]+" "+ this.state.selectedTime,
+      providerId: this.state.providerId,
+      userId: this.state.userId,
+      serviceId: this.state.selectedServiceId
     };
-  }
-
-  bookAppointment(slot){
-
-    const appt ={
-    start_time: this.start_time,
-    end_time: this.start_time+ this
-    }
+   
     axios.post('/api/appointments', appt).then(res => console.log(res.data));
-  }
+  };
 
   componentDidMount() {
     this.getProvidersInfo(this.props.match.params.id);
@@ -94,7 +96,17 @@ getProvidersInfo = (id)=> {
 
      });
   }
+
+  displayServiceName() {
+    debugger;
+    const service = this.state.services.find(service => service.id + "" === this.state.selectedServiceId);
+    return service == null ? null : service.name;
+  }
   
+  formatSelectedDate() {
+    debugger;
+    return this.state.selectedDate ? this.state.selectedDate + "": null;
+  }
   render() {  
     return (
       <div>
@@ -124,17 +136,19 @@ getProvidersInfo = (id)=> {
                this.state.daySlots.map(slot => {
                  var slotStart = slot.substr(11,5);
                  console.log(slotStart);
-               return <button className="btn" onClick={this.bookAppointment}>{slotStart}</button>;
+               return <a className="btn" onClick={this.onSelectTime.bind(this, slotStart)}>{slotStart}</a>;
 
                })
              }
 
-            <div className="appInfo">
+            <div className="apptInfo">
             <h2> booking with {this.state.name} </h2>
-            <p>{this.state.selectedDate} </p>
+            <p>{this.displayServiceName()}</p>
+            <p>{this.formatSelectedDate()} </p>
+            <p>{this.state.selectedTime}</p>
          
 
-            <a className="btn" >confirm</a>
+            <button className="btn" onClick={this.bookAppointment}>confirm</button>
             </div> 
 
 
