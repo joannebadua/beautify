@@ -4,7 +4,7 @@ import ServiceCard from "../ServiceCard";
 
 
 const ProviderCard=(props)=>{
-  const providerUrl = `/providers/id/${props.id}`;
+  const providerUrl = `/providers/id/${props.id}/service/${props.service.id}`;
     
     const logo = props.name[0].toUpperCase();
 
@@ -24,7 +24,7 @@ const ProviderCard=(props)=>{
        </div>
             <ServiceCard  {...props.service}/>
             <div className="book">
-              <a href={providerUrl} className="btn" id={props.id} >
+              <a href={providerUrl} className="btn"  >
                 
               Book with {props.name} 
             </a>
