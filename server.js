@@ -1,15 +1,28 @@
 const express = require("express");
 const passport = require("passport");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const routes = require("./routes");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+//JB
+const express = require( 'express' );
+const bodyParser = require( 'body-parser' );
+const path = require( 'path' );
+const router = express.Router();
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//JB
+module.exports = router;
+const profile = require( '.routes/api/profile' );
+//JB add route for picture upload
+app.use( '/api/profile', profile );
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
