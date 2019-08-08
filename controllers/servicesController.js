@@ -64,5 +64,21 @@ module.exports = {
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+
+    create: function(req, res) {
+      let service;
+      db.service
+      .create(req.body)
+      .then(dbModel => {
+        service = dbModel;
+        const serviceId = dbModel.id;
+        return db.provider_service.create({
+          serviceId,
+          providerId: req.body.providerId
+        });     
+      })
+      .then(()=> res.json(service))
+      .catch(err => res.status(422).json(err));
   }
 };

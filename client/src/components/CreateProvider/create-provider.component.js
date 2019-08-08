@@ -7,6 +7,10 @@ import TimePicker from "rc-time-picker";
 import NavbarComp from "../Navbar";
 import UploadImage from "../UploadImage";
 import "rc-time-picker/assets/index.css";
+import CreateServices from  "../create-service.component.js"
+import session from '../../session';
+
+//var AWS from ('aws-sdk/dist/aws-sdk-react-native');
 
 
 export default class CreateProvider extends Component {
@@ -25,7 +29,8 @@ export default class CreateProvider extends Component {
       img: "",
       bio: "",
       start_time: "",
-      end_time: ""
+      end_time: "",
+      isProvider: false
     };
   }
 
@@ -57,15 +62,20 @@ export default class CreateProvider extends Component {
       name: this.state.name,
       bio: this.state.bio,
       start_time: "this.start_time",
-      end_time: "this.end_time"
+      end_time: "this.end_time",
+      isProvider: 1
     };
     console.log(provider);
 
-    axios.post("/api/providers", provider).then(res => console.log(res.data));
-    // eventually connect to database
-    // this.setState({
-    //   name: ""
-    // });
+    axios.post("/api/providers", provider).then(res => {
+      this.setState({ providerId: res.data.id });
+      session.isProvider = true;
+    });
+
+    
+    this.setState({
+      isProvider: true
+     });
   }
 
   render() {
@@ -77,6 +87,9 @@ export default class CreateProvider extends Component {
             <h1>Beautify</h1>
             <h2>Create Provider</h2>
           </Hero>
+          
+          {this.state.isProvider == false ?
+
           <Container>
             <br />
             <br />
@@ -136,8 +149,16 @@ export default class CreateProvider extends Component {
                   className="btn btn-primary"
                 />
               </div>
-            </form>
+            </form>  
           </Container>
+
+          :  
+
+          <Container> 
+              <h1> Provider has been created! </h1> 
+              <CreateServices providerId={this.state.providerId}/>
+          </Container>
+          }
         </Wrapper>
       </div>
     );

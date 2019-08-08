@@ -50,7 +50,7 @@ class LogIn extends Component {
      render() {
         return (
            <div>
-              <form id = "login">
+              <form className = "login">
                     <input
                        value={this.state.email}
                        name="email"

@@ -8,6 +8,8 @@ router
   .route("/services/:id/providers")
   .get(servicesController.findServiceProviders);
 
+router.route("/services").post(servicesController.create);
+
 // router
 //   .route("/services/:id/providers")
 //   .get(servicesController.findServiceProviders);
