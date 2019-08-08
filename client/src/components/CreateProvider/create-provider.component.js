@@ -8,7 +8,7 @@ import NavbarComp from "../Navbar";
 import UploadImage from "../UploadImage";
 import "rc-time-picker/assets/index.css";
 import CreateServices from  "../create-service.component.js"
-import session from '../../session';
+import appContext from '../../appContext';
 
 //var AWS from ('aws-sdk/dist/aws-sdk-react-native');
 
@@ -40,15 +40,22 @@ export default class CreateProvider extends Component {
     });
   }
   onChangeStart_time(value) {
+      console.log(value);
     this.setState({
-      start_time: value
+      start_time: value.toISOString().format()
     });
+  
   }
   onChangeEnd_time(value) {
     this.setState({
       end_time: value
     });
   }
+
+  //  formatSelectedDate() {
+  //   return this.state.selectedDate ? this.state.selectedDate.toISOString().split("T")[0] + "": null;
+  // }
+
   onChangeName(e) {
     this.setState({
       name: e.target.value
@@ -67,9 +74,10 @@ export default class CreateProvider extends Component {
     };
     console.log(provider);
 
+    this.context.setIsProvider(true);
     axios.post("/api/providers", provider).then(res => {
+      debugger;
       this.setState({ providerId: res.data.id });
-      session.isProvider = true;
     });
 
     
@@ -77,6 +85,8 @@ export default class CreateProvider extends Component {
       isProvider: true
      });
   }
+
+ 
 
   render() {
     return (
@@ -164,3 +174,5 @@ export default class CreateProvider extends Component {
     );
   }
 }
+
+CreateProvider.contextType = appContext;
