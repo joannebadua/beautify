@@ -28,7 +28,7 @@ const IconCard = (props) => {
   return (
     <div className="services-content">
     <Container>
-        <h2>Choose A Service</h2>
+        <h1>Choose A Service</h1>
         <hr />
         <br />
     <Row>

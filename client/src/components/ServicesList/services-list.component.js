@@ -65,8 +65,9 @@ export default class ServicesList extends Component {
       <div>
 
         <NavbarComp />
+        <Slider />
         <Wrapper>
-          <Slider />
+          
           {/* <Hero backgroundImage="https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             <h1>Services</h1>
             <h2>Choose A Service Below</h2>
@@ -77,7 +78,7 @@ export default class ServicesList extends Component {
             <Container>
 
              <br />
-               <h2>Choose A Provider</h2>
+               <h1>Choose A Provider</h1>
                <hr />
               <br />
                {this.state.services.map(service => {
