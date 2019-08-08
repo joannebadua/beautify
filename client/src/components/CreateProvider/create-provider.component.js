@@ -8,6 +8,8 @@ import NavbarComp from "../Navbar";
 import UploadImage from "../UploadImage";
 import "rc-time-picker/assets/index.css";
 import CreateServices from  "../create-service.component.js"
+import session from '../../session';
+
 //var AWS from ('aws-sdk/dist/aws-sdk-react-native');
 
 
@@ -65,7 +67,11 @@ export default class CreateProvider extends Component {
     };
     console.log(provider);
 
-    axios.post("/api/providers", provider).then(res => console.log(res.data));
+    axios.post("/api/providers", provider).then(res => {
+      this.setState({ providerId: res.data.id });
+      session.isProvider = true;
+    });
+
     
     this.setState({
       isProvider: true
@@ -150,7 +156,7 @@ export default class CreateProvider extends Component {
 
           <Container> 
               <h1> Provider has been created! </h1> 
-              <CreateServices/>
+              <CreateServices providerId={this.state.providerId}/>
           </Container>
           }
         </Wrapper>

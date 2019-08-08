@@ -72,12 +72,18 @@ export default class CreateServices extends Component {
       category: this.state.category,
       description: this.state.description,
       duration: this.state.duration,
-      price: this.state.price
+      price: this.state.price,
+       providerId: this.props.providerId
     };
     console.log(service);
 
     axios.post("/api/services", service).then(res => console.log(res.data));
-  
+   this.setState({ name: "",
+      category: "",
+      description: "",
+      duration: 0,
+      price: 0     
+   })
   }
 
   render() {

@@ -5,9 +5,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import ServicesList from "./components/ServicesList/services-list.component";
 import CreateProvider from "./components/CreateProvider/create-provider.component";
 import CreateService from "./components/create-service.component";
-import CreateUser from "./components/create-user.component";
+//import CreateUser from "./components/create-user.component";
 import EditService from "./components/edit-services.component";
 import ProviderProfile from "./pages/freelancerProfile";
+import UserProfile from "./pages/UserProfile";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import axios from "axios";
@@ -56,8 +57,8 @@ class App extends React.Component {
           <Route path="/providers/id/:id/service/:service" component={ProviderProfile} />
 
           {/* <Route path="/provider/:id/edit" component={EditeProfile} /> */}
-
-          <Route path="/user" component={CreateUser} />
+          <Route path="/user/profile" component={UserProfile} />
+          {/* <Route path="/user" component={CreateUser} /> */}
         </Router>
       );
     }
