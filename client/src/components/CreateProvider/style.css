@@ -1,15 +1,21 @@
 .form-content {
     border: 1px;
     border-style: solid;
-    border-color: #808080;
-    box-shadow: 4px 4px 4px 4px #888888;
-    padding: 15px;
+    border-color: white;
+    border-radius: 5px;
+    box-shadow: 6px 6px 6px 6px #a7a6a6da;
+    padding-top: 35px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 35px;
+    margin-top: -80px;
+    /* background-color: rgb(235, 235, 235); */
 
 }
-
+/* 
 .container {
     margin-top: -80px;
-}
+} */
 
 .form-group {
     margin: 10px;
@@ -23,7 +29,7 @@ h4 {
     border: 0;
     padding: 10px 20px 10px 20px;
     margin-top: 15px;
-    font-size: 20px;
+    font-size: 18px;
     
 }
 
@@ -32,5 +38,5 @@ h4 {
     color: white;
     padding: 10px 20px 10px 20px;
     margin-top: 15px;
-    font-size: 20px;
+    font-size: 18px;
 }
