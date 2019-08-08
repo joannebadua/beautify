@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./style.css";
+import Hero from "../Hero";
 
 
 class LogIn extends Component {
@@ -49,7 +50,11 @@ class LogIn extends Component {
 
      render() {
         return (
-           <div>
+         <div>
+         <Hero backgroundImage="https://images.pexels.com/photos/91147/pexels-photo-91147.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" height = "350px">
+         <h1>Login</h1>
+         </Hero>
+           <div className = "background">
               <form className = "login">
                     <input
                        value={this.state.email}
@@ -69,6 +74,7 @@ class LogIn extends Component {
                        Log In
                     </button>
               </form>
+           </div>
            </div>
         );
      }
