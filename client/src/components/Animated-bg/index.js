@@ -20,7 +20,7 @@ function AnimatedBG(props) {
                         <br />
                         <h1 className="animated lightSpeedIn" id="beautify">Beautify</h1>
 
-                        <h3 id="subtitle">Health and Wellness On Demand...At Your Home</h3>
+                        <h5 id="subtitle">Health & Wellness On Demand...At Your Home</h5>
                         <br />
                         <a href="/services"><button className="btn btn-outline-light btn-lg" id="services-btn">
                             BOOK A SERVICE</button></a>

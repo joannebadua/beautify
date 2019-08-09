@@ -9,7 +9,8 @@ body{
 }
 
 #beautify {
-    font-size: 130px;
+	font-size: 120px;
+	margin-bottom: 20px;
     /* font-stretch: wider; */
     font-family: inherit;
     color: white;
@@ -18,7 +19,7 @@ body{
 }
 
 #finder {
-    font-size: 180px;
+    font-size: 100px;
     /* font-stretch: wider; */
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: white;
@@ -94,10 +95,10 @@ a:hover {
 } */
 
 #subtitle {
-    font-size: 34px;
+    font-size: 32px;
     font-family: inherit;
     color: white;
-    font-weight: 200;
+    font-weight: 400;
 }
 section.content {
 	position: absolute;
@@ -195,7 +196,7 @@ section.content {
 	}
 	
 	25% {
-		background:#048aa1;
+		background:#047e94;
 	}
 	50% {
         /* background: #58eafd; */

@@ -20,6 +20,10 @@
     padding: 5px;
     background-color: #888888;
     color: white;
+    border: 1px;
+    border-style: solid;
+    border-color: white;
+
 }
 
 form.signup {
@@ -28,7 +32,7 @@ form.signup {
 
 .header {
     position: relative;
-    font-size: 85px;
+    font-size: 80px;
     /* font-stretch: wider; */
     font-family: inherit;
     color: white;
@@ -39,9 +43,9 @@ form.signup {
 
 .header2 {
     position: relative;
-    font-size: 35px;
+    /* font-size: 35px; */
     font-family: inherit;
     text-align: center;
     color: white;
-    font-weight: bold;
+    font-weight: 200;
 }
