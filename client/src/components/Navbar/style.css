@@ -47,7 +47,10 @@ nav.navbar.navbar-default {
     text-align: right;
     color: white;
     margin-top: -4px;
-  
+  }
+
+  .nav-item:hover {
+    color: white;
   }
   
   a.nav-link {
@@ -57,7 +60,16 @@ nav.navbar.navbar-default {
     margin-top: -4px;
   } 
 
+  a.nav-link:hover {
+    color: white;
+
+  }
+
   .nav-link {
     color: white;
     margin-top: -4px;
+  }
+
+  .nav-link:hover {
+    color: white;
   }

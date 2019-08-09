@@ -32,7 +32,7 @@ const IconCard = (props) => {
         <hr />
         <br />
     <Row>
-    <div className="col-3">
+    <div className="col-lg-3">
 
       <Card>
 
@@ -48,7 +48,7 @@ const IconCard = (props) => {
       </Card>
       </div>
 
-      <div className="col-3">
+      <div className="col-lg-3">
 
       <Card>
 
@@ -64,7 +64,7 @@ const IconCard = (props) => {
       </Card>
       </div>
 
-      <div className="col-3">
+      <div className="col-lg-3">
       <Card id="fitness">
         <CardImg top width="100%" src={yoga2} alt="Card image cap Lipstick" />
         <CardBody>
@@ -97,7 +97,7 @@ const IconCard = (props) => {
     <br />
     <br />
     <Row>
-      <div className="col-3">
+      <div className="col-lg-3">
 
       <Card className="hoverable">
 
@@ -113,7 +113,7 @@ const IconCard = (props) => {
       </Card>
       </div>
 
-      <div className="col-3">
+      <div className="col-lg-3">
 
       <Card className="hoverable">
 
@@ -129,7 +129,7 @@ const IconCard = (props) => {
       </Card>
       </div>
 
-      <div className="col-3">
+      <div className="col-lg-3">
 
       <Card className="hoverable">
 
@@ -145,7 +145,7 @@ const IconCard = (props) => {
       </Card>
       </div>
 
-      <div className="col-3">
+      <div className="col-lg-3">
 
       <Card className="hoverable">
 

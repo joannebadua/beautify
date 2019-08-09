@@ -12,6 +12,10 @@ button.btn.btn-secondary {
     background: #9b9a9a;
 }
 
+button.btn.btn-secondary:hover {
+    background: #07ddbd;
+}
+
 .services-content {
     padding-top: -50px;
     margin-top: -120px;
@@ -22,9 +26,37 @@ button.btn.btn-secondary {
     border: #9b9a9a;
     border-style: solid;
     border-width: 1px;
+    /* display: flex;
+    flex-direction: column; */
+    /* float: left; */
+    min-width: 250px;
+    width: 250px;
+    margin: 20px;
+    /* margin: 25px; */
+}
+
+.col-3 {
+    /* margin-top: 100px; */
+    /* float: left; */
+    /* display: flex;
+    flex-direction: column; */
 }
 
 img.card-img-top {
     margin-top: 0;
 }
 
+/* display: flex;
+  flex-direction: column;
+  border: 1px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px 4px #a7a6a6da;
+  padding: 15px;
+  margin: 15px 15px 35px 15px;
+  max-width: 340px;
+  width: 340px;
+  height: 375px;
+  max-height: 375px;
+  float: left; */
