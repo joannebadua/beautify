@@ -1,14 +1,33 @@
-.provDiv {
+/* .provDiv {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
   padding: 10px 5px;
+} */
+
+.provDiv {
+  display: flex;
+  flex-direction: column;
+  border: 1px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px 4px #a7a6a6da;
+  padding: 15px;
+  margin: 15px 15px 35px 15px;
+  max-width: 340px;
+  width: 340px;
+  height: 375px;
+  max-height: 375px;
+  float: left;
+  
 }
 
 .provInfo {
   display: flex;
-
   float: 3px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
 }
 img {
   margin-top: 5px;

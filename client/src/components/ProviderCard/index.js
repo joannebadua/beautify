@@ -9,6 +9,7 @@ const ProviderCard=(props)=>{
     const logo = props.name[0].toUpperCase();
 
   return (
+    // <div className="col-4">
     <div className="provDiv">
       
       <div className="provInfo">
@@ -30,6 +31,7 @@ const ProviderCard=(props)=>{
             </a>
             </div>
       </div>
+      // </div>
     
   );
 }

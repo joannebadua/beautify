@@ -10,6 +10,7 @@ import ProviderCard from "../ProviderCard";
 import IconCard from "../Icons";
 // import Navbar from "../Navbar";
 import NavbarComp from "../Navbar";
+import Slider from "../Slider";
 
 
 export default class ServicesList extends Component {
@@ -64,19 +65,20 @@ export default class ServicesList extends Component {
       <div>
 
         <NavbarComp />
+        <Slider />
         <Wrapper>
-
-          <Hero backgroundImage="https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+          
+          {/* <Hero backgroundImage="https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             <h1>Services</h1>
             <h2>Choose A Service Below</h2>
-          </Hero>
+          </Hero> */}
 
         <main>
   <IconCard findServicesForCategory={this.findServicesForCategory} />
             <Container>
 
              <br />
-               <h2>Choose A Provider</h2>
+               <h1>Choose A Provider</h1>
                <hr />
               <br />
                {this.state.services.map(service => {
