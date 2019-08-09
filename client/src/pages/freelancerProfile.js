@@ -139,10 +139,11 @@ getProvidersInfo = (id)=> {
               
             <br />
             <br />
-            <h2>{this.state.name}</h2>
-            <br />
+            <h1>{this.state.name}</h1>
+            <hr />
             <h3>About </h3>
             <p> {this.state.bio} </p>
+            <br />
             <h3>Choose a date </h3>
           
             <DatePicker inline
@@ -162,6 +163,7 @@ getProvidersInfo = (id)=> {
              }
 
             <div className="apptInfo">
+              <br />
             <h2>{this.displayServiceName()} with {this.state.name} </h2>
 
             <p><strong>Day: </strong>{this.state.selectedDate == null ? '' : moment(this.formatSelectedDate(), 'YYYY-MM-DD').format('dddd MMMM Do')} </p>
@@ -171,15 +173,21 @@ getProvidersInfo = (id)=> {
 {this.state.showConfirm ?
             <button className="btn"  onClick={this.bookAppointment}>confirm</button> :  <div> <p>booked!</p> <a href="/services" className="btn" >Back to search?</a> </div>
 }
-            </div> 
+            </div>
+            <br /> 
+            <br />
+            <br />
 
-
-            <h3> All Services</h3>
+            <h1> All Services</h1>
+            <hr />
             {this.state.services.map(service => { 
               const url =` /providers/id/${this.state.providerId}/service/${service.id} `;
                 return <div><ServiceCard key = {service.name} name = {service.name} description = {service.description} duration = {service.duration} price = {service.price}                 
             />
             <a href={url} className="btn" > book! </a>
+            <br />
+            <hr />
+            <br />
 </div>
             })} 
             
