@@ -54,7 +54,7 @@ class LogIn extends Component {
          <div>
          <AnimatedBG2 />
          <h1 className="header">Welcome To Beautify</h1>
-         <h2 className="header2">Please login or sign up below.</h2> 
+         <h3 className="header2">Please login or sign up below.</h3> 
          {/* <Hero backgroundImage="https://images.pexels.com/photos/91147/pexels-photo-91147.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" height = "350px">
          <h1>Login</h1>
          </Hero> */}
