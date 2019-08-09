@@ -20,14 +20,13 @@ function AnimatedBG(props) {
                         <br />
                         <h1 className="animated lightSpeedIn" id="beautify">Beautify</h1>
 
-                        <h3 id="subtitle">Health and Wellness On Demand...At Your Home</h3>
+                        <h5 id="subtitle">Health & Wellness On Demand...At Your Home</h5>
                         <br />
-                        <button className="btn btn-outline-light btn-lg" id="services-btn">
-                            <a href="/services">BOOK A SERVICE</a></button>
+                        <a href="/services"><button className="btn btn-outline-light btn-lg" id="services-btn">
+                            BOOK A SERVICE</button></a>
 
-                        <button className="btn btn-outline-light btn-lg" id="form-btn">
-
-                            <a href="providers/new">BECOME A PROVIDER</a></button>
+                        <a href="providers/new"><button className="btn btn-outline-light btn-lg" id="form-btn">
+                            BECOME A PROVIDER</button></a>
 
                         <button className="btn btn-outline-light btn-lg" id="form-btn" onClick={props.logout}>LOGOUT</button>
 

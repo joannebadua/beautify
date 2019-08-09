@@ -9,7 +9,8 @@ body{
 }
 
 #beautify {
-    font-size: 130px;
+	font-size: 120px;
+	margin-bottom: 20px;
     /* font-stretch: wider; */
     font-family: inherit;
     color: white;
@@ -18,7 +19,7 @@ body{
 }
 
 #finder {
-    font-size: 180px;
+    font-size: 100px;
     /* font-stretch: wider; */
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: white;
@@ -26,33 +27,45 @@ body{
 
 button {
 	background: #ffffff;
+	border: white;
+	border-width: 2px;
+	border-style: solid;
 }
 
 #services-btn {
 	background: white;
 	color: #07ddbd;
 	margin: 5px;
-	/* border: white;
-	border-width: 1px;
-	border-style: solid; */
+	border: white;
+	border-width: 2px;
+	border-style: solid;
 }
 
 #services-btn:hover {
 	background: #07ddbd;
 	color: #ffffff;
 	margin: 5px;
+	border: white;
+	border-width: 2px;
+	border-style: solid;
 }
 
 #form-btn:hover {
 	background: #07ddbd;
 	color: #ffffff;
 	margin: 5px;
+	border: white;
+	border-width: 2px;
+	border-style: solid;
 }
 
 #form-btn {
 	background: white;
 	color: #07ddbd;
 	margin: 5px;
+	border: white;
+	border-width: 2px;
+	border-style: solid;
 }
 
 a {
@@ -82,10 +95,10 @@ a:hover {
 } */
 
 #subtitle {
-    font-size: 34px;
+    font-size: 32px;
     font-family: inherit;
     color: white;
-    font-weight: 200;
+    font-weight: 400;
 }
 section.content {
 	position: absolute;
@@ -181,8 +194,9 @@ section.content {
         /* background: url("https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
         background-size: cover; */
 	}
+	
 	25% {
-		background:#0d968f;;
+		background:#047e94;
 	}
 	50% {
         /* background: #58eafd; */
