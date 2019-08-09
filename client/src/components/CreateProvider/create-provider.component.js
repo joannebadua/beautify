@@ -9,7 +9,7 @@ import UploadImage from "../UploadImage";
 import "rc-time-picker/assets/index.css";
 import CreateServices from  "../create-service.component.js"
 import session from '../../session';
-
+import "./style.css"
 //var AWS from ('aws-sdk/dist/aws-sdk-react-native');
 
 
@@ -91,13 +91,13 @@ export default class CreateProvider extends Component {
           {this.state.isProvider == false ?
 
           <Container>
-            <br />
-            <br />
-            <h3>Create New Provider</h3>
-            <br />
+            <div className="form-content">
+            <h1>Create New Provider</h1>
+            <hr />
+            {/* <br /> */}
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-                <label>Provider Name: </label>
+                <label><h4>Provider Name: </h4></label>
                 <input
                   type="text"
                   required
@@ -107,7 +107,7 @@ export default class CreateProvider extends Component {
                 />
               </div>
               <div className="form-group">
-                <label>Bio: </label>
+                <label><h4>Bio: </h4></label>
                 <textarea
                   required
                   className="form-control"
@@ -115,11 +115,12 @@ export default class CreateProvider extends Component {
                   onChange={this.onChangeBio}
                 />
               </div>
+         
               <div className="form-group">
-                <label>Working hours: </label>
+                <label><h3>Working hours: </h3></label>
                 <div className="hours">
                   <div className="start">
-                    start time
+                    <h4>Start time:</h4>
                     <TimePicker
                       showSecond={false}
                      showMinute={false}
@@ -127,8 +128,9 @@ export default class CreateProvider extends Component {
                       onChange={this.onChangeStart_time}
                     />
                   </div>
+                  <br></br>
                   <div className="start">
-                    end time
+                    <h4>End time:</h4>
                     <TimePicker
                       showSecond={false}
                      showMinute={false}
@@ -138,7 +140,8 @@ export default class CreateProvider extends Component {
                     />
                   </div>
                 </div>
-              </div>       
+              </div>  
+                   
               <div>
               <UploadImage />
               </div> 
@@ -150,6 +153,8 @@ export default class CreateProvider extends Component {
                 />
               </div>
             </form>  
+            </div>
+          <br />
           </Container>
 
           :  
