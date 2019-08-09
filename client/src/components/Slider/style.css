@@ -1,12 +1,16 @@
-/* .img {
+.img {
     max-height: 550px;
     height: 350px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    
   
-} */
+}
 
 .carousel-item {
     max-height: 325px;
-    height: 325px;
+    height: 300px;
     margin-top: -5px;
     /* background-size: cover; */
     /* background-position: center; */
@@ -29,15 +33,16 @@ span.carousel-control-prev-icon {
 }
 
 /* a.carousel-control */
-/* 
+
 h3 {
-    text-align: left;
+    /* color: #07ddbd; */
     color: black;
+    /* margin-top: 100px; */
     font-size: 60px;
     text-transform: uppercase;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
     font-weight: bolder;
-} */
+} 
 
 
 
