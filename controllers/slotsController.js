@@ -29,9 +29,9 @@ function getAvailabilities(day, appointments, providerHours, duration) {
   let times = [];
   for (let i = 0; i < appointments.length; i++) {
     const appt = appointments[i];
-    windowEnd = moment(appt.start_time).add(7, 'hours');
+    windowEnd = moment(appt.start_time);
     times = times.concat(getTimesForWindow(windowStart, windowEnd, duration));
-    windowStart = moment(appt.end_time).add(7, 'hours');
+    windowStart = moment(appt.end_time);
     console.log(windowStart.format());
   }
   windowEnd = providerEnd;
@@ -71,7 +71,7 @@ function getAvailableDates(slots, service, month) {
   return workingDays.filter(day => {
     const slot = slotMap[day];
     return !slot || slot.max > duration;
-  });
+  }).map(d => moment(d).format());
 }
 module.exports = {
   findByProviderServiceMonth: function(req, res) {
@@ -113,6 +113,7 @@ module.exports = {
     const providerId = req.params.providerId;
     const startDate = moment(day, "YYYY-MM-DD");
     const endDate = startDate.clone().add(1, "day");
+    debugger;
     Promise.all([
       db.service.findByPk(serviceId),
       db.provider.findByPk(providerId),
@@ -122,8 +123,11 @@ module.exports = {
           start_time: {
             [Op.gte]: startDate.toDate(),
             [Op.lte]: endDate.toDate(),
-          }
-        }
+          },          
+        },
+         order: [
+            ['start_time', 'ASC']
+         ]
       })
     ])
       .then(results => {

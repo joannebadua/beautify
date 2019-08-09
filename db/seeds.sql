@@ -2,11 +2,11 @@ USE beautifyDB;
 
 INSERT INTO users( `passportId`,`isProvider`, `createdAt`, `updatedAt`) VALUES (1,0, SYSDATE(), SYSDATE());
 
-INSERT INTO providers(`name`, `bio`, `workingHours`, `img`, `createdAt`, `updatedAt`) VALUES ('Kitty', 'some Kitty bio', '9:00-18:00', 'https://i.pinimg.com/originals/7f/e7/df/7fe7df8f3843a85b22127899c280b6dd.jpg', SYSDATE(), SYSDATE());
-INSERT INTO providers(`name`, `bio`, `workingHours`, `img`, `createdAt`, `updatedAt`) VALUES ('Hallie', 'some Hallie bio', '11:00-20:00', ' ', SYSDATE(), SYSDATE());
-INSERT INTO providers(`name`, `bio`, `workingHours`, `img`, `createdAt`, `updatedAt`) VALUES ('Jerome', 'some Jerome bio', '12:00-16:00', ' ', SYSDATE(), SYSDATE());
-INSERT INTO providers(`name`, `bio`, `workingHours`, `img`, `createdAt`, `updatedAt`) VALUES ('Alton', 'some Alton bio', '12:00-16:00', ' ', SYSDATE(), SYSDATE());
-INSERT INTO providers(`name`, `bio`, `workingHours`, `img`, `createdAt`, `updatedAt`) VALUES ('Joey', 'some Joey bio', '12:00-16:00', ' ', SYSDATE(), SYSDATE());
+INSERT INTO providers(`name`, `bio`, `workingHours`,  `createdAt`, `updatedAt`) VALUES ('Kitty', 'some Kitty bio', '9:00-18:00', SYSDATE(), SYSDATE());
+INSERT INTO providers(`name`, `bio`, `workingHours`,  `createdAt`, `updatedAt`) VALUES ('Hallie', 'some Hallie bio', '11:00-20:00',  SYSDATE(), SYSDATE());
+INSERT INTO providers(`name`, `bio`, `workingHours`,  `createdAt`, `updatedAt`) VALUES ('Jerome', 'some Jerome bio', '12:00-16:00',  SYSDATE(), SYSDATE());
+INSERT INTO providers(`name`, `bio`, `workingHours`,  `createdAt`, `updatedAt`) VALUES ('Alton', 'some Alton bio', '12:00-16:00',  SYSDATE(), SYSDATE());
+INSERT INTO providers(`name`, `bio`, `workingHours`,  `createdAt`, `updatedAt`) VALUES ('Joey', 'some Joey bio', '12:00-16:00',  SYSDATE(), SYSDATE());
 
 INSERT INTO services(`name`,  `category`, `description`,`duration`,`price`, `createdAt`, `updatedAt`) VALUES ( 'Men Haircut', 'hair-barber', '',  30, 65, SYSDATE(), SYSDATE());
 INSERT INTO services(`name`,  `category`,`description`,`duration`,`price`, `createdAt`, `updatedAt`) VALUES ( 'Women Haircut', 'hair-barber', 'Service includes client consultation, shampoo and blow-dry',  60, 90, SYSDATE(), SYSDATE());
@@ -58,14 +58,14 @@ INSERT INTO provider_services(`providerId`, `serviceId`, `createdAt`, `updatedAt
 INSERT INTO provider_services(`providerId`, `serviceId`, `createdAt`, `updatedAt`) VALUES (5, 21, SYSDATE(), SYSDATE());
 
 
-INSERT INTO appointments(`providerId`, `serviceId`, `userId`, `start_time`, `end_time`, `createdAt`, `updatedAt`) VALUES (1, 1, 1, '2019-08-02 13:00', '2019-08-02 13:30', SYSDATE(), SYSDATE());
+-- INSERT INTO appointments(`providerId`, `serviceId`, `userId`, `start_time`, `end_time`, `createdAt`, `updatedAt`) VALUES (1, 1, 1, '2019-08-02 13:00', '2019-08-02 13:30', SYSDATE(), SYSDATE());
 
-INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (1, 4, '2019-08-02', SYSDATE(), SYSDATE());
-INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (2, 2, '2019-08-03', SYSDATE(), SYSDATE());
-INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (1, 3, '2019-08-06', SYSDATE(), SYSDATE());
-INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (3, 6, '2019-08-08', SYSDATE(), SYSDATE());
-INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (4, 1, '2019-08-02', SYSDATE(), SYSDATE());
-INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (1, 1, '2019-08-05', SYSDATE(), SYSDATE());
-INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (5, 3, '2019-08-09', SYSDATE(), SYSDATE());
+-- INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (1, 4, '2019-08-02', SYSDATE(), SYSDATE());
+-- INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (2, 2, '2019-08-03', SYSDATE(), SYSDATE());
+-- INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (1, 3, '2019-08-06', SYSDATE(), SYSDATE());
+-- INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (3, 6, '2019-08-08', SYSDATE(), SYSDATE());
+-- INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (4, 1, '2019-08-02', SYSDATE(), SYSDATE());
+-- INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (1, 1, '2019-08-05', SYSDATE(), SYSDATE());
+-- INSERT INTO slots(`providerId`, `max`, `date`, `createdAt`, `updatedAt`) VALUES (5, 3, '2019-08-09', SYSDATE(), SYSDATE());
 
 

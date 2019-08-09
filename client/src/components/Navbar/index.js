@@ -47,11 +47,10 @@ import AppContext from '../../appContext';
               <NavItem>
                 <NavLink href="/providers/new">Become A Provider</NavLink>
               </NavItem>
-              : null}
+              : <NavItem>
+                <NavLink href="/providers/new">Profile</NavLink>
+              </NavItem>}
 
-              {/* <NavItem>
-                <NavLink href="/providers/new">Become A Provider</NavLink>
-              </NavItem> */}
 
               {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>

@@ -39,22 +39,19 @@ export default class CreateProvider extends Component {
       bio: e.target.value
     });
   }
-  onChangeStart_time(value) {
-      console.log(value);
-    this.setState({
-      start_time: value.toISOString().format()
+  onChangeStart_time(value) {     
+    this.setState(
+    {
+      start_time: value.format().substr(11,3).concat("00")
     });
-  
   }
+  
+
   onChangeEnd_time(value) {
     this.setState({
-      end_time: value
+       end_time: value.format().substr(11,3).concat("00")
     });
   }
-
-  //  formatSelectedDate() {
-  //   return this.state.selectedDate ? this.state.selectedDate.toISOString().split("T")[0] + "": null;
-  // }
 
   onChangeName(e) {
     this.setState({
@@ -68,8 +65,7 @@ export default class CreateProvider extends Component {
     const provider = {
       name: this.state.name,
       bio: this.state.bio,
-      start_time: "this.start_time",
-      end_time: "this.end_time",
+      workingHours: this.state.start_time + '-'+this.state.end_time,
       isProvider: 1
     };
     console.log(provider);

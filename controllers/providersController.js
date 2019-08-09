@@ -1,4 +1,7 @@
+
+const Sequelize = require("sequelize");
 const db = require("../db/models");
+const Op = Sequelize.Op;
 
 // Defining methods for the Controller
 module.exports = {
