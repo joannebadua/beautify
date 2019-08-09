@@ -1,6 +1,8 @@
 .login {
     text-align: center;
-    margin-top: 25px;
+    /* margin-top: 25px; */
+    position: relative;
+    padding-top: 20px;
 }
 
 .email {
@@ -16,6 +18,30 @@
 .button {
     margin: 5px;
     padding: 5px;
-    background-color: darkgrey;
+    background-color: #888888;
     color: white;
+}
+
+form.signup {
+    position: relative;
+}
+
+.header {
+    position: relative;
+    font-size: 85px;
+    /* font-stretch: wider; */
+    font-family: inherit;
+    color: white;
+    font-weight: 200;
+    text-align: center;
+    padding-top: 180px;
+}
+
+.header2 {
+    position: relative;
+    font-size: 35px;
+    font-family: inherit;
+    text-align: center;
+    color: white;
+    font-weight: bold;
 }
