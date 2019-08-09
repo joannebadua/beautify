@@ -88,7 +88,7 @@ export default class CreateServices extends Component {
       isCreated: true     
    })
 
-this.props.handleClick()
+this.props.handleClick();
   }
 
   render() {
@@ -188,9 +188,10 @@ this.props.handleClick()
             </form>
           </div>
 
-            : <h2>created!
+            : <div><h2>created!
+           <a href="/services" className="btn" >Back to main </a>
 
-            </h2>}
+            </h2></div>}
 
           </Container>
          

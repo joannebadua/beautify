@@ -10,19 +10,20 @@ export default class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    
+
     this.state = {
     appts:[],
     booked:[],
+    services:[],
     isCreated:false,
-    isHidden: true  
+    isHidden: true
     };
   }
  
  handleClick() {
     this.setState({ 
-     isHidden: true,
-      isCreated: true
+    isHidden: false,
+    isCreated: true
     })
  }
 
@@ -32,16 +33,23 @@ export default class UserProfile extends Component {
     })
   }
 
-  onSubmit(e) {
-    e.preventDefault();
+  //    loadServices= ()=> {
+  //   return axios
+  //     .get(`/api/providers/1/services`)
+  //     .then(res => {
+  //       const services = res.data;
 
-  
-    axios.get("/api/providers/:id/appointments").then(res => console.log(res.data));
-    // eventually connect to database
-    this.setState({
-      username: ""
-    });
-  }
+  //       this.setState(
+  //         {
+  //           services
+  //         },
+  //         console.log(res.data)
+  //       );
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
+
 
   render() {
     return (
@@ -52,24 +60,32 @@ export default class UserProfile extends Component {
             
           </Hero>
           <Container>
-                  <div><h2>Upcomming appointments</h2>
+                  {/* <div><h2>Upcomming appointments</h2>
                       </div>
                       <div><h2>Booked services</h2>
                       </div>
                        <div><h2>My services</h2>
-                      </div>
-                      <div>
-                      
-                      {/* <button className="btn" onClick={this.toggleHidden.bind(this)}>Add a service </button> */}
-
+                      </div> */}
+                      {/* <div>
+                    
                        {this.state.isHidden||this.state.isCreated  ?
                        
                       <button className="btn" onClick={this.toggleHidden.bind(this)}>Add a service </button>
                       : null}
                         {!this.state.isHidden &&  <CreateServices providerId={this.context.providerId} isCreated={this.state.isCreated} handleClick={this.handleClick}/>}
                       
+                  </div> */}
+                  {this.state.isCreated ?<div><h2>created!
+           
+                        </h2> <br/> <br/></div> : null}
+                  {!this.state.isHidden ?
+                  <div>
+                      <button className="btn" >Add another service </button>
+                      <a href="/services" className="btn" >Back to main </a>
                   </div>
-                
+                      : 
+                 <CreateServices providerId={this.context.providerId} isHidden={this.state.isHidden} handleClick={this.handleClick}/>
+              }
           </Container>
         </Wrapper>
       </div>

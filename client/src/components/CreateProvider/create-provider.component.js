@@ -170,6 +170,7 @@ export default class CreateProvider extends Component {
           <Container> 
               <h1> Provider has been created! </h1> 
            <a href="/services" className="btn" >Back to main </a>
+           <a href="/user/profile" className="btn" >Create a service </a>
              
           </Container>
           }

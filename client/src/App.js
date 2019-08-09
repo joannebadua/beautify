@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("/auth/user")
+        axios.get("/auth/user")
       .then(res => {
         console.log("AUTH/USER: ", res)
         this.setState({

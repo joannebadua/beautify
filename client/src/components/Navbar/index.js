@@ -48,7 +48,7 @@ import AppContext from '../../appContext';
                 <NavLink href="/providers/new">Become A Provider</NavLink>
               </NavItem>
               : <NavItem>
-                <NavLink href="/user/profile">Profile</NavLink>
+                <NavLink href="/user/profile">Create service</NavLink>
               </NavItem>}
 
 
