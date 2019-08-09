@@ -3,20 +3,33 @@ import axios from "axios";
 import Container from "../components/Container";
 import Wrapper from "../components/Wrapper";
 import Hero from "../components/Hero";
+import AppContext from '../appContext';
+import CreateServices from  "../components/create-service.component.js"
 
 export default class UserProfile extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
+    this.handleClick = this.handleClick.bind(this);
     
+    this.state = {
+    appts:[],
+    booked:[],
+    isCreated:false,
+    isHidden: true  
     };
   }
+ 
+ handleClick() {
+    this.setState({ 
+     isHidden: true,
+      isCreated: true
+    })
+ }
 
-  onChangeUsername(e) {
+   toggleHidden() {
     this.setState({
-      username: e.target.value
-    });
+      isHidden: !this.state.isHidden
+    })
   }
 
   onSubmit(e) {
@@ -39,10 +52,29 @@ export default class UserProfile extends Component {
             
           </Hero>
           <Container>
-            
+                  <div><h2>Upcomming appointments</h2>
+                      </div>
+                      <div><h2>Booked services</h2>
+                      </div>
+                       <div><h2>My services</h2>
+                      </div>
+                      <div>
+                      
+                      {/* <button className="btn" onClick={this.toggleHidden.bind(this)}>Add a service </button> */}
+
+                       {this.state.isHidden||this.state.isCreated  ?
+                       
+                      <button className="btn" onClick={this.toggleHidden.bind(this)}>Add a service </button>
+                      : null}
+                        {!this.state.isHidden &&  <CreateServices providerId={this.context.providerId} isCreated={this.state.isCreated} handleClick={this.handleClick}/>}
+                      
+                  </div>
+                
           </Container>
         </Wrapper>
       </div>
     );
   }
 }
+
+UserProfile.contextType = AppContext;

@@ -22,6 +22,9 @@ class App extends React.Component {
     isProvider: false,
     setIsProvider: isProvider => {
       this.setState({ isProvider });
+    },
+    setproviderId: providerId => {
+         this.setState({ providerId });
     }
   }
 

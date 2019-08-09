@@ -24,7 +24,8 @@ export default class CreateServices extends Component {
       category: "",
       description: "",
       duration: 0,
-      price: 0
+      price: 0,
+      isCreated: props.isCreated
     };
   }
 
@@ -75,6 +76,7 @@ export default class CreateServices extends Component {
       price: this.state.price,
        providerId: this.props.providerId
     };
+   
     console.log(service);
 
     axios.post("/api/services", service).then(res => console.log(res.data));
@@ -82,14 +84,19 @@ export default class CreateServices extends Component {
       category: "",
       description: "",
       duration: 0,
-      price: 0     
+      price: 0,
+      isCreated: true     
    })
+
+this.props.handleClick()
   }
 
   render() {
     return (
-    
-          <Container>
+ 
+          <Container >
+           {!this.state.isCreated ?
+           <div>
             <h3>Post A Service Below</h3>
             <hr />
             <br />
@@ -175,12 +182,18 @@ export default class CreateServices extends Component {
                   type="submit"
                   value="Create Service"
                   className="btn btn-primary"
+                  
                 />
               </div>
             </form>
+          </div>
+
+            : <h2>created!
+
+            </h2>}
+
           </Container>
-      
-      
+         
     );
   }
 }

@@ -70,9 +70,12 @@ export default class CreateProvider extends Component {
     console.log(provider);
 
     this.context.setIsProvider(true);
+    
+
     axios.post("/api/providers", provider).then(res => {
       debugger;
       this.setState({ providerId: res.data.id });
+      this.context.setproviderId(res.data.id);
     });
 
     
@@ -166,7 +169,8 @@ export default class CreateProvider extends Component {
 
           <Container> 
               <h1> Provider has been created! </h1> 
-              <CreateServices providerId={this.state.providerId}/>
+           <a href="/services" className="btn" >Back to main </a>
+             
           </Container>
           }
         </Wrapper>
