@@ -26,33 +26,45 @@ body{
 
 button {
 	background: #ffffff;
+	border: white;
+	border-width: 2px;
+	border-style: solid;
 }
 
 #services-btn {
 	background: white;
 	color: #07ddbd;
 	margin: 5px;
-	/* border: white;
-	border-width: 1px;
-	border-style: solid; */
+	border: white;
+	border-width: 2px;
+	border-style: solid;
 }
 
 #services-btn:hover {
 	background: #07ddbd;
 	color: #ffffff;
 	margin: 5px;
+	border: white;
+	border-width: 2px;
+	border-style: solid;
 }
 
 #form-btn:hover {
 	background: #07ddbd;
 	color: #ffffff;
 	margin: 5px;
+	border: white;
+	border-width: 2px;
+	border-style: solid;
 }
 
 #form-btn {
 	background: white;
 	color: #07ddbd;
 	margin: 5px;
+	border: white;
+	border-width: 2px;
+	border-style: solid;
 }
 
 a {
@@ -181,8 +193,9 @@ section.content {
         /* background: url("https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
         background-size: cover; */
 	}
+	
 	25% {
-		background:#0d968f;;
+		background:#048aa1;
 	}
 	50% {
         /* background: #58eafd; */

@@ -133,18 +133,18 @@ getProvidersInfo = (id)=> {
             <h1>Beautify</h1>
           
           </Hero>
+          <div className="freelancer-content">
           <Container>
            <a href="/services" className="btn" >Back to search </a>
                 
               
             <br />
             <br />
-            <h1>{this.state.name}</h1>
+            <h1>Provider: {this.state.name}</h1>
             <hr />
-            <h3>About </h3>
+            <h3>About: </h3>
             <p> {this.state.bio} </p>
-            <br />
-            <h3>Choose a date </h3>
+            <h3>Choose a Date: </h3>
           
             <DatePicker inline
                 selected={this.state.selectedDate}
@@ -171,7 +171,7 @@ getProvidersInfo = (id)=> {
             <p><strong>Price: </strong>{this.displayServicePrice()}$</p>
  
 {this.state.showConfirm ?
-            <button className="btn"  onClick={this.bookAppointment}>confirm</button> :  <div> <p>booked!</p> <a href="/services" className="btn" >Back to search?</a> </div>
+            <button className="btn"  onClick={this.bookAppointment}>Confirm</button> :  <div> <p>Booked!</p> <a href="/services" className="btn" >Back to search?</a> </div>
 }
             </div>
             <br /> 
@@ -184,7 +184,7 @@ getProvidersInfo = (id)=> {
               const url =` /providers/id/${this.state.providerId}/service/${service.id} `;
                 return <div><ServiceCard key = {service.name} name = {service.name} description = {service.description} duration = {service.duration} price = {service.price}                 
             />
-            <a href={url} className="btn" > book! </a>
+            <a href={url} className="btn" > Book! </a>
             <br />
             <hr />
             <br />
@@ -192,6 +192,7 @@ getProvidersInfo = (id)=> {
             })} 
             
           </Container>
+          </div>
         </Wrapper>
       </div>
     );
