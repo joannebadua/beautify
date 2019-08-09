@@ -142,9 +142,9 @@ getProvidersInfo = (id)=> {
             <br />
             <h1>Provider: {this.state.name}</h1>
             <hr />
-            <h3>About: </h3>
+            <h4>About: </h4>
             <p> {this.state.bio} </p>
-            <h3>Choose a Date: </h3>
+            <h4>Choose a Date: </h4>
           
             <DatePicker inline
                 selected={this.state.selectedDate}
