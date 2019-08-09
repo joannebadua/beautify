@@ -16,6 +16,7 @@ nav.navbar.navbar-default {
   .navbar {
     background: #07ddbd;
     color: white;
+    height: 60px;
   }
   
   button {
@@ -32,26 +33,43 @@ nav.navbar.navbar-default {
   }
   .navbar-brand {
     color: white;
-    font-size: 28px;
+    font-size: 30px;
+    margin-top: -8px;
   }
   
   nav.navbar-nav.nav-item {
     text-align: right;
     color: white;
+    margin-top: -4px;
   }
   
   .nav-item {
     text-align: right;
     color: white;
-  
+    margin-top: -4px;
+  }
+
+  .nav-item:hover {
+    color: white;
   }
   
   a.nav-link {
     text-align: right;
     color: white;
     font-size: 20px;
+    margin-top: -4px;
   } 
 
+  a.nav-link:hover {
+    color: white;
+
+  }
+
   .nav-link {
+    color: white;
+    margin-top: -4px;
+  }
+
+  .nav-link:hover {
     color: white;
   }

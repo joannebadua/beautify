@@ -1,0 +1,26 @@
+.signup {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.email {
+    margin: 5px;
+    padding: 5px;
+}
+
+.password {
+    margin: 5px;
+    padding: 5px;
+}
+
+.confirm {
+    margin: 5px;
+    padding: 5px;
+}
+
+.button {
+    margin: 5px;
+    padding: 5px;
+    background-color: darkgrey;
+    color: white;
+}
