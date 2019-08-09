@@ -44,7 +44,7 @@ export default class ProviderProfile extends Component {
   }
 
   getSlotsForMonth() {
-    const monthSlotsUrl = `/api/providers/1/slots/month/2019-08?serviceId=1`;
+    const monthSlotsUrl = `/api/providers/${this.state.providerId}/slots/month/2019-08?serviceId=${this.state.selectedServiceId}`;
     axios.get(monthSlotsUrl).then(res => {
       const monthSlots = res.data.map(slot => new Date(slot));
       this.setState({monthSlots});
@@ -52,7 +52,8 @@ export default class ProviderProfile extends Component {
   }
 
   getSlotsForDay(day) {
-     const daySlotsUrl = `/api/providers/1/slots/day/2019-08-04?serviceId=1`;
+     const dayStr = moment(day).format("YYYY-MM-DD");
+     const daySlotsUrl = `/api/providers/${this.state.providerId}/slots/day/${dayStr}?serviceId=${this.state.selectedServiceId}`;
 
      axios.get(daySlotsUrl).then(res => {
        this.setState({ daySlots: res.data});
@@ -68,7 +69,7 @@ export default class ProviderProfile extends Component {
    const endTime = moment(startTime).add(service.duration, 'minute').format();
 
    const appt = {
-      start_time: startTime,
+      start_time: moment(startTime).format(),
       end_time: endTime,
       providerId: this.state.providerId,
       userId: this.state.userId,

@@ -10,7 +10,7 @@ import UserProfile from "./pages/UserProfile";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import axios from "axios";
-
+import AppContext from "./appContext";
 import AnimatedBG from "./components/Animated-bg";
 // import logo from './logo.svg';
 // import './App.css';
@@ -18,7 +18,11 @@ import AnimatedBG from "./components/Animated-bg";
 class App extends React.Component {
 
   state = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    isProvider: false,
+    setIsProvider: isProvider => {
+      this.setState({ isProvider });
+    }
   }
 
   componentDidMount() {
@@ -46,6 +50,7 @@ class App extends React.Component {
       );
     } else {
       return (
+        <AppContext.Provider value={this.state}>
         <Router>
 
           <Route path="/" exact component={() => <AnimatedBG logout={this.logout} />} />
@@ -57,6 +62,7 @@ class App extends React.Component {
           <Route path="/user/profile" component={UserProfile} />
           {/* <Route path="/user" component={CreateUser} /> */}
         </Router>
+        </AppContext.Provider>
       );
     }
   }

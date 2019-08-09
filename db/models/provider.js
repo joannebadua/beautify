@@ -17,10 +17,6 @@ module.exports = function(sequelize, DataTypes) {
     workingHours: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    img: {
-      type: DataTypes.STRING,
-      allowNull: false
     }
   });
 

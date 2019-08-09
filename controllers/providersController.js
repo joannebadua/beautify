@@ -1,14 +1,17 @@
+
+const Sequelize = require("sequelize");
 const db = require("../db/models");
+const Op = Sequelize.Op;
 
 // Defining methods for the Controller
 module.exports = {
   create: function(req, res) {
-    const provider = req.body;
-    provider.img = "no image";
-    provider.workingHours = "no working hours";
+    // const provider = req.body;
+    // provider.img = "no image";
+    // provider.workingHours = "no working hours";
 
     db.provider
-      .create(provider)
+      .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

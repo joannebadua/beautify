@@ -8,11 +8,8 @@ export default class UserProfile extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
     this.state = {
-      username: ""
+    
     };
   }
 
@@ -25,12 +22,8 @@ export default class UserProfile extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const user = {
-      username: this.state.username
-    };
-    console.log(user);
-
-    axios.post("/users/add", user).then(res => console.log(res.data));
+  
+    axios.get("/api/providers/:id/appointments").then(res => console.log(res.data));
     // eventually connect to database
     this.setState({
       username: ""

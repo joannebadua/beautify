@@ -15,7 +15,8 @@ import {
 //   DropdownItem
  } from 'reactstrap';
 
-import session from '../../session';
+import AppContext from '../../appContext';
+
  export default class NavbarComp extends React.Component {
   constructor(props) {
     super(props);
@@ -42,15 +43,14 @@ import session from '../../session';
               <NavItem>
                 <NavLink href="/services/">Services</NavLink>
               </NavItem>
-              {!session.isProvider ?
+              {!this.context.isProvider ?
               <NavItem>
                 <NavLink href="/providers/new">Become A Provider</NavLink>
               </NavItem>
-              : null}
+              : <NavItem>
+                <NavLink href="/providers/new">Profile</NavLink>
+              </NavItem>}
 
-              {/* <NavItem>
-                <NavLink href="/providers/new">Become A Provider</NavLink>
-              </NavItem> */}
 
               {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -77,3 +77,6 @@ import session from '../../session';
     );
   }
 }
+
+
+NavbarComp.contextType = AppContext;
