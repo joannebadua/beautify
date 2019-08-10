@@ -46,7 +46,7 @@ import AppContext from '../../appContext';
               </NavItem>
               {!this.context.isProvider ?
               <NavItem>
-                <Link to="/providers/new">Become A Provider</Link>
+                <Link to="/providers/new">Become A Provider </Link>
               </NavItem>
               : <NavItem>
                 <Link to="/user/profile">Create service</Link>

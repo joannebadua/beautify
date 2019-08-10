@@ -151,36 +151,47 @@ getProvidersInfo = (id)=> {
             <hr />
             <h4>About: </h4>
             <p> {this.state.bio} </p>
-            <h4>Choose a Date: </h4>
-          
-            <DatePicker inline
-                selected={this.state.selectedDate}
-                onChange={this.onSelectDate}
-                isOpen={true}
-                includeDates={this.state.monthSlots}
-                forceShowMonthNavigation={true}
-            />
 
-             {
-               this.state.daySlots.map(slot => {
-                 var slotStart = slot.substr(11,5);
-               return <a className="btn" onClick={this.onSelectTime.bind(this, slotStart)}>{slotStart}</a>;
-
-               })
-             }
+            <section>
+            <div className="dayPick">
+                <h4>Choose a Date: </h4>
+              
+                <DatePicker inline
+                    selected={this.state.selectedDate}
+                    onChange={this.onSelectDate}
+                    isOpen={true}
+                    includeDates={this.state.monthSlots}
+                    forceShowMonthNavigation={true}
+                />
+            </div>
 
             <div className="apptInfo">
               <br />
-            <h2>{this.displayServiceName()} with {this.state.name} </h2>
+                  <div className="info">
+                      <h2>{this.displayServiceName()} with {this.state.name} </h2>
 
-            <p><strong>Day: </strong>{this.state.selectedDate == null ? '' : moment(this.formatSelectedDate(), 'YYYY-MM-DD').format('dddd MMMM Do')} </p>
-            <p><strong>Time: </strong>{this.state.selectedTime}</p>
-            <p><strong>Price: </strong>{this.displayServicePrice()}$</p>
- 
-{this.state.showConfirm ?
-            <button className="btn"  onClick={this.bookAppointment}>Confirm</button> :  <div> <p>Booked!</p> <Link to="/services" className="btn" >Back to search?</Link> </div>
-}
-            </div>
+                      <p><strong>Day: </strong>{this.state.selectedDate == null ? '' : moment(this.formatSelectedDate(), 'YYYY-MM-DD').format('dddd MMMM Do')} </p>
+                      <p><strong>Time: </strong>{this.state.selectedTime}</p>
+                      <p><strong>Price: </strong>{this.displayServicePrice()}$</p>
+          
+                      {this.state.showConfirm ?
+                      <button className="btn"  onClick={this.bookAppointment}>Confirm</button> :  <div> <p>Booked!</p> <Link to="/services" className="btn" >Back to search?</Link> </div>
+                      }
+                  </div>
+                {this.state.showConfirm ?
+                  <div className="time">
+                        {
+                          this.state.daySlots.map(slot => {
+                            var slotStart = slot.substr(11,5);
+                          return <a className="btn" onClick={this.onSelectTime.bind(this, slotStart)}>{slotStart}</a>;
+
+                          })
+                         }
+                  </div> : null}
+               </div>
+
+            </section>
+
             <br /> 
             <br />
             <br />

@@ -77,12 +77,12 @@ export default class UserProfile extends Component {
                         {!this.state.isHidden &&  <CreateServices providerId={this.context.providerId} isCreated={this.state.isCreated} handleClick={this.handleClick}/>}
                       
                   </div> */}
+
                   {this.state.isCreated ?<div><h2>created!
            
                         </h2> <br/> <br/></div> : null}
                   {!this.state.isHidden ?
                   <div>
-                      <button className="btn" >Add another service </button>
                       <Link to="/services" className="btn" >Back to main </Link>
                   </div>
                       : 

@@ -59,7 +59,7 @@ class App extends React.Component {
 
         
         <Router>
- <NavbarComp />
+          <NavbarComp />
           <Route path="/" exact component={() => <AnimatedBG logout={this.logout} />} />
           <Route path="/services" component={ServicesList} />
           <Route path="/providers/new" component={CreateProvider} />
