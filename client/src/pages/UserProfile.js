@@ -5,6 +5,7 @@ import Wrapper from "../components/Wrapper";
 import Hero from "../components/Hero";
 import AppContext from '../appContext';
 import CreateServices from  "../components/create-service.component.js"
+import { Link } from 'react-router-dom';
 
 export default class UserProfile extends Component {
   constructor(props) {
@@ -52,6 +53,7 @@ export default class UserProfile extends Component {
 
 
   render() {
+    debugger;
     return (
       <div>
         <Wrapper>
@@ -81,7 +83,7 @@ export default class UserProfile extends Component {
                   {!this.state.isHidden ?
                   <div>
                       <button className="btn" >Add another service </button>
-                      <a href="/services" className="btn" >Back to main </a>
+                      <Link to="/services" className="btn" >Back to main </Link>
                   </div>
                       : 
                  <CreateServices providerId={this.context.providerId} isHidden={this.state.isHidden} handleClick={this.handleClick}/>

@@ -8,6 +8,7 @@ import "rc-time-picker/assets/index.css";
 import ServiceCard from "../components/ServiceCard";
 import DatePicker from "react-datepicker";
 import "./freelancerProfile.css";
+import { Link } from 'react-router-dom';
 const moment = require("moment");
 
 export default class ProviderProfile extends Component {
@@ -88,10 +89,18 @@ export default class ProviderProfile extends Component {
   componentDidMount() {
     this.getProvidersInfo(this.props.match.params.id);
     this.getSlotsForMonth("2019-08");   
-  
   }
 
+  
+componentWillReceiveProps(nextProps) {
 
+this.setState({
+ selectedServiceId: nextProps.match.params.service,
+});
+  this.getProvidersInfo(nextProps.match.params.id);
+  
+   this.getSlotsForMonth("2019-08");   
+}
 
 getProvidersInfo = (id)=> {
   const providerUrl = `/api/providers/${id}`;
@@ -133,17 +142,16 @@ getProvidersInfo = (id)=> {
             <h1>Beautify</h1>
           
           </Hero>
+          <div className="freelancer-content">
           <Container>
-           <a href="/services" className="btn" >Back to search </a>
-                
-              
+           
             <br />
             <br />
-            <h2>{this.state.name}</h2>
-            <br />
-            <h3>About </h3>
+            <h1>Provider: {this.state.name}</h1>
+            <hr />
+            <h4>About: </h4>
             <p> {this.state.bio} </p>
-            <h3>Choose a date </h3>
+            <h4>Choose a Date: </h4>
           
             <DatePicker inline
                 selected={this.state.selectedDate}
@@ -162,6 +170,7 @@ getProvidersInfo = (id)=> {
              }
 
             <div className="apptInfo">
+              <br />
             <h2>{this.displayServiceName()} with {this.state.name} </h2>
 
             <p><strong>Day: </strong>{this.state.selectedDate == null ? '' : moment(this.formatSelectedDate(), 'YYYY-MM-DD').format('dddd MMMM Do')} </p>
@@ -169,21 +178,30 @@ getProvidersInfo = (id)=> {
             <p><strong>Price: </strong>{this.displayServicePrice()}$</p>
  
 {this.state.showConfirm ?
-            <button className="btn"  onClick={this.bookAppointment}>confirm</button> :  <div> <p>booked!</p> <a href="/services" className="btn" >Back to search?</a> </div>
+            <button className="btn"  onClick={this.bookAppointment}>Confirm</button> :  <div> <p>Booked!</p> <Link to="/services" className="btn" >Back to search?</Link> </div>
 }
-            </div> 
+            </div>
+            <br /> 
+            <br />
+            <br />
 
-
-            <h3> All Services</h3>
+            <h1> All Services</h1>
+            <hr />
             {this.state.services.map(service => { 
-              const url =` /providers/id/${this.state.providerId}/service/${service.id} `;
+
+              const url =`/providers/id/${this.state.providerId}/service/${service.id}`;
+              debugger;
                 return <div><ServiceCard key = {service.name} name = {service.name} description = {service.description} duration = {service.duration} price = {service.price}                 
             />
-            <a href={url} className="btn" > book! </a>
+            <Link to={url} className="btn" > Book! </Link>
+            <br />
+            <hr />
+            <br />
 </div>
             })} 
             
           </Container>
+          </div>
         </Wrapper>
       </div>
     );

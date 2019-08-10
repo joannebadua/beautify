@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
-// import Navbar from "./components/Navbar";
+import NavbarComp from "./components/Navbar";
 import ServicesList from "./components/ServicesList/services-list.component";
 import CreateProvider from "./components/CreateProvider/create-provider.component";
 import CreateService from "./components/create-service.component";
@@ -24,11 +24,13 @@ class App extends React.Component {
       this.setState({ isProvider });
     },
     setproviderId: providerId => {
+      debugger;
          this.setState({ providerId });
     }
   }
 
   componentDidMount() {
+    debugger;
         axios.get("/auth/user")
       .then(res => {
         console.log("AUTH/USER: ", res)
@@ -44,18 +46,20 @@ class App extends React.Component {
   }
 
   render() {
-    if (!this.state.isLoggedIn) {
-      return (
+    return (
+    <AppContext.Provider value={this.state}>
+
+    {!this.state.isLoggedIn ?
+     (
         <div>
           <LogIn />
           <SignUp />
         </div>
-      );
-    } else {
-      return (
-        <AppContext.Provider value={this.state}>
-        <Router>
+      ) : (
 
+        
+        <Router>
+ <NavbarComp />
           <Route path="/" exact component={() => <AnimatedBG logout={this.logout} />} />
           <Route path="/services" component={ServicesList} />
           <Route path="/providers/new" component={CreateProvider} />
@@ -64,11 +68,12 @@ class App extends React.Component {
           {/* <Route path="/provider/:id/edit" component={EditeProfile} /> */}
           <Route path="/user/profile" component={UserProfile} />
           {/* <Route path="/user" component={CreateUser} /> */}
-        </Router>
+        </Router>)
+    }
         </AppContext.Provider>
       );
     }
-  }
+  
 
 }
 

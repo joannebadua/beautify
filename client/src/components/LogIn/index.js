@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./style.css";
-import Hero from "../Hero";
+// import Hero from "../Hero";
+import AnimatedBG2 from "../Animated-bg2";
 
 
 class LogIn extends Component {
@@ -51,9 +52,13 @@ class LogIn extends Component {
      render() {
         return (
          <div>
-         <Hero backgroundImage="https://images.pexels.com/photos/91147/pexels-photo-91147.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" height = "350px">
+         <AnimatedBG2 />
+         <h1 className="header">Welcome To Beautify</h1>
+         <hr />
+         <h2 className="header2">Please login to your account or sign up:</h2> 
+         {/* <Hero backgroundImage="https://images.pexels.com/photos/91147/pexels-photo-91147.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" height = "350px">
          <h1>Login</h1>
-         </Hero>
+         </Hero> */}
            <div className = "background">
               <form className = "login">
                     <input className = "email"

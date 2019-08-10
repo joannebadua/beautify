@@ -1,8 +1,7 @@
 import React from "react";
 import "./style.css";
-import { Link } from 'react-router-dom';
 
-function AnimatedBG(props) {
+function AnimatedBG2(props) {
     return (
         <div>
             <section className="content">
@@ -18,21 +17,22 @@ function AnimatedBG(props) {
                     <span></span>
                     <span></span>
                     <div className="container text-center">
-                        <br />
-                        <h1 className="animated lightSpeedIn" id="beautify">Beautify</h1>
+                        {/* <br /> */}
+                        {/* <h1 className="animated lightSpeedIn" id="beautify">Beautify</h1>
 
-                        <h5 id="subtitle">Health & Wellness On Demand...At Your Home</h5>
+                        <h3 id="subtitle">Health and Wellness On Demand...At Your Home</h3>
                         <br />
-                        <Link to="/services"><button className="btn btn-outline-light btn-lg" id="services-btn">
-                            BOOK A SERVICE</button></Link>
+                        <button className="btn btn-outline-light btn-lg" id="services-btn">
+                            <a href="/services">BOOK A SERVICE</a></button>
 
-                        <Link to="providers/new"><button className="btn btn-outline-light btn-lg" id="form-btn">
-                            BECOME A PROVIDER</button></Link>
+                        <button className="btn btn-outline-light btn-lg" id="form-btn">
+
+                            <a href="providers/new">BECOME A PROVIDER</a></button>
 
                         <button className="btn btn-outline-light btn-lg" id="form-btn" onClick={props.logout}>LOGOUT</button>
 
 
-                        <br />
+                        <br /> */}
                     </div>
                 </div>
             </section>
@@ -41,4 +41,4 @@ function AnimatedBG(props) {
 
     )
 }
-export default AnimatedBG;
+export default AnimatedBG2;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import ServiceCard from "../ServiceCard";
-
+import { Link } from 'react-router-dom';
 
 const ProviderCard=(props)=>{
   const providerUrl = `/providers/id/${props.id}/service/${props.service.id}`;
@@ -25,10 +25,10 @@ const ProviderCard=(props)=>{
        </div>
             <ServiceCard  {...props.service}/>
             <div className="book">
-              <a href={providerUrl} className="btn"  >
+              <Link to={providerUrl} className="btn"  >
                 
               Book with {props.name} 
-            </a>
+            </Link>
             </div>
       </div>
       // </div>

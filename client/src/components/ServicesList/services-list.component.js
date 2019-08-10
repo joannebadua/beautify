@@ -64,7 +64,7 @@ export default class ServicesList extends Component {
     return (
       <div>
 
-        <NavbarComp />
+       
         <Slider />
         <Wrapper>
           

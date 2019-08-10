@@ -7,6 +7,7 @@ import Wrapper from "./Wrapper";
 import Hero from "./Hero";
 import Navbar from "../components/Navbar";
 // import SideNav from './Sidenav';
+import AppContext from "../appContext";
 
 export default class CreateServices extends Component {
   constructor(props) {
@@ -97,7 +98,7 @@ this.props.handleClick();
           <Container >
            {!this.state.isCreated ?
            <div>
-            <h3>Post A Service Below</h3>
+            <h4>Post A Service Below</h4>
             <hr />
             <br />
 
@@ -189,8 +190,7 @@ this.props.handleClick();
           </div>
 
             : <div><h2>created!
-           <a href="/services" className="btn" >Back to main </a>
-
+           
             </h2></div>}
 
           </Container>
@@ -198,3 +198,5 @@ this.props.handleClick();
     );
   }
 }
+
+CreateServices.contextType = AppContext;
