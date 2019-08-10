@@ -31,3 +31,27 @@ margin:0;
 .freelancer-content {
   margin-top: -100px;
 }
+
+section{
+  display: flex;
+
+}
+.apptInfo{
+  margin-left:100px;
+    display: flex;
+    flex-direction: column;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+.time{
+   display: flex;
+   justify-content: space-around;
+}
+
+.btn{
+  margin:5px
+}

@@ -7,6 +7,7 @@ import Wrapper from "./Wrapper";
 import Hero from "./Hero";
 import Navbar from "../components/Navbar";
 // import SideNav from './Sidenav';
+import AppContext from "../appContext";
 
 export default class CreateServices extends Component {
   constructor(props) {
@@ -24,7 +25,8 @@ export default class CreateServices extends Component {
       category: "",
       description: "",
       duration: 0,
-      price: 0
+      price: 0,
+      isCreated: props.isCreated
     };
   }
 
@@ -75,6 +77,7 @@ export default class CreateServices extends Component {
       price: this.state.price,
        providerId: this.props.providerId
     };
+   
     console.log(service);
 
     axios.post("/api/services", service).then(res => console.log(res.data));
@@ -82,15 +85,20 @@ export default class CreateServices extends Component {
       category: "",
       description: "",
       duration: 0,
-      price: 0     
+      price: 0,
+      isCreated: true     
    })
+
+this.props.handleClick();
   }
 
   render() {
     return (
-    
-          <Container>
-            <h3>Post A Service Below</h3>
+ 
+          <Container >
+           {!this.state.isCreated ?
+           <div>
+            <h4>Post A Service Below</h4>
             <hr />
             <br />
 
@@ -175,12 +183,20 @@ export default class CreateServices extends Component {
                   type="submit"
                   value="Create Service"
                   className="btn btn-primary"
+                  
                 />
               </div>
             </form>
+          </div>
+
+            : <div><h2>created!
+           
+            </h2></div>}
+
           </Container>
-      
-      
+         
     );
   }
 }
+
+CreateServices.contextType = AppContext;

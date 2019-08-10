@@ -9,7 +9,9 @@ import UploadImage from "../UploadImage";
 import "rc-time-picker/assets/index.css";
 import CreateServices from  "../create-service.component.js"
 
-import appContext from '../../appContext';
+import { Link } from 'react-router-dom';
+
+import AppContext from '../../appContext';
 
 
 export default class CreateProvider extends Component {
@@ -70,9 +72,12 @@ export default class CreateProvider extends Component {
     console.log(provider);
 
     this.context.setIsProvider(true);
+    
+
     axios.post("/api/providers", provider).then(res => {
       debugger;
       this.setState({ providerId: res.data.id });
+      this.context.setproviderId(res.data.id);
     });
 
     
@@ -86,7 +91,7 @@ export default class CreateProvider extends Component {
   render() {
     return (
       <div>
-        <NavbarComp />
+     
         <Wrapper>
           <Hero backgroundImage="https://images.pexels.com/photos/457701/pexels-photo-457701.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
             <h1>Beautify</h1>
@@ -122,10 +127,10 @@ export default class CreateProvider extends Component {
               </div>
          
               <div className="form-group">
-                <label><h3>Working hours: </h3></label>
+                <label><h4>Working hours: </h4></label>
                 <div className="hours">
                   <div className="start">
-                    <h4>Start time:</h4>
+                    <h5>Start time:</h5>
                     <TimePicker
                       showSecond={false}
                      showMinute={false}
@@ -135,7 +140,7 @@ export default class CreateProvider extends Component {
                   </div>
                   <br></br>
                   <div className="start">
-                    <h4>End time:</h4>
+                    <h5>End time:</h5>
                     <TimePicker
                       showSecond={false}
                      showMinute={false}
@@ -166,7 +171,10 @@ export default class CreateProvider extends Component {
 
           <Container> 
               <h1> Provider has been created! </h1> 
-              <CreateServices providerId={this.state.providerId}/>
+           <Link to="/services" className="btn" >Back to main </Link>
+           <Link
+            to="/user/profile" className="btn" >Create a service </Link>
+             
           </Container>
           }
         </Wrapper>
@@ -175,4 +183,4 @@ export default class CreateProvider extends Component {
   }
 }
 
-CreateProvider.contextType = appContext;
+CreateProvider.contextType = AppContext;

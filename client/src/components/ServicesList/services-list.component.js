@@ -11,7 +11,7 @@ import IconCard from "../Icons";
 // import Navbar from "../Navbar";
 import NavbarComp from "../Navbar";
 import Slider from "../Slider";
-
+import AppContext from '../../appContext';
 
 export default class ServicesList extends Component {
   constructor(props) {
@@ -64,7 +64,7 @@ export default class ServicesList extends Component {
     return (
       <div>
 
-        <NavbarComp />
+       
         <Slider />
         <Wrapper>
           
@@ -93,11 +93,14 @@ export default class ServicesList extends Component {
                />})
               }
             
-            
             </Container>
+         
          </main>
         </Wrapper>
       </div>
     );
   }
 }
+
+
+ServicesList.contextType = AppContext;

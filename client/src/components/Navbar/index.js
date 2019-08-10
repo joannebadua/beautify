@@ -1,6 +1,7 @@
 
 import "./style.css";
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -41,14 +42,14 @@ import AppContext from '../../appContext';
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/services/">Services</NavLink>
+                <Link to="/services/">Services</Link>
               </NavItem>
               {!this.context.isProvider ?
               <NavItem>
-                <NavLink href="/providers/new">Become A Provider</NavLink>
+                <Link to="/providers/new">Become A Provider </Link>
               </NavItem>
               : <NavItem>
-                <NavLink href="/providers/new">Profile</NavLink>
+                <Link to="/user/profile">Create service</Link>
               </NavItem>}
 
 

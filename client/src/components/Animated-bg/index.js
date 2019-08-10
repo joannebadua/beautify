@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from 'react-router-dom';
 
 function AnimatedBG(props) {
     return (
@@ -22,11 +23,11 @@ function AnimatedBG(props) {
 
                         <h5 id="subtitle">Health & Wellness On Demand...At Your Home</h5>
                         <br />
-                        <a href="/services"><button className="btn btn-outline-light btn-lg" id="services-btn">
-                            BOOK A SERVICE</button></a>
+                        <Link to="/services"><button className="btn btn-outline-light btn-lg" id="services-btn">
+                            BOOK A SERVICE</button></Link>
 
-                        <a href="providers/new"><button className="btn btn-outline-light btn-lg" id="form-btn">
-                            BECOME A PROVIDER</button></a>
+                        <Link to="providers/new"><button className="btn btn-outline-light btn-lg" id="form-btn">
+                            BECOME A PROVIDER</button></Link>
 
                         <button className="btn btn-outline-light btn-lg" id="form-btn" onClick={props.logout}>LOGOUT</button>
 
