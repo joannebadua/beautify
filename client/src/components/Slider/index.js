@@ -5,20 +5,8 @@ import "./style.css";
 
 
 const items = [
-    {
-        src: 'https://images.pexels.com/photos/1083933/pexels-photo-1083933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-        altText: 'MakeUp',
-        // caption: 'Health and Wellness Services',
-        header: 'Makeup'
-      },
+    
       {
-        src: 'https://images.pexels.com/photos/6171/hairstyle-hair-wedding-bride.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
-        altText: 'Hair',
-        // caption: 'Health and Wellness Services',
-        header: 'Hair'
-      },
-      
-    {
         src: 'https://images.pexels.com/photos/1882001/pexels-photo-1882001.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         altText: 'Yoga',
         // caption: 'Health and Wellness Services',
@@ -30,6 +18,20 @@ const items = [
     // caption: 'Health and Wellness Services',
     header: 'Fitness'
   },
+  {
+    src: 'https://images.pexels.com/photos/1083933/pexels-photo-1083933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    altText: 'MakeUp',
+    // caption: 'Health and Wellness Services',
+    header: 'Makeup'
+  },
+      {
+        src: 'https://images.pexels.com/photos/6171/hairstyle-hair-wedding-bride.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+        altText: 'Hair',
+        // caption: 'Health and Wellness Services',
+        header: 'Hair'
+      },
+      
+    
   {
     src: 'https://images.pexels.com/photos/616404/pexels-photo-616404.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     altText: 'Nutritionist',

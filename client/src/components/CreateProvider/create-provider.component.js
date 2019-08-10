@@ -122,7 +122,7 @@ export default class CreateProvider extends Component {
               </div>
          
               <div className="form-group">
-                <label><h3>Working hours: </h3></label>
+                <label><h4>Working hours: </h4></label>
                 <div className="hours">
                   <div className="start">
                     <h4>Start time:</h4>
