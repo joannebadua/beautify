@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.117188ca.chunk.css",
+    "main.js": "/static/js/main.a0438371.chunk.js",
+    "main.js.map": "/static/js/main.a0438371.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.4ee9d045.chunk.css": "/static/css/2.4ee9d045.chunk.css",
+    "static/js/2.f2f7231e.chunk.js": "/static/js/2.f2f7231e.chunk.js",
+    "static/js/2.f2f7231e.chunk.js.map": "/static/js/2.f2f7231e.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.a3f8a2b950f226229d38f18bc7280cc7.js": "/precache-manifest.a3f8a2b950f226229d38f18bc7280cc7.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.4ee9d045.chunk.css.map": "/static/css/2.4ee9d045.chunk.css.map",
+    "static/css/main.117188ca.chunk.css.map": "/static/css/main.117188ca.chunk.css.map",
+    "static/media/blowdry.png": "/static/media/blowdry.815b2dc0.png",
+    "static/media/fashion.png": "/static/media/fashion.6c3c5724.png",
+    "static/media/massage.png": "/static/media/massage.3d72e2a8.png",
+    "static/media/yoga2.png": "/static/media/yoga2.7a0aee90.png"
+  }
+}
