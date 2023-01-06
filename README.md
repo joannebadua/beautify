@@ -1,5 +1,5 @@
 # Beautify
-## [Link to Deployed Application](https://beautiffy.herokuapp.com/)
+## [Link to Deployed Application:](https://beautiffy.herokuapp.com/)
 
 ## Health & Wellness Services At the Comfort of Your Home 
 
